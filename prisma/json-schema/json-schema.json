@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "Application": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "phone"
+      ]
+    },
+    "Review": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "text"
+      ]
+    }
+  },
+  "type": "object",
+  "properties": {
+    "application": {
+      "$ref": "#/definitions/Application"
+    },
+    "review": {
+      "$ref": "#/definitions/Review"
+    }
+  }
+}
