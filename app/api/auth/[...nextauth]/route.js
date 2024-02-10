@@ -1,11 +1,10 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import bcrypt from "bcrypt";
 
 const authOptions = {
     providers: [
         CredentialsProvider({
-            name: "Credentials",
+            name: "credentials",
             credentials: {
                 username: {
                     label: "Username",
@@ -19,21 +18,29 @@ const authOptions = {
                 },
             },
             async authorize(credentials) {
-                const user = { username: "admin", password: "password" };
+                const user = {
+                    username: "admin",
+                    password: "password",
+                };
                 if (
                     credentials?.username === user.username &&
                     credentials?.password === user.password
                 ) {
                     return user;
                 } else {
-                    return null;
+                    throw new Error("Provided credentials are invalid");
                 }
             },
         }),
     ],
+    session: {
+        strategy: "jwt",
+    },
+    secret: process.env.NEXTAUTH_SECRET,
     pages: {
         signIn: "/auth/login",
     },
+    debug: process.env.NODE_ENV === "development",
 };
 
 const authHandler = NextAuth(authOptions);

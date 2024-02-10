@@ -1,14 +1,30 @@
-import {
-    Box,
-    TextField,
-    Stack,
-    Card,
-    CardContent,
-    Typography,
-} from "@mui/material";
+"use client";
+
+import { useRef } from "react";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+import { Box, TextField, Stack, Card, Typography } from "@mui/material";
 import { OrderButton } from "@/app/_components/OrderButton";
 
 export default function AdminLogin() {
+    const router = useRouter();
+    const formRef = useRef(null);
+
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        const result = await signIn("credentials", {
+            username: formRef.current["username"].value,
+            password: formRef.current["password"].value,
+            redirect: false,
+            callbackUrl: "/admin",
+        });
+        if (result?.status == 200) {
+            router.push("/admin");
+        } else {
+            console.log(result.error);
+        }
+    };
+
     return (
         <Box
             sx={{
@@ -40,13 +56,13 @@ export default function AdminLogin() {
                 >
                     Вхід до адмін панелі
                 </Typography>
-                <form>
+                <form ref={formRef} onSubmit={handleLogin}>
                     <Stack spacing={5} sx={{ mb: "2rem" }}>
                         <TextField
                             variant="filled"
                             type="text"
-                            label="E-mail"
-                            name="email"
+                            label="Username"
+                            name="username"
                             sx={{ width: "20rem" }}
                             InputProps={{
                                 disableUnderline: true,
@@ -56,7 +72,7 @@ export default function AdminLogin() {
                         <TextField
                             variant="filled"
                             type="password"
-                            label="Пароль"
+                            label="Password"
                             name="password"
                             sx={{ width: "20rem" }}
                             InputProps={{

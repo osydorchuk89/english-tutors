@@ -7,9 +7,6 @@ import { Stack, Card, Typography, TextField, CardContent } from "@mui/material";
 import { OrderButton } from "./OrderButton";
 import { sendApplication } from "../../lib/actions";
 
-const telegramToken = "6663674256:AAHa4_CAtAeW9spoa-mVkpWxkOEqBVcRRY0";
-const telegramChatId = "-1001949299116";
-
 export const ApplicationForm = ({ borderRadiusProp }) => {
     const [error, setError] = useState(null);
     let { setModalOpen } = useContext(ModalContext);
