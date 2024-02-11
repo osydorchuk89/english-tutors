@@ -10,14 +10,23 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
+model Tutor {
+    id         String @id @default(uuid())
+    name       String
+    experience String
+    about      String
+    photo      String
+}
+
 model Application {
-    id    Int    @id @default(autoincrement())
+    id    String @id @default(uuid())
     name  String
     phone String
 }
 
 model Review {
-    id   Int    @id @default(autoincrement())
-    name String
-    text String
+    id       String @id @default(uuid())
+    name     String
+    text     String
+    approved String @default("Очікує на перевірку")
 }

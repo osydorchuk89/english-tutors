@@ -7,24 +7,23 @@ import { ListItemText, MenuList, MenuItem } from "@mui/material";
 const menuItems = [
     {
         id: 1,
+        name: "tutors",
+        text: "Учителі",
+    },
+    {
+        id: 2,
         name: "applications",
         text: "Заявки",
     },
     {
-        id: 2,
+        id: 3,
         name: "reviews",
         text: "Відгуки",
-    },
-    {
-        id: 3,
-        name: "tutors",
-        text: "Учителі",
     },
 ];
 
 export const SideBar = ({ setActiveMenuItem }) => {
-    const [highlightedMenuItem, setHighlighltedMenuItem] =
-        useState("applications");
+    const [highlightedMenuItem, setHighlighltedMenuItem] = useState("tutors");
 
     return (
         <MenuList
@@ -39,6 +38,7 @@ export const SideBar = ({ setActiveMenuItem }) => {
             <Image src="/logo.png" width={200} height={57} alt="logo" />
             {menuItems.map((item) => (
                 <MenuItem
+                    key={item.id}
                     disableRipple
                     onClick={() => {
                         setActiveMenuItem(item.name);

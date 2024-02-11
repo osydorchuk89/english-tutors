@@ -22,7 +22,6 @@ export const ApplicationForm = ({ borderRadiusProp }) => {
             setError(response.error[0].message);
             return;
         }
-        console.log("Success!!!");
         const messageText = `You received a new application! Name: ${applicationData.name}, phone number: ${applicationData.phone}`;
         const telegramToken = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
         const telegramChatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;

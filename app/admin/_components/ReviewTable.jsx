@@ -1,28 +1,71 @@
-import { Box, Typography } from "@mui/material";
+import { useState } from "react";
+import { Box, Typography, Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-
-const columns = [
-    { field: "id", headerName: "ID", width: 100 },
-    {
-        field: "name",
-        headerName: "Ім'я",
-        width: 300,
-        sortable: false,
-    },
-    {
-        field: "text",
-        headerName: "Текст",
-        width: 500,
-        sortable: false,
-    },
-];
+import { approveReview } from "@/lib/actions";
 
 export const ReviewTable = ({ reviews }) => {
-    const rows = reviews.map((item) => ({
-        id: item.id,
-        name: item.name,
-        text: item.text,
-    }));
+    const [rows, setRows] = useState(reviews);
+
+    const handleReviewApproval = (id) => async () => {
+        const confirmDelete = confirm(
+            "Ви впевнені, що хочете підтвердити цей відгук?"
+        );
+        if (confirmDelete) {
+            const targetRowIndex = rows.findIndex((row) => row.id === id);
+            rows[targetRowIndex].approved = "Підтверджено";
+            console.log(rows[targetRowIndex].actions);
+            setRows([...rows]);
+            await approveReview(id);
+        }
+    };
+
+    const columns = [
+        {
+            field: "name",
+            headerName: "Ім'я",
+            width: 300,
+            sortable: false,
+        },
+        {
+            field: "text",
+            headerName: "Текст",
+            width: 500,
+            sortable: false,
+        },
+        {
+            field: "approved",
+            headerName: "Статус",
+            width: 200,
+        },
+        {
+            field: "approve",
+            headerName: "Дії",
+            width: 150,
+            renderCell: (params) => {
+                const approved = params.row.approved === "Підтверджено";
+                console.log(params);
+                return (
+                    <Button
+                        component="label"
+                        variant="outlined"
+                        sx={{
+                            backgroundColor: "lightBlue.light",
+                            borderColor: "disabledText.main",
+                            color: "inherit",
+                            ":hover": {
+                                bgcolor: "lightBlue.dark",
+                                borderColor: "darkBlue.light",
+                            },
+                        }}
+                        disabled={approved}
+                        onClick={handleReviewApproval(params.id)}
+                    >
+                        Підтвердити
+                    </Button>
+                );
+            },
+        },
+    ];
 
     return (
         <Box sx={{ width: "80%" }}>
@@ -39,15 +82,8 @@ export const ReviewTable = ({ reviews }) => {
                 rows={rows}
                 columns={columns}
                 getRowHeight={() => "auto"}
-                initialState={{
-                    pagination: {
-                        paginationModel: {
-                            pageSize: 5,
-                        },
-                    },
-                }}
-                pageSizeOptions={[5]}
                 disableRowSelectionOnClick
+                editMode="row"
                 sx={{
                     height: "90%",
                     "&.MuiDataGrid-root--densityCompact .MuiDataGrid-cell": {

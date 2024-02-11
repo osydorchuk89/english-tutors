@@ -2,7 +2,6 @@ import { Box, Typography } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 
 const columns = [
-    { field: "id", headerName: "ID", width: 100 },
     {
         field: "name",
         headerName: "Ім'я",
@@ -38,14 +37,6 @@ export const ApplicationTable = ({ applications }) => {
             <DataGrid
                 rows={rows}
                 columns={columns}
-                initialState={{
-                    pagination: {
-                        paginationModel: {
-                            pageSize: 5,
-                        },
-                    },
-                }}
-                pageSizeOptions={[5]}
                 disableRowSelectionOnClick
                 sx={{
                     height: "90%",

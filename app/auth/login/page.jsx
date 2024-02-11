@@ -18,7 +18,7 @@ export default function AdminLogin() {
             redirect: false,
             callbackUrl: "/admin",
         });
-        if (result?.status == 200) {
+        if (result?.status === 200) {
             router.push("/admin");
         } else {
             console.log(result.error);
