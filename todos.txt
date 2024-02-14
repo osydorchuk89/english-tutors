@@ -1,3 +1,0 @@
-top app bar changes color on scroll
-change scroll to infinite clickable scroll
-make faq box responsive
