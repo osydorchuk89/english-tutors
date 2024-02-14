@@ -1,63 +1,56 @@
 import { Box, Stack, Typography } from "@mui/material";
 import {
-    iconEducation,
-    iconExam,
-    iconSearch,
-    iconMedal,
+    iconGlobe,
+    iconBaby,
+    iconSpeech,
+    iconFamily,
+    iconSun,
+    iconClock,
 } from "../../lib/icons";
 
 const descriptionItems = [
     {
         id: 1,
-        icon: iconEducation,
-        text: "Мають педагогічну освіту та досвід роботи",
+        icon: iconGlobe,
+        text: "Мінімальний рівень мови B2+",
     },
     {
         id: 2,
-        icon: iconExam,
-        text: "Підбираються зі інтересами та характером",
+        icon: iconBaby,
+        text: "Працюємо з усіма рівнями",
     },
     {
         id: 3,
-        icon: iconEducation,
-        text: "Мають педагогічну освіту та досвід роботи",
+        icon: iconSpeech,
+        text: "Практикуємо розмовну англійську",
     },
     {
         id: 4,
-        icon: iconExam,
-        text: "Підбираються зі інтересами та характером",
+        icon: iconFamily,
+        text: "Будь-які вікові категорії учнів",
     },
     {
         id: 5,
-        icon: iconSearch,
-        text: "Проходять багатоетапну перевірку",
+        icon: iconSun,
+        text: "Гнучкий графік роботи вчителів",
     },
     {
         id: 6,
-        icon: iconMedal,
-        text: "Відвідують регулярні тренінги та курси підвищення кваліфікації",
-    },
-    {
-        id: 7,
-        icon: iconSearch,
-        text: "Проходять багатоетапну перевірку",
-    },
-    {
-        id: 8,
-        icon: iconMedal,
-        text: "Відвідують регулярні тренінги та курси підвищення кваліфікації",
+        icon: iconClock,
+        text: "Можете відмінити урок за 2 години",
     },
 ];
 
 export const TutorsDescription = () => {
     return (
-        <Stack direction="column">
+        <Stack sx={{ width: "calc(100% - 790px)", mr: "80px" }}>
             <Typography
                 sx={{
-                    width: "22rem",
-                    fontSize: "3rem",
+                    width: "346px",
+                    fontSize: "48px",
                     fontWeight: 700,
-                    mb: "3rem",
+                    lineHeight: "58.51px",
+                    mb: "56px",
                 }}
             >
                 Вчителі English Zoom
@@ -67,21 +60,23 @@ export const TutorsDescription = () => {
                 useFlexGap
                 flexWrap="wrap"
                 sx={{
-                    height: "40rem",
-                    width: "40rem",
+                    width: "100%",
+                    height: "386px",
                 }}
             >
                 {descriptionItems.map((item) => (
                     <Box
                         key={item.id}
                         sx={{
-                            width: "17.8rem",
+                            width: "285px",
+                            height: "102px",
                         }}
                     >
-                        <Box sx={{ mb: "1rem" }}>{item.icon}</Box>
+                        <Box sx={{ mb: "24px" }}>{item.icon}</Box>
                         <Typography
                             sx={{
-                                fontSize: "1.375rem",
+                                fontSize: "22px",
+                                lineHeight: "26.82px",
                             }}
                         >
                             {item.text}

@@ -4,6 +4,7 @@ import { ApplicationForm } from "../_components/ApplicationForm";
 export const Application = () => {
     return (
         <Stack
+            id="application"
             direction="row"
             justifyContent="start"
             sx={{

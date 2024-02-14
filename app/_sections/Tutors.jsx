@@ -8,10 +8,11 @@ export const Tutors = () => {
             id="tutors"
             direction="row"
             sx={{
-                height: "67rem",
-                ml: "7.5rem",
-                mb: "7.5rem",
-                scrollMarginTop: "5rem",
+                height: "758px",
+                mt: "120px",
+                ml: "120px",
+                mr: 0,
+                scrollMarginTop: "80px",
             }}
         >
             <TutorsDescription />

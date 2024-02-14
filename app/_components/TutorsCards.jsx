@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Box, ImageList, ImageListItem, Typography } from "@mui/material";
+import { Box, Paper, Stack, Typography } from "@mui/material";
 
 const tutorsData = [
     {
@@ -48,17 +48,26 @@ const tutorsData = [
 
 export const TutorsCards = () => {
     return (
-        <ImageList
+        <Box
             sx={{
-                width: "45rem",
-                backgroundColor: "background.main",
-                borderRadius: "1.5rem 0rem 0rem 1.5rem",
-                pl: "2rem",
-                ml: "auto",
-                mr: 0,
+                position: "relative",
+                width: "710px",
+                height: "100%",
             }}
         >
-            {tutorsData.map((item) => (
+            <Paper
+                sx={{
+                    position: "absolute",
+                    width: "608px",
+                    height: "100%",
+                    right: 0,
+                    backgroundColor: "lightBlue.light",
+                    borderRadius: "24px 0 0 24px",
+                    boxShadow: "0px 0px 48px 0px #14313D1F",
+                }}
+            />
+            <Stack sx={{ width: "590px", height: "534px" }}></Stack>
+            {/* {tutorsData.map((item) => (
                 <Box
                     key={item.id}
                     className="flip-card"
@@ -131,7 +140,7 @@ export const TutorsCards = () => {
                         </Typography>
                     </ImageListItem>
                 </Box>
-            ))}
-        </ImageList>
+            ))} */}
+        </Box>
     );
 };

@@ -1,6 +1,6 @@
 "use client";
 import { useState, createContext } from "react";
-import { Card, CardContent, Typography, Box, Modal } from "@mui/material";
+import { Paper, Typography, Box, Modal } from "@mui/material";
 import { OrderButton } from "./OrderButton";
 import { ApplicationForm } from "./ApplicationForm";
 
@@ -18,62 +18,58 @@ export const TryItCard = () => {
 
     return (
         <ModalContext.Provider value={value}>
-            <Card
-                elevation={0}
+            <Paper
                 sx={{
-                    width: "49.625rem",
-                    height: "30.1875rem",
-                    borderRadius: "1rem",
-                    backgroundColor: "background.dark",
+                    width: "794px",
+                    height: "453px",
+                    borderRadius: "16px",
+                    backgroundColor: "darkBlue.main",
+                    color: "lightBlue.light",
+                    px: "102px",
+                    py: "80px",
+                    boxShadow: `1px 2px 5px 0px #14313D4A, 
+                        5px 9px 10px 0px #14313D42, 
+                        31px 54px 17px 0px #14313D03, 
+                        -8px -8px 20px 32px #14313D40`,
                 }}
             >
-                <CardContent
+                <Typography
                     sx={{
-                        background: "inherit",
+                        fontSize: "48px",
+                        color: "inherit",
+                        fontWeight: 700,
+                        lineHeight: "58.51px",
+                        textAlign: "center",
+                        mb: "40px",
                     }}
                 >
-                    <Typography
-                        sx={{
-                            fontSize: "2.5rem",
-                            fontWeight: 600,
-                            background: "inherit",
-                            textAlign: "center",
-                            mt: "4.5rem",
-                        }}
-                    >
-                        Спробуй безкоштовно
-                    </Typography>
-                    <Typography
-                        sx={{
-                            background: "inherit",
-                            mt: "2rem",
-                            px: "6.5rem",
-                        }}
-                    >
-                        Lorem ipsum dolor sit amet consectetur. Senectus velit
-                        at turpis arcu porttitor pharetra. Posuere porta nibh id
-                        urna. Condimentum morbi vel malesuada ut purus mauris
-                        in. Nulla sit varius nunc at nunc. Non non sed amet
-                        volutpat. Velit elementum mauris lacinia viverra euismod
-                        accumsan. Nec scelerisque non risus sed libero. Lorem
-                        egestas aliquam sed.
-                    </Typography>
-                    <Box
-                        textAlign="center"
-                        sx={{
-                            background: "inherit",
-                            px: "2.5rem",
-                            py: "1rem",
-                            my: "4.5rem",
-                        }}
-                    >
-                        <OrderButton
-                            onClick={handleModalOpen}
-                            text="Забронювати"
-                        />
-                    </Box>
-                </CardContent>
-            </Card>
+                    Спробуй безкоштовно
+                </Typography>
+                <ul
+                    style={{
+                        fontSize: "22px",
+                        lineHeight: "26.82px",
+                        listStylePosition: "inside",
+                        paddingLeft: "16px",
+                        marginBottom: "32px",
+                    }}
+                >
+                    <li>30-40 хвилин пробного заняття </li>
+                    <li>Індивідуальний підбір викладача</li>
+                    <li>Визначення рівня вашої мови</li>
+                    <li>Знайомство-консультація по вашим питанням</li>
+                </ul>
+                <Box
+                    textAlign="center"
+                    sx={{
+                        background: "inherit",
+                        px: "2.5rem",
+                        py: "1rem",
+                    }}
+                >
+                    <OrderButton onClick={handleModalOpen} text="Записатися" />
+                </Box>
+            </Paper>
             <Modal
                 open={modalOpen}
                 onClose={handleModalClose}
@@ -81,10 +77,10 @@ export const TryItCard = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    ml: "-1rem",
+                    ml: "-16px",
                 }}
             >
-                <ApplicationForm borderRadiusProp="1rem" />
+                <ApplicationForm borderRadiusProp="16px" />
             </Modal>
         </ModalContext.Provider>
     );

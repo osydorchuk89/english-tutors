@@ -3,9 +3,27 @@
 import axios from "axios";
 import { useState, useContext, useRef } from "react";
 import { ModalContext } from "./TryItCard";
-import { Stack, Card, Typography, TextField, CardContent } from "@mui/material";
+import { Stack, Paper, Typography, Box, IconButton } from "@mui/material";
+// import { styled } from "@mui/material/styles";
 import { OrderButton } from "./OrderButton";
+import { InputField } from "./InputField";
 import { sendApplication } from "../../lib/actions";
+import CloseIcon from "@mui/icons-material/Close";
+
+// const StyledInput = styled(TextField)(({ theme }) => ({
+//     color: theme.palette.lightBlue.light,
+//     "& .MuiOutlinedInput-root": {
+//         "& fieldset": {
+//             borderColor: theme.palette.lightBlue.light,
+//         },
+//         "&:hover fieldset": {
+//             borderColor: theme.palette.lightBlue.light,
+//         },
+//         "&.Mui-focused fieldset": {
+//             borderColor: theme.palette.lightBlue.light,
+//         },
+//     },
+// }));
 
 export const ApplicationForm = ({ borderRadiusProp }) => {
     const [error, setError] = useState(null);
@@ -39,64 +57,79 @@ export const ApplicationForm = ({ borderRadiusProp }) => {
     };
 
     return (
-        <Card
-            elevation={0}
+        <Paper
             sx={{
-                backgroundColor: "background.main",
-                width: "50.75rem",
-                height: "37.5rem",
+                display: "flex",
+                position: "relative",
+                flexDirection: "column",
+                alignItems: "center",
+                color: "lightBlue.light",
+                backgroundColor: "darkBlue.dark",
+                width: "1320px",
+                height: "706px",
+                py: "120px",
                 borderRadius: borderRadiusProp,
+                boxShadow: "1px 2px 5px 0px #14313D4A",
+                // boxShadow: "5px 9px 10px 0px #14313D42",
+                // boxShadow: "31px 54px 17px 0px #14313D03",
+                // boxShadow: "-8px -8px 20px 32px #14313D40",
             }}
         >
-            <CardContent
+            <IconButton
+                disableRipple
                 sx={{
-                    ml: "6.5rem",
+                    position: "absolute",
+                    top: "60px",
+                    right: "60px",
+                    color: "inherit",
+                }}
+                onClick={() => setModalOpen(false)}
+            >
+                <CloseIcon />
+            </IconButton>
+            <Typography
+                sx={{
+                    fontSize: "48px",
+                    fontWeight: 700,
+                    lineHeight: "58.51px",
+                    color: "inherit",
+                    mb: "48px",
                 }}
             >
+                Залиште заявку
+            </Typography>
+            <form
+                ref={formRef}
+                action={sendApplicationData}
+                style={{
+                    width: "590px",
+                    mt: "2rem",
+                }}
+            >
+                <Stack spacing={2.5} sx={{ mb: "40px" }}>
+                    <InputField type="text" label="Ім'я" name="name" />
+                    <InputField
+                        type="tel"
+                        label="Номер телефону"
+                        name="phone"
+                    />
+                </Stack>
                 <Typography
                     sx={{
-                        fontSize: "3rem",
-                        fontWeight: 700,
-                        pt: "7.5rem",
-                        mb: "3rem",
+                        color: "inherit",
+                        fontSize: "24px",
+                        lineHeight: "29.26px",
+                        mb: "56px",
                     }}
                 >
-                    Залиште заявку
+                    Ви можете залишити заявку на безкоштовне заняття. Ми
+                    відповідаємо протягом години
                 </Typography>
-                <form
-                    ref={formRef}
-                    action={sendApplicationData}
-                    style={{
-                        width: "36.875rem",
-                        mt: "2rem",
-                    }}
-                >
-                    <Stack spacing={5} sx={{ mb: "3rem" }}>
-                        <TextField
-                            variant="filled"
-                            type="text"
-                            label="Ім'я"
-                            name="name"
-                            InputProps={{
-                                disableUnderline: true,
-                                sx: { borderRadius: "0.5rem" },
-                            }}
-                        ></TextField>
-                        <TextField
-                            variant="filled"
-                            type="tel"
-                            label="Номер телефону"
-                            name="phone"
-                            InputProps={{
-                                disableUnderline: true,
-                                sx: { borderRadius: "0.5rem" },
-                            }}
-                        ></TextField>
-                    </Stack>
-                    {error && <Typography>{error}</Typography>}
-                    <OrderButton text="Забронювати" />
-                </form>
-            </CardContent>
-        </Card>
+                {error && <Typography>{error}</Typography>}
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                    <OrderButton text="Записатися" />
+                </Box>
+            </form>
+        </Paper>
     );
 };

@@ -4,10 +4,7 @@ import { createTheme } from "@mui/material/styles";
 export const myTheme = createTheme({
     palette: {
         background: {
-            light: "#F9FAFA",
-            main: "#F1F1F1",
-            dark: "#D9D9D9",
-            darker: "#B7B7B7",
+            main: "#FFFFFF",
         },
         button: {
             main: "#9DD5E6",
@@ -44,6 +41,13 @@ export const myTheme = createTheme({
             styleOverrides: {
                 root: {
                     border: "none",
+                },
+            },
+        },
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    borderColor: "lightBlue.light",
                 },
             },
         },

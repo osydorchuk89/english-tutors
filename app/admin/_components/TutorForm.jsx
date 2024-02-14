@@ -49,6 +49,7 @@ export const TutorForm = ({ tutors, tutorId }) => {
             elevation={0}
             sx={{
                 display: "flex",
+                position: "relative",
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
@@ -60,8 +61,9 @@ export const TutorForm = ({ tutors, tutorId }) => {
         >
             <IconButton
                 sx={{
-                    mr: "32px",
-                    ml: "auto",
+                    position: "absolute",
+                    top: "60px",
+                    right: "60px",
                 }}
                 onClick={() => setModalOpen(false)}
             >
