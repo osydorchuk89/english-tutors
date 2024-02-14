@@ -10,29 +10,48 @@ html, body {
     ;
 }
 
-.flip-card {
-    position: relative;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-
-.flip-card:hover {
+.flip-box:hover .flip-box-inner {
     transform: rotateY(180deg);
   }
 
-.flip-card-front, .flip-card-back {
+.flip-box-front, .flip-box-back {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    width: 100% !important;
-    height: 100% !important;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    box-shadow: 5px 4px 6px 0px #14313D17,
+        11px 10px 9px 0px #14313D0D,
+        19px 18px 10px 0px #14313D03,
+        30px 28px 11px 0px #14313D05,
+        0px 4px 4px 0px #14313D40,
+        -4px -4px 4px 0px #14313D1A;
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
   }
+
+.flip-box-front {
+    justify-content: center;
+    align-items: center;
+  }
+
+.flip-box-back {
+    justify-content: flex-start;
+    align-items: center;
+  }
   
-.flip-card-back {
+.flip-box-back {
     transform: rotateY(180deg);
   }
 
 .MuiCardContent-root {
     padding: 0px;
+}
+
+#try-it-card {
+    box-shadow: 1px 2px 5px 0px #14313D4A,
+        5px 9px 10px 0px #14313D42,
+        31px 54px 17px 0px #14313D03,
+        -8px -8px 20px 32px #14313D40;
 }

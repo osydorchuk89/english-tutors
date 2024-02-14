@@ -1,8 +1,11 @@
 import { Stack } from "@mui/material";
 import { TutorsDescription } from "../_components/TutorsDescription";
 import { TutorsCards } from "../_components/TutorsCards";
+import { getTutors } from "@/lib/actions";
 
-export const Tutors = () => {
+export const Tutors = async () => {
+    const tutors = await getTutors();
+
     return (
         <Stack
             id="tutors"
@@ -16,7 +19,7 @@ export const Tutors = () => {
             }}
         >
             <TutorsDescription />
-            <TutorsCards />
+            <TutorsCards tutors={tutors} />
         </Stack>
     );
 };
