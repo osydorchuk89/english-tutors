@@ -4,17 +4,16 @@ import { useState, createContext } from "react";
 import Image from "next/image";
 import { Box, Button, Typography, Modal } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import {
     DataGrid,
     GridToolbarContainer,
     GridActionsCellItem,
 } from "@mui/x-data-grid";
-import { deleteTutor } from "@/lib/actions";
-import { TutorModal } from "./TutorModal";
+import { deleteScreenshot } from "@/lib/actions";
+import { ScreenshotModal } from "./ScreenshotModal";
 
-export const TutorModalContext = createContext({
+export const ScreenshotModalContext = createContext({
     modalOpen: false,
     setModalOpen: () => {},
 });
@@ -46,16 +45,10 @@ const AddToolbar = (props) => {
     );
 };
 
-export const TutorTable = ({ tutors }) => {
-    const [rows, setRows] = useState(tutors);
-    const [tutorId, setTutorId] = useState(null);
+export const ScreenshotTable = ({ screenshots }) => {
+    const [rows, setRows] = useState(screenshots);
     const [modalOpen, setModalOpen] = useState(false);
     const value = { modalOpen, setModalOpen };
-
-    const handleEditClick = (id) => () => {
-        setTutorId(id);
-        setModalOpen(true);
-    };
 
     const handleDeleteClick = (id) => async () => {
         const confirmDelete = confirm(
@@ -63,42 +56,24 @@ export const TutorTable = ({ tutors }) => {
         );
         if (confirmDelete) {
             setRows(rows.filter((row) => row.id !== id));
-            await deleteTutor(id);
+            await deleteScreenshot(id);
         }
     };
 
     const columns = [
         {
-            field: "name",
-            headerName: "Ім'я",
-            width: 150,
-            sortable: false,
-        },
-        {
-            field: "experience",
-            headerName: "Досвід",
-            width: 200,
-            sortable: false,
-        },
-        {
-            field: "about",
-            headerName: "Про себе",
-            width: 600,
-            sortable: false,
-        },
-        {
-            field: "photo",
-            headerName: "Фото",
-            width: 100,
+            field: "screenshot",
+            headerName: "Скріншот",
+            width: 500,
             sortable: false,
             renderCell: (params) => {
-                const imagePath = `/${params.value}`;
+                const imagePath = params.row.photo;
                 return (
                     <Image
                         src={imagePath}
                         alt="uploaded image"
-                        width={48}
-                        height={64}
+                        width={128}
+                        height={128}
                     />
                 );
             },
@@ -111,12 +86,6 @@ export const TutorTable = ({ tutors }) => {
             getActions: ({ id }) => {
                 return [
                     <GridActionsCellItem
-                        icon={<EditIcon />}
-                        label="Edit"
-                        onClick={handleEditClick(id)}
-                        color="inherit"
-                    />,
-                    <GridActionsCellItem
                         icon={<DeleteIcon />}
                         label="Delete"
                         onClick={handleDeleteClick(id)}
@@ -128,7 +97,7 @@ export const TutorTable = ({ tutors }) => {
     ];
 
     return (
-        <TutorModalContext.Provider value={value}>
+        <ScreenshotModalContext.Provider value={value}>
             <Box
                 sx={{
                     height: "89vh",
@@ -173,7 +142,6 @@ export const TutorTable = ({ tutors }) => {
             <Modal
                 open={modalOpen}
                 onClose={() => {
-                    setTutorId(null);
                     setModalOpen(false);
                 }}
                 sx={{
@@ -183,13 +151,11 @@ export const TutorTable = ({ tutors }) => {
                     ml: "-1rem",
                 }}
             >
-                <TutorModal
+                <ScreenshotModal
                     setModalOpen={setModalOpen}
-                    tutorId={tutorId}
-                    tutors={tutors}
-                    setTutorId={setTutorId}
+                    screenshots={screenshots}
                 />
             </Modal>
-        </TutorModalContext.Provider>
+        </ScreenshotModalContext.Provider>
     );
 };

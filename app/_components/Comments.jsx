@@ -1,72 +1,133 @@
+"use client";
+
+import { useState } from "react";
 import { Stack, Typography, Box } from "@mui/material";
+import { NavButton } from "./NavButtons";
+import { iconUp, iconDown } from "@/lib/icons";
+import { useNavButtons } from "../_hooks/UseNavButtons";
 
-const comments = [
-    {
-        id: 1,
-        name: "Анастасія",
-        text: "Lorem ipsum dolor sit amet consectetur. Proin natoque adipiscing sagittis aliquet urna nullam. Etiam ut dui tincidunt lorem mauris a at in. Morbi tincidunt ",
-    },
-    {
-        id: 2,
-        name: "Анастасія",
-        text: "Lorem ipsum dolor sit amet consectetur. Proin natoque adipiscing sagittis aliquet urna nullam. Etiam ut dui tincidunt lorem mauris a at in. Morbi tincidunt ",
-    },
-    {
-        id: 3,
-        name: "Анастасія",
-        text: "Lorem ipsum dolor sit amet consectetur. Proin natoque adipiscing sagittis aliquet urna nullam. Etiam ut dui tincidunt lorem mauris a at in. Morbi tincidunt ",
-    },
-    {
-        id: 4,
-        name: "Анастасія",
-        text: "Lorem ipsum dolor sit amet consectetur. Proin natoque adipiscing sagittis aliquet urna nullam. Etiam ut dui tincidunt lorem mauris a at in. Morbi tincidunt ",
-    },
-];
+export const Comments = ({ reviews }) => {
+    const [reviewSlice, setReviewSlice] = useState([0, 4]);
+    const [buttonDisabled, setButtonDisabled] = useState({
+        buttonUp: true,
+        buttonDown: false,
+    });
 
-export const Comments = () => {
+    const handlePressButton = (event) => {
+        console.log(event.target);
+        const buttonUpPressed = ["button-up", "svg-up", "path-up"].includes(
+            event.target.id
+        );
+        const buttonDownPressed = [
+            "button-down",
+            "svg-down",
+            "path-down",
+        ].includes(event.target.id);
+        let newReviewSlice = [];
+
+        if (buttonUpPressed) {
+            setReviewSlice((prevSlice) => prevSlice.map((index) => index - 1));
+            newReviewSlice = reviewSlice.map((index) => index - 1);
+        }
+
+        if (buttonDownPressed) {
+            setReviewSlice((prevSlice) => prevSlice.map((index) => index + 1));
+            newReviewSlice = reviewSlice.map((index) => index + 1);
+        }
+
+        console.log(reviewSlice);
+
+        if (newReviewSlice[0] === 0) {
+            setButtonDisabled((prevState) => ({
+                ...prevState,
+                buttonUp: true,
+            }));
+        } else {
+            setButtonDisabled((prevState) => ({
+                ...prevState,
+                buttonUp: false,
+            }));
+        }
+
+        if (newReviewSlice[1] === reviews.length) {
+            setButtonDisabled((prevState) => ({
+                ...prevState,
+                buttonDown: true,
+            }));
+        } else {
+            setButtonDisabled((prevState) => ({
+                ...prevState,
+                buttonDown: false,
+            }));
+        }
+    };
+
     return (
         <Stack
             sx={{
-                width: "40rem",
+                width: "640px",
+                height: "100%",
+                pl: "60px",
             }}
         >
             <Typography
                 sx={{
-                    fontSize: "3rem",
+                    fontSize: "48px",
                     fontWeight: 700,
-                    mb: "3rem",
+                    mb: "56px",
                 }}
             >
                 Відгуки
             </Typography>
-            <Stack spacing={3}>
-                {comments.map((item) => (
+            <Stack direction="column" spacing={3}>
+                <NavButton
+                    _id="button-up"
+                    icon={iconUp}
+                    onClick={handlePressButton}
+                    disabled={buttonDisabled.buttonUp}
+                />
+                {reviews.slice(...reviewSlice).map((item, index) => (
                     <Box
                         key={item.id}
                         sx={{
-                            width: "30.5rem",
-                            height: "11.313rem",
-                            backgroundColor: "background.dark",
-                            borderRadius: "1rem",
-                            p: "1rem",
+                            width: "488px",
+                            height: "181px",
+                            backgroundColor: "lightBlue.dark",
+                            borderRadius: "16px",
+                            p: "24px",
                             alignSelf:
-                                item.id % 2 === 0 ? "flex-end" : "flex-start",
+                                index % 2 === 0 ? "flex-start" : "flex-end",
+                            boxShadow: `5px 4px 6px 0px #14313D17,
+                                11px 10px 9px 0px #14313D0D,
+                                19px 18px 10px 0px #14313D03,
+                                30px 28px 11px 0px #14313D05,
+                                0px 4px 4px 0px #14313D40,
+                                -4px -4px 4px 0px #14313D1A`,
                         }}
                     >
                         <Typography
                             sx={{
-                                fontSize: "1.5rem",
+                                fontSize: "24px",
                                 fontWeight: 700,
-                                mb: "0.5rem",
+                                lineHeight: "29.26px",
+                                mb: "16px",
                             }}
                         >
                             {item.name}
                         </Typography>
-                        <Typography sx={{ fontSize: "1.125rem" }}>
+                        <Typography
+                            sx={{ fontSize: "18px", lineHeight: "21.94px" }}
+                        >
                             {item.text}
                         </Typography>
                     </Box>
                 ))}
+                <NavButton
+                    _id="button-down"
+                    icon={iconDown}
+                    onClick={handlePressButton}
+                    disabled={buttonDisabled.buttonDown}
+                />
             </Stack>
         </Stack>
     );

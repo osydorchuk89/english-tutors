@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Box, Paper, Stack, Typography, IconButton } from "@mui/material";
 import { iconDown, iconUp } from "@/lib/icons";
+import { NavButton } from "./NavButtons";
 
 export const TutorsCards = ({ tutors }) => {
     const [cardIndex, setCardIndex] = useState(0);
@@ -54,17 +55,7 @@ export const TutorsCards = ({ tutors }) => {
                     zIndex: 10,
                 }}
             >
-                <IconButton
-                    sx={{
-                        width: "56px",
-                        height: "56px",
-                        backgroundColor: "lightBlue.main",
-                        borderRadius: "50%",
-                    }}
-                    onClick={handlePressUp}
-                >
-                    {iconUp}
-                </IconButton>
+                <NavButton onClick={handlePressUp} icon={iconUp} />
                 <Box
                     sx={{
                         width: "100%",
@@ -173,17 +164,7 @@ export const TutorsCards = ({ tutors }) => {
                         </Box>
                     </Box>
                 </Box>
-                <IconButton
-                    sx={{
-                        width: "56px",
-                        height: "56px",
-                        backgroundColor: "lightBlue.main",
-                        borderRadius: "50%",
-                    }}
-                    onClick={handlePressDown}
-                >
-                    {iconDown}
-                </IconButton>
+                <NavButton onClick={handlePressDown} icon={iconDown} />
             </Stack>
         </Box>
     );

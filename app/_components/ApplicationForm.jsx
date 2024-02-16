@@ -4,26 +4,10 @@ import axios from "axios";
 import { useState, useContext, useRef } from "react";
 import { ModalContext } from "./TryItCard";
 import { Stack, Paper, Typography, Box, IconButton } from "@mui/material";
-// import { styled } from "@mui/material/styles";
 import { OrderButton } from "./OrderButton";
-import { InputField } from "./InputField";
+import { DarkInputField } from "./DarkInputField";
 import { sendApplication } from "../../lib/actions";
 import CloseIcon from "@mui/icons-material/Close";
-
-// const StyledInput = styled(TextField)(({ theme }) => ({
-//     color: theme.palette.lightBlue.light,
-//     "& .MuiOutlinedInput-root": {
-//         "& fieldset": {
-//             borderColor: theme.palette.lightBlue.light,
-//         },
-//         "&:hover fieldset": {
-//             borderColor: theme.palette.lightBlue.light,
-//         },
-//         "&.Mui-focused fieldset": {
-//             borderColor: theme.palette.lightBlue.light,
-//         },
-//     },
-// }));
 
 export const ApplicationForm = ({ borderRadiusProp }) => {
     const [error, setError] = useState(null);
@@ -69,10 +53,10 @@ export const ApplicationForm = ({ borderRadiusProp }) => {
                 height: "706px",
                 py: "120px",
                 borderRadius: borderRadiusProp,
-                boxShadow: "1px 2px 5px 0px #14313D4A",
-                // boxShadow: "5px 9px 10px 0px #14313D42",
-                // boxShadow: "31px 54px 17px 0px #14313D03",
-                // boxShadow: "-8px -8px 20px 32px #14313D40",
+                boxShadow: `1px 2px 5px 0px #14313D4A,
+                    5px 9px 10px 0px #14313D42,
+                    31px 54px 17px 0px #14313D03,
+                    -8px -8px 20px 32px #14313D40`,
             }}
         >
             <IconButton
@@ -107,8 +91,8 @@ export const ApplicationForm = ({ borderRadiusProp }) => {
                 }}
             >
                 <Stack spacing={2.5} sx={{ mb: "40px" }}>
-                    <InputField type="text" label="Ім'я" name="name" />
-                    <InputField
+                    <DarkInputField type="text" label="Ім'я" name="name" />
+                    <DarkInputField
                         type="tel"
                         label="Номер телефону"
                         name="phone"

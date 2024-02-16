@@ -20,6 +20,11 @@ const menuItems = [
         name: "reviews",
         text: "Відгуки",
     },
+    {
+        id: 4,
+        name: "screenshots",
+        text: "Скріншоти",
+    },
 ];
 
 export const SideBar = ({ setActiveMenuItem }) => {
@@ -35,7 +40,7 @@ export const SideBar = ({ setActiveMenuItem }) => {
                 borderRightColor: "disabledText.main",
             }}
         >
-            <Image src="/logo.png" width={200} height={57} alt="logo" />
+            <Image src="/logo.png" width={166} height={64} alt="logo" />
             {menuItems.map((item) => (
                 <MenuItem
                     key={item.id}

@@ -30,3 +30,8 @@ model Review {
     text     String
     approved String @default("Очікує на перевірку")
 }
+
+model Screenshot {
+    id    String @id @default(uuid())
+    photo String
+}

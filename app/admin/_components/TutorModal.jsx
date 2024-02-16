@@ -10,30 +10,17 @@ import {
     Button,
     IconButton,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import { OrderButton } from "@/app/_components/OrderButton";
 import { updateOrCreateTutor } from "@/lib/actions";
 import { TutorModalContext } from "./TutorTable";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
-
-const VisuallyHiddenInput = styled("input")({
-    clip: "rect(0 0 0 0)",
-    clipPath: "inset(50%)",
-    height: 1,
-    overflow: "hidden",
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    whiteSpace: "nowrap",
-    width: 1,
-});
+import { UploadButton } from "./UploadButton";
 
 export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
     const hasTutorId = tutors.some((tutor) => tutor.id === tutorId);
     const tutor = tutors.filter((tutor) => tutor.id === tutorId)[0];
     const tutorPhoto = tutor ? `/${tutor.photo}` : undefined;
-    // console.log(tutorPhoto);
 
     const [uploadedImage, setUploadedImage] = useState(tutorPhoto);
     const [error, setError] = useState(null);
@@ -61,18 +48,16 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
             setError(response.error[0].message);
             return;
         }
-        // setTutorId(null);
-        // setModalOpen(false);
         location.reload();
     };
 
     return (
         <Paper
-            elevation={0}
             sx={{
                 display: "flex",
+                position: "relative",
                 flexDirection: "column",
-                justifyContent: "start",
+                justifyContent: "center",
                 alignItems: "center",
                 backgroundColor: "lightBlue.light",
                 width: "70vw",
@@ -81,9 +66,12 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
             }}
         >
             <IconButton
+                disableRipple
                 sx={{
-                    mr: "4px",
-                    ml: "auto",
+                    position: "absolute",
+                    top: "30px",
+                    right: "30px",
+                    color: "inherit",
                 }}
                 onClick={() => {
                     setTutorId(null);
@@ -106,7 +94,7 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
                 action={handleSubmit}
                 style={{
                     width: "66%",
-                    mt: "32px",
+                    // mt: "32px",
                 }}
             >
                 <Stack spacing={4} sx={{ mb: "48px" }}>
@@ -163,7 +151,7 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
                             }}
                         >
                             {isEditing ? "Оновити фото" : "Завантажити фото"}
-                            <VisuallyHiddenInput
+                            <UploadButton
                                 name="photo"
                                 type="file"
                                 accept="image/png, image/jpeg"

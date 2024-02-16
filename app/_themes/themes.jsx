@@ -51,5 +51,12 @@ export const myTheme = createTheme({
                 },
             },
         },
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    fontFamily: "Montserrat",
+                },
+            },
+        },
     },
 });

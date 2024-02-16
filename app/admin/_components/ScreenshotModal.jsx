@@ -1,52 +1,51 @@
+"use client";
+
 import { useState, useRef, useContext } from "react";
 import {
     Stack,
     Paper,
     Typography,
-    TextField,
     Box,
     Button,
     IconButton,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import { OrderButton } from "@/app/_components/OrderButton";
-import { saveTutor } from "@/lib/actions";
-import { TutorModalContext } from "./TutorTable";
+import { createScreenshot } from "@/lib/actions";
+import { ScreenshotModalContext } from "./ScreenshotTable";
 import CloseIcon from "@mui/icons-material/Close";
+import Image from "next/image";
+import { UploadButton } from "./UploadButton";
 
-const VisuallyHiddenInput = styled("input")({
-    clip: "rect(0 0 0 0)",
-    clipPath: "inset(50%)",
-    height: 1,
-    overflow: "hidden",
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    whiteSpace: "nowrap",
-    width: 1,
-});
-
-export const TutorForm = ({ tutors, tutorId }) => {
-    console.log(tutorId);
-    const tutorData = tutors.some((el) => el.id === tutorId);
-    console.log(tutorData);
-
-    const [imageUploaded, setImageUploaded] = useState(null);
+export const ScreenshotModal = () => {
+    const [uploadedImage, setUploadedImage] = useState(null);
     const [error, setError] = useState(null);
     const formRef = useRef(null);
-    let { setModalOpen } = useContext(TutorModalContext);
+    let { setModalOpen } = useContext(ScreenshotModalContext);
+
+    const handleImageChange = (event) => {
+        const photo = event.target.files[0];
+        if (!photo) {
+            setUploadedImage(null);
+            return;
+        }
+        const fileReader = new FileReader();
+        fileReader.onload = () => {
+            setUploadedImage(fileReader.result);
+        };
+        fileReader.readAsDataURL(photo);
+    };
 
     const handleSubmit = async (formData) => {
-        const response = await saveTutor(formData);
+        const response = await createScreenshot(formData);
         if (response && response.error) {
             setError(response.error[0].message);
             return;
         }
+        location.reload();
     };
 
     return (
         <Paper
-            elevation={0}
             sx={{
                 display: "flex",
                 position: "relative",
@@ -54,18 +53,22 @@ export const TutorForm = ({ tutors, tutorId }) => {
                 justifyContent: "center",
                 alignItems: "center",
                 backgroundColor: "lightBlue.light",
-                width: "70vw",
-                height: "706px",
+                width: "50vw",
+                height: "500px",
                 borderRadius: "16px",
             }}
         >
             <IconButton
+                disableRipple
                 sx={{
                     position: "absolute",
-                    top: "60px",
-                    right: "60px",
+                    top: "30px",
+                    right: "30px",
+                    color: "inherit",
                 }}
-                onClick={() => setModalOpen(false)}
+                onClick={() => {
+                    setModalOpen(false);
+                }}
             >
                 <CloseIcon />
             </IconButton>
@@ -73,44 +76,24 @@ export const TutorForm = ({ tutors, tutorId }) => {
                 sx={{
                     fontSize: "48px",
                     fontWeight: 700,
-                    mb: "48px",
+                    mb: "60px",
                 }}
             >
-                Додати учителя
+                Додати запис
             </Typography>
             <form
                 ref={formRef}
                 action={handleSubmit}
                 style={{
                     width: "66%",
-                    mt: "32px",
                 }}
             >
-                <Stack spacing={4} sx={{ mb: "48px" }}>
-                    <TextField
-                        variant="outlined"
-                        type="text"
-                        label="Ім'я"
-                        name="name"
-                    />
-                    <TextField
-                        variant="outlined"
-                        type="text"
-                        label="Досвід"
-                        name="experience"
-                    />
-                    <TextField
-                        multiline
-                        rows={5}
-                        variant="outlined"
-                        type="text"
-                        label="Про себе"
-                        name="about"
-                    />
+                <Stack spacing={4} sx={{ mb: "60px" }}>
                     <Box
                         sx={{
                             display: "flex",
-                            justifyContent: "flex-start",
+                            flexDirection: "column",
+                            justifyContent: "center",
                             alignItems: "center",
                         }}
                     >
@@ -125,21 +108,31 @@ export const TutorForm = ({ tutors, tutorId }) => {
                                     bgcolor: "lightBlue.dark",
                                     borderColor: "darkBlue.light",
                                 },
-                                alignSelf: "left",
+                                mb: "30px",
                             }}
                         >
                             Завантажити фото
-                            <VisuallyHiddenInput
+                            <UploadButton
                                 name="photo"
                                 type="file"
                                 accept="image/png, image/jpeg"
-                                onChange={() => setImageUploaded(true)}
+                                onChange={handleImageChange}
                             />
                         </Button>
-                        {imageUploaded && (
-                            <Typography sx={{ ml: "16px" }}>
-                                Фото успішно завантажено
-                            </Typography>
+                        {uploadedImage && (
+                            <Box
+                                sx={{
+                                    width: "64px",
+                                    height: "64px",
+                                    position: "relative",
+                                }}
+                            >
+                                <Image
+                                    src={uploadedImage}
+                                    alt="uploaded image"
+                                    fill
+                                />
+                            </Box>
                         )}
                     </Box>
                 </Stack>

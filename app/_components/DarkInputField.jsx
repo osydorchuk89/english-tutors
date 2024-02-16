@@ -1,6 +1,6 @@
 import { TextField } from "@mui/material";
 
-export const InputField = ({ type, label, name }) => {
+export const DarkInputField = ({ type, label, name }) => {
     return (
         <TextField
             variant="outlined"

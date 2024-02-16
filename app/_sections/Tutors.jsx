@@ -12,9 +12,7 @@ export const Tutors = async () => {
             direction="row"
             sx={{
                 height: "758px",
-                mt: "120px",
-                ml: "120px",
-                mr: 0,
+                m: "120px 0 120px 120px",
                 scrollMarginTop: "80px",
             }}
         >

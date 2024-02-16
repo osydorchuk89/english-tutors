@@ -1,69 +1,58 @@
 import Image from "next/image";
-import { Card, CardContent, Typography, Link, Box } from "@mui/material";
+import { Paper, Typography, Box } from "@mui/material";
+import { ContactButton } from "./ContactButton";
 
-export const ContactCard = ({ img, title }) => {
+export const ContactCard = ({ img, name, text, phone, href }) => {
     return (
-        <Card
+        <Paper
             elevation={0}
             sx={{
-                width: "24.125rem",
-                height: "33.938rem",
-                backgroundColor: "background.dark",
-                borderRadius: "1rem",
+                width: "386px",
+                height: "543px",
+                backgroundColor: "lightBlue.dark",
+                borderRadius: "16px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "flex-start",
+                alignItems: "flex-start",
+                px: "75px",
+                pt: "40px",
+                boxShadow: `5px 4px 6px 0px #14313D17,
+                    11px 10px 9px 0px #14313D0D,
+                    19px 18px 10px 0px #14313D03,
+                    30px 28px 11px 0px #14313D05,
+                    0px 4px 4px 0px #14313D40,
+                    -4px -4px 4px 0px #14313D1A`,
             }}
         >
-            <CardContent
+            <Box
                 sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "flex-start",
-                    pt: "2rem !important",
-                    pl: "5rem !important",
+                    borderRadius: "16px",
+                    overflow: "hidden",
+                    mb: "24px",
                 }}
             >
-                <Box
-                    sx={{
-                        borderRadius: "1rem",
-                        overflow: "hidden",
-                    }}
-                >
-                    <Image src={img} alt={title} width={237} height={237} />
-                </Box>
-                <Typography
-                    sx={{
-                        textAlign: "left !important",
-                        fontSize: "1.5rem",
-                        fontWeight: 700,
-                        my: "0.75rem",
-                    }}
-                >
-                    {title}
-                </Typography>
-                <Typography sx={{ fontSize: "1.125rem" }}>
-                    Lorem ipsum dolor sit amet consectetur. Massa amet faucibus
-                    cum.Massa amet faucibu
-                </Typography>
-                <Typography sx={{ fontSize: "0.75rem", pb: "1.5rem" }}>
-                    +38 067 12 24 876
-                </Typography>
-                <Link
-                    sx={{
-                        width: "14.563rem",
-                        height: "2.5rem",
-                        textDecoration: "inherit",
-                        color: "inherit",
-                        backgroundColor: "background.light",
-                        px: "4.5rem",
-                        py: "0.563rem",
-                        fontSize: "1.125rem",
-                        borderRadius: "0.5rem",
-                        cursor: "pointer",
-                    }}
-                >
-                    Телеграм
-                </Link>
-            </CardContent>
-        </Card>
+                <Image src={img} alt="tutor-photo" width={237} height={237} />
+            </Box>
+            <Typography
+                sx={{
+                    fontSize: "24px",
+                    fontWeight: 700,
+                    lineHeight: "29.26px",
+                    mb: "16px",
+                }}
+            >
+                {name}
+            </Typography>
+            <Typography
+                sx={{ fontSize: "18px", lineHeight: "21.94px", mb: "69px" }}
+            >
+                {text}
+            </Typography>
+            <Typography sx={{ fontSize: "12px", mb: "8px" }}>
+                {phone}
+            </Typography>
+            <ContactButton text="Телеграм" href={href} />
+        </Paper>
     );
 };
