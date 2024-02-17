@@ -12,7 +12,7 @@ const appBarStyles = {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    px: "120px",
+    px: { lg: "120px", xl: "200px" },
     borderRadius: "0 0 16px 16px",
     gap: "93px",
     transition: "backgroundColor 20s",

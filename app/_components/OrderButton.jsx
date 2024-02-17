@@ -6,19 +6,19 @@ export const OrderButton = ({ onClick, text }) => {
             type="submit"
             onClick={onClick}
             sx={{
-                width: "192px",
-                height: "54px",
+                width: { lg: "192px", xl: "217px" },
+                height: { lg: "54px", xl: "59px" },
                 color: "inherit",
                 backgroundColor: "lightBlue.dark",
                 px: "40px",
                 py: "16px",
-                borderRadius: "0.5rem",
+                borderRadius: "8px",
                 textTransform: "capitalize",
             }}
         >
             <Typography
                 sx={{
-                    fontSize: "18px",
+                    fontSize: { lg: "18px", xl: "22px" },
                     fontWeight: 600,
                 }}
             >

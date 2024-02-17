@@ -1,8 +1,23 @@
-import { AppBar, Typography, Stack } from "@mui/material";
-import { NavLink } from "../_components/NavLink";
-import { navItems } from "../../lib/navItems";
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
+import { AppBar, Typography, Stack, Box, Modal } from "@mui/material";
+import { OrderButton } from "../_components/OrderButton";
+import { ModalContext } from "../_components/TryItCard";
+import { ApplicationForm } from "../_components/ApplicationForm";
 
 export const BottomNavBar = () => {
+    const [modalOpen, setModalOpen] = useState(false);
+    const value = { modalOpen, setModalOpen };
+
+    const handleModalOpen = () => {
+        setModalOpen(true);
+    };
+    const handleModalClose = () => {
+        setModalOpen(false);
+    };
+
     return (
         <AppBar
             component="footer"
@@ -11,33 +26,58 @@ export const BottomNavBar = () => {
             sx={{
                 display: "flex",
                 flexDirection: "row",
-                alignItems: "center",
+                alignItems: "flex-start",
+                justifyContent: "space-between",
                 width: "100%",
-                height: "8.688rem",
-                px: "7.5rem",
-                backgroundColor: "background.dark",
-                borderRadius: "2rem 2rem 0 0",
+                height: "168px",
+                mt: "60px",
+                px: "120px",
+                backgroundColor: "darkBlue.dark",
+                borderRadius: "24px 24px 0 0",
                 top: "auto",
                 bottom: 0,
             }}
         >
-            <Typography
-                variant="h6"
-                component="div"
-                sx={{ fontSize: "1.5rem", width: "9.1875rem" }}
-            >
-                English
-            </Typography>
-            <Stack
-                direction="row"
-                justifyContent="flex-end"
-                spacing={4}
-                sx={{ width: "90rem" }}
-            >
-                {navItems.map((item) => (
-                    <NavLink anchor={item.anchor} key={item} text={item.text} />
-                ))}
-            </Stack>
+            <ModalContext.Provider value={value}>
+                <Image
+                    src="/logo.png"
+                    width={166}
+                    height={64}
+                    alt="logo"
+                    style={{ marginTop: "54px" }}
+                />
+                <Stack
+                    direction="column"
+                    alignItems="center"
+                    sx={{ mt: "93px", color: "lightBlue.light" }}
+                >
+                    <Typography sx={{ fontSize: "12px", color: "inherit" }}>
+                        2024
+                    </Typography>
+                    <Typography sx={{ fontSize: "12px", color: "inherit" }}>
+                        Designer
+                    </Typography>
+                </Stack>
+                <Box
+                    sx={{
+                        mt: "60px",
+                    }}
+                >
+                    <OrderButton text="Записатися" onClick={handleModalOpen} />
+                </Box>
+                <Modal
+                    open={modalOpen}
+                    onClose={handleModalClose}
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        ml: "-16px",
+                    }}
+                >
+                    <ApplicationForm borderRadiusProp="16px" />
+                </Modal>
+            </ModalContext.Provider>
         </AppBar>
     );
 };

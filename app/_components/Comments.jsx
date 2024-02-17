@@ -1,19 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useLayoutEffect } from "react";
 import { Stack, Typography, Box } from "@mui/material";
 import { NavButton } from "./NavButtons";
 import { iconUp, iconDown } from "@/lib/icons";
-import { useNavButtons } from "../_hooks/UseNavButtons";
 
 export const Comments = ({ reviews }) => {
+    const buttonDownDisabled = reviews.length < 5;
     const [reviewSlice, setReviewSlice] = useState([0, 4]);
     const [buttonDisabled, setButtonDisabled] = useState({
         buttonUp: true,
-        buttonDown: false,
+        buttonDown: buttonDownDisabled,
     });
 
-    const handlePressButton = (event) => {
+    const handlePresButton = (event) => {
         console.log(event.target);
         const buttonUpPressed = ["button-up", "svg-up", "path-up"].includes(
             event.target.id
@@ -34,8 +34,6 @@ export const Comments = ({ reviews }) => {
             setReviewSlice((prevSlice) => prevSlice.map((index) => index + 1));
             newReviewSlice = reviewSlice.map((index) => index + 1);
         }
-
-        console.log(reviewSlice);
 
         if (newReviewSlice[0] === 0) {
             setButtonDisabled((prevState) => ({
@@ -62,6 +60,15 @@ export const Comments = ({ reviews }) => {
         }
     };
 
+    if (typeof window !== "undefined") {
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+
+        useLayoutEffect(() => {
+            window.scrollTo(scrollX, scrollY);
+        });
+    }
+
     return (
         <Stack
             sx={{
@@ -83,7 +90,7 @@ export const Comments = ({ reviews }) => {
                 <NavButton
                     _id="button-up"
                     icon={iconUp}
-                    onClick={handlePressButton}
+                    onClick={handlePresButton}
                     disabled={buttonDisabled.buttonUp}
                 />
                 {reviews.slice(...reviewSlice).map((item, index) => (
@@ -125,7 +132,7 @@ export const Comments = ({ reviews }) => {
                 <NavButton
                     _id="button-down"
                     icon={iconDown}
-                    onClick={handlePressButton}
+                    onClick={handlePresButton}
                     disabled={buttonDisabled.buttonDown}
                 />
             </Stack>

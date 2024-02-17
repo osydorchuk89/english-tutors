@@ -79,7 +79,7 @@ export const Contacts = () => {
                                 justifyContent: "center",
                                 alignItems: "center",
                                 backgroundColor: "lightBlue.main",
-                                borderRadius: "1rem",
+                                borderRadius: "16px",
                             }}
                         >
                             {icon.img}

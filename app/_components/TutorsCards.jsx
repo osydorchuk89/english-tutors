@@ -30,14 +30,14 @@ export const TutorsCards = ({ tutors }) => {
                 position: "relative",
                 display: "flex",
                 alignItems: "center",
-                width: "710px",
+                width: { lg: "710px", xl: "944px" },
                 height: "100%",
             }}
         >
             <Paper
                 sx={{
                     position: "absolute",
-                    width: "608px",
+                    width: { lg: "608px", xl: "815px" },
                     height: "100%",
                     right: 0,
                     backgroundColor: "lightBlue.light",
@@ -50,7 +50,8 @@ export const TutorsCards = ({ tutors }) => {
                 alignItems="center"
                 sx={{
                     position: "absolute",
-                    width: "590px",
+                    width: { lg: "590px", xl: "744px" },
+                    right: { lg: "120px", xl: "200px" },
                     height: "646px",
                     zIndex: 10,
                 }}

@@ -93,7 +93,7 @@ export const Prices = () => {
             sx={{
                 display: "flex",
                 justifyContent: "center",
-                mt: "150px",
+                mt: { lg: "150px", xl: "160px" },
                 scrollMarginTop: "80px",
             }}
         >
@@ -101,8 +101,8 @@ export const Prices = () => {
                 sx={{
                     position: "relative",
                     width: "100%",
-                    height: "765px",
-                    mx: "60px",
+                    height: { lg: "773px", xl: "901px" },
+                    mx: { lg: "60px", xl: "100px" },
                     backgroundColor: "lightBlue.light",
                     borderRadius: "1rem",
                     boxShadow: "0px 0px 48px 0px #14313D1F",
@@ -110,10 +110,10 @@ export const Prices = () => {
             >
                 <Typography
                     sx={{
-                        pt: "120px",
-                        pb: "56px",
-                        pl: "60px",
-                        fontSize: "3rem",
+                        pt: { lg: "120px", xl: "144px" },
+                        pb: { lg: "56px", xl: "72px" },
+                        pl: { lg: "60px", xl: "100px" },
+                        fontSize: { lg: "48px", xl: "56px" },
                         fontWeight: 700,
                     }}
                 >
@@ -125,10 +125,10 @@ export const Prices = () => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        top: "60px",
-                        right: "60px",
-                        width: "418px",
-                        height: "69px",
+                        top: { lg: "60px", xl: "72px" },
+                        right: { lg: "60px", xl: "100px" },
+                        width: { lg: "418px", xl: "530px" },
+                        height: { lg: "69px", xl: "79px" },
                         borderRadius: "8px",
                         backgroundColor: "darkBlue.main",
                         boxShadow: `5px 4px 6px 0px #14313D17, 
@@ -143,21 +143,20 @@ export const Prices = () => {
                     <Typography
                         sx={{
                             color: "lightBlue.light",
-                            fontSize: "24px",
+                            fontSize: { lg: "24px", xl: "32px" },
                             fontWeight: 700,
-                            lineHeight: "29.26px",
                         }}
                     >
-                        Скидка 20% на 24 заняття
+                        Знижка 20% на 24 заняття
                     </Typography>
                 </Paper>
                 <Stack
                     direction="row"
-                    spacing={3}
+                    spacing={{ lg: 2.5, xl: 4 }}
                     justifyContent="space-between"
                     sx={{
-                        px: "60px",
-                        mb: "56px",
+                        px: { lg: "60px", xl: "100px" },
+                        mb: { lg: "56px", xl: "72px" },
                     }}
                 >
                     {cardsContent.map((item) => (
@@ -168,7 +167,14 @@ export const Prices = () => {
                         />
                     ))}
                 </Stack>
-                <Stack direction="row" justifyContent="center" spacing={8}>
+                <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    spacing={{ lg: 8, xl: 12.5 }}
+                    sx={{
+                        mx: { lg: "60px", xl: "100px" },
+                    }}
+                >
                     {conditions.map((item) => (
                         <Box
                             key={item.id}
@@ -176,7 +182,6 @@ export const Prices = () => {
                                 display: "flex",
                                 justifyContent: "center",
                                 alignItems: "center",
-                                height: "53px",
                                 borderRadius: "0.5rem",
                                 backgroundColor: "lightBlue.main",
                                 px: "24px",
@@ -185,7 +190,7 @@ export const Prices = () => {
                         >
                             <Typography
                                 sx={{
-                                    fontSize: "24px",
+                                    fontSize: { lg: "24px", xl: "28px" },
                                 }}
                             >
                                 {item.text}

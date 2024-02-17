@@ -1,11 +1,67 @@
 "use client";
 
-import Image from "next/image";
+import { useState } from "react";
 import { Box, ImageList, ImageListItem } from "@mui/material";
 import { NavButton } from "./NavButtons";
 import { iconUp, iconDown } from "@/lib/icons";
 
 export const FeedbackCards = ({ screenshots }) => {
+    const buttonDownDisabled = screenshots.length < 5;
+    const [reviewSlice, setReviewSlice] = useState([0, 4]);
+    const [buttonDisabled, setButtonDisabled] = useState({
+        buttonUp: true,
+        buttonDown: buttonDownDisabled,
+    });
+
+    const handlePresButton = (event) => {
+        console.log(event.target);
+        const buttonUpPressed = ["button-up", "svg-up", "path-up"].includes(
+            event.target.id
+        );
+        const buttonDownPressed = [
+            "button-down",
+            "svg-down",
+            "path-down",
+        ].includes(event.target.id);
+        let newReviewSlice = [];
+
+        if (buttonUpPressed) {
+            setReviewSlice((prevSlice) => prevSlice.map((index) => index - 2));
+            newReviewSlice = reviewSlice.map((index) => index - 2);
+        }
+
+        if (buttonDownPressed) {
+            setReviewSlice((prevSlice) => prevSlice.map((index) => index + 2));
+            newReviewSlice = reviewSlice.map((index) => index + 2);
+        }
+
+        console.log(reviewSlice);
+
+        if (newReviewSlice[0] === 0) {
+            setButtonDisabled((prevState) => ({
+                ...prevState,
+                buttonUp: true,
+            }));
+        } else {
+            setButtonDisabled((prevState) => ({
+                ...prevState,
+                buttonUp: false,
+            }));
+        }
+
+        if (newReviewSlice[1] === reviews.length) {
+            setButtonDisabled((prevState) => ({
+                ...prevState,
+                buttonDown: true,
+            }));
+        } else {
+            setButtonDisabled((prevState) => ({
+                ...prevState,
+                buttonDown: false,
+            }));
+        }
+    };
+
     return (
         <Box
             sx={{
@@ -17,9 +73,14 @@ export const FeedbackCards = ({ screenshots }) => {
                 zIndex: 10,
             }}
         >
-            <NavButton icon={iconUp} onClick={() => {}} />
+            <NavButton
+                _id="button-up"
+                icon={iconUp}
+                onClick={handlePresButton}
+                disabled={buttonDisabled.buttonUp}
+            />
             <ImageList
-                variant="masonry"
+                variant="standard"
                 cols={2}
                 gap={10}
                 sx={{
@@ -37,7 +98,12 @@ export const FeedbackCards = ({ screenshots }) => {
                     </ImageListItem>
                 ))}
             </ImageList>
-            <NavButton icon={iconDown} onClick={() => {}} />
+            <NavButton
+                _id="button-down"
+                icon={iconDown}
+                onClick={handlePresButton}
+                disabled={buttonDisabled.buttonDown}
+            />
         </Box>
     );
 };

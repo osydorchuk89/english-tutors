@@ -49,9 +49,10 @@ export const ApplicationForm = ({ borderRadiusProp }) => {
                 alignItems: "center",
                 color: "lightBlue.light",
                 backgroundColor: "darkBlue.dark",
-                width: "1320px",
-                height: "706px",
-                py: "120px",
+                width: { lg: "calc(100% - 120px)", xl: "calc(100% - 200px)" },
+                height: { lg: "706px", xl: "909px" },
+                py: { lg: "120px", xl: "182px" },
+                mx: { lg: "60px", xl: "100px" },
                 borderRadius: borderRadiusProp,
                 boxShadow: `1px 2px 5px 0px #14313D4A,
                     5px 9px 10px 0px #14313D42,
@@ -73,47 +74,48 @@ export const ApplicationForm = ({ borderRadiusProp }) => {
             </IconButton>
             <Typography
                 sx={{
-                    fontSize: "48px",
+                    fontSize: { lg: "48px", xl: "56px" },
                     fontWeight: 700,
-                    lineHeight: "58.51px",
                     color: "inherit",
-                    mb: "48px",
+                    mb: "56px",
                 }}
             >
                 Залиште заявку
             </Typography>
-            <form
-                ref={formRef}
-                action={sendApplicationData}
-                style={{
-                    width: "590px",
-                    mt: "2rem",
+            <Box
+                sx={{
+                    width: { lg: "590px", xl: "746px" },
                 }}
             >
-                <Stack spacing={2.5} sx={{ mb: "40px" }}>
-                    <DarkInputField type="text" label="Ім'я" name="name" />
-                    <DarkInputField
-                        type="tel"
-                        label="Номер телефону"
-                        name="phone"
-                    />
-                </Stack>
-                <Typography
-                    sx={{
-                        color: "inherit",
-                        fontSize: "24px",
-                        lineHeight: "29.26px",
-                        mb: "56px",
-                    }}
-                >
-                    Ви можете залишити заявку на безкоштовне заняття. Ми
-                    відповідаємо протягом години
-                </Typography>
-                {error && <Typography>{error}</Typography>}
-                <Box sx={{ display: "flex", justifyContent: "center" }}>
-                    <OrderButton text="Записатися" />
-                </Box>
-            </form>
+                <form ref={formRef} action={sendApplicationData}>
+                    <Stack
+                        spacing={{ lg: 3, xl: 4 }}
+                        sx={{ mb: { lg: "32px", xl: "56px" } }}
+                    >
+                        <DarkInputField type="text" label="Ім'я" name="name" />
+                        <DarkInputField
+                            type="tel"
+                            label="Номер телефону"
+                            name="phone"
+                        />
+                    </Stack>
+                    <Typography
+                        sx={{
+                            color: "inherit",
+                            fontSize: { lg: "24px", xl: "28px" },
+                            // lineHeight: "29.26px",
+                            mb: { lg: "56px", xl: "72px" },
+                        }}
+                    >
+                        Ви можете залишити заявку на безкоштовне заняття. Ми
+                        відповідаємо протягом години
+                    </Typography>
+                    {error && <Typography>{error}</Typography>}
+                    <Box sx={{ display: "flex", justifyContent: "center" }}>
+                        <OrderButton text="Записатися" />
+                    </Box>
+                </form>
+            </Box>
         </Paper>
     );
 };

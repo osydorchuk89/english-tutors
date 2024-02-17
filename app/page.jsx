@@ -7,6 +7,7 @@ import { Application } from "./_sections/Application";
 import { Contacts } from "./_sections/Contacts";
 import { Reviews } from "./_sections/Reviews";
 import { FAQ } from "./_sections/FAQ";
+import { BottomNavBar } from "./_sections/BottomNavBar";
 
 export default function Home() {
     return (
@@ -20,6 +21,7 @@ export default function Home() {
                 <Contacts />
                 <Reviews />
                 <FAQ />
+                <BottomNavBar />
             </Stack>
         </main>
     );
