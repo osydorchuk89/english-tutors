@@ -72,21 +72,26 @@ export const Comments = ({ reviews }) => {
     return (
         <Stack
             sx={{
-                width: "640px",
+                width: { lg: "650px", xl: "973px" },
                 height: "100%",
-                pl: "60px",
+                pl: { lg: "60px", xl: "100px" },
             }}
         >
             <Typography
                 sx={{
-                    fontSize: "48px",
+                    height: { lg: "55px", xl: "68px" },
+                    fontSize: { lg: "48px", xl: "56px" },
                     fontWeight: 700,
-                    mb: "56px",
+                    mb: { lg: "56px", xl: "72px" },
                 }}
             >
                 Відгуки
             </Typography>
-            <Stack direction="column" spacing={3}>
+            <Stack
+                direction="column"
+                spacing={3}
+                sx={{ ml: { lg: "-60px", lgr: 0, xl: 0 } }}
+            >
                 <NavButton
                     _id="button-up"
                     icon={iconUp}
@@ -97,8 +102,8 @@ export const Comments = ({ reviews }) => {
                     <Box
                         key={item.id}
                         sx={{
-                            width: "488px",
-                            height: "181px",
+                            width: { lg: "425px", lgr: "488px", xl: "614px" },
+                            height: { lg: "181px", xl: "211px" },
                             backgroundColor: "lightBlue.dark",
                             borderRadius: "16px",
                             p: "24px",
@@ -114,16 +119,23 @@ export const Comments = ({ reviews }) => {
                     >
                         <Typography
                             sx={{
-                                fontSize: "24px",
+                                fontSize: { lg: "24px", xl: "32px" },
                                 fontWeight: 700,
-                                lineHeight: "29.26px",
+                                lineHeight: { lg: "29.26px", xl: "39.01px" },
                                 mb: "16px",
                             }}
                         >
                             {item.name}
                         </Typography>
                         <Typography
-                            sx={{ fontSize: "18px", lineHeight: "21.94px" }}
+                            sx={{
+                                fontSize: {
+                                    lg: "16px",
+                                    lgr: "18px",
+                                    xl: "22px",
+                                },
+                                lineHeight: { lg: "21.94px", xl: "26.82px" },
+                            }}
                         >
                             {item.text}
                         </Typography>

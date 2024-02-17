@@ -31,7 +31,7 @@ export const BottomNavBar = () => {
                 width: "100%",
                 height: "168px",
                 mt: "60px",
-                px: "120px",
+                px: { lg: "120px", xl: "200px" },
                 backgroundColor: "darkBlue.dark",
                 borderRadius: "24px 24px 0 0",
                 top: "auto",
@@ -49,18 +49,31 @@ export const BottomNavBar = () => {
                 <Stack
                     direction="column"
                     alignItems="center"
-                    sx={{ mt: "93px", color: "lightBlue.light" }}
+                    sx={{
+                        mt: { lg: "93px", xl: "96px" },
+                        color: "lightBlue.light",
+                    }}
                 >
-                    <Typography sx={{ fontSize: "12px", color: "inherit" }}>
+                    <Typography
+                        sx={{
+                            fontSize: { lg: "12px", xl: "16px" },
+                            color: "inherit",
+                        }}
+                    >
                         2024
                     </Typography>
-                    <Typography sx={{ fontSize: "12px", color: "inherit" }}>
+                    <Typography
+                        sx={{
+                            fontSize: { lg: "12px", xl: "16px" },
+                            color: "inherit",
+                        }}
+                    >
                         Designer
                     </Typography>
                 </Stack>
                 <Box
                     sx={{
-                        mt: "60px",
+                        mt: { lg: "60px", xl: "55px" },
                     }}
                 >
                     <OrderButton text="Записатися" onClick={handleModalOpen} />

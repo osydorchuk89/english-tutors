@@ -100,9 +100,10 @@ export const Prices = () => {
             <Paper
                 sx={{
                     position: "relative",
-                    width: "100%",
-                    height: { lg: "773px", xl: "901px" },
+                    width: "calc(100% - 120px)",
+                    minHeight: { lg: "773px", xl: "901px" },
                     mx: { lg: "60px", xl: "100px" },
+                    pb: { lg: "60px", xl: "72px" },
                     backgroundColor: "lightBlue.light",
                     borderRadius: "1rem",
                     boxShadow: "0px 0px 48px 0px #14313D1F",
@@ -110,7 +111,7 @@ export const Prices = () => {
             >
                 <Typography
                     sx={{
-                        pt: { lg: "120px", xl: "144px" },
+                        pt: { lg: "150px", lgr: "120px", xl: "144px" },
                         pb: { lg: "56px", xl: "72px" },
                         pl: { lg: "60px", xl: "100px" },
                         fontSize: { lg: "48px", xl: "56px" },
@@ -125,7 +126,7 @@ export const Prices = () => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        top: { lg: "60px", xl: "72px" },
+                        top: { lg: "40px", lgr: "60px", xl: "72px" },
                         right: { lg: "60px", xl: "100px" },
                         width: { lg: "418px", xl: "530px" },
                         height: { lg: "69px", xl: "79px" },
@@ -170,7 +171,7 @@ export const Prices = () => {
                 <Stack
                     direction="row"
                     justifyContent="space-between"
-                    spacing={{ lg: 8, xl: 12.5 }}
+                    spacing={{ lg: 5, xl: 10 }}
                     sx={{
                         mx: { lg: "60px", xl: "100px" },
                     }}
@@ -184,13 +185,18 @@ export const Prices = () => {
                                 alignItems: "center",
                                 borderRadius: "0.5rem",
                                 backgroundColor: "lightBlue.main",
-                                px: "24px",
+                                px: { lg: "16px", lgr: "24px", xl: "24px" },
                                 py: "12px",
                             }}
                         >
                             <Typography
                                 sx={{
-                                    fontSize: { lg: "24px", xl: "28px" },
+                                    fontSize: {
+                                        lg: "22px",
+                                        lgr: "24px",
+                                        xl: "28px",
+                                    },
+                                    textAlign: "center",
                                 }}
                             >
                                 {item.text}

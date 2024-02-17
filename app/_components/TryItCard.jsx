@@ -37,14 +37,13 @@ export const TryItCard = () => {
             <Paper
                 id="try-it-card"
                 sx={{
-                    width: "100%",
+                    width: { lg: "794px", xl: "1002px" },
                     minHeight: { lg: "453px", xl: "528px" },
                     borderRadius: "16px",
                     backgroundColor: "darkBlue.main",
                     color: "lightBlue.light",
                     px: "102px",
                     py: "80px",
-                    mx: { lg: "323px", xl: "459px" },
                 }}
             >
                 <Typography

@@ -11,7 +11,7 @@ export const Tutors = async () => {
             id="tutors"
             direction="row"
             sx={{
-                height: "758px",
+                height: { lg: "896px", lgr: "758px", xl: "758px" },
                 width: "100%",
                 pl: { lg: "120px", xl: "200px" },
                 my: { lg: "120px", xl: "182px" },

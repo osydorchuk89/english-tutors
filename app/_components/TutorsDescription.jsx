@@ -51,37 +51,53 @@ export const TutorsDescription = () => {
         >
             <Typography
                 sx={{
-                    width: { lg: "346px", xl: "450px" },
-                    fontSize: { lg: "48px", xl: "56px" },
+                    width: { lg: "288px", lgr: "346px", xl: "450px" },
+                    fontSize: { lg: "40px", lgr: "48px", xl: "56px" },
                     fontWeight: 700,
-                    lineHeight: { lg: "58.51px", xl: "68.26px" },
-                    mb: { lg: "56px", xl: "72px" },
+                    lineHeight: {
+                        lg: "48.76px",
+                        lgr: "58.51px",
+                        xl: "68.26px",
+                    },
+                    mb: { lg: "40px", lgr: "56px", xl: "72px" },
                 }}
             >
                 Вчителі English Zoom
             </Typography>
             <Stack
-                spacing={{ lg: 5, xl: 6 }}
+                spacing={{ lg: 4, lgr: 5, xl: 6 }}
                 useFlexGap
-                flexWrap="wrap"
+                flexWrap={{ lg: "no-wrap", lgr: "wrap", xl: "wrap" }}
                 sx={{
                     width: "100%",
-                    height: { lg: "386px", xl: "462px" },
+                    height: { lg: "592px", lgr: "386px", xl: "462px" },
                 }}
             >
                 {descriptionItems.map((item) => (
                     <Box
                         key={item.id}
                         sx={{
-                            width: { lg: "285px", xl: "330px" },
-                            height: { lg: "102px", xl: "122px" },
+                            width: { lg: "238px", lgr: "285px", xl: "330px" },
+                            height: { lg: "88px", lgr: "102px", xl: "122px" },
                         }}
                     >
-                        <Box sx={{ mb: "24px" }}>{item.icon}</Box>
+                        <Box
+                            sx={{ mb: { lg: "16px", lgr: "24px", xl: "24px" } }}
+                        >
+                            {item.icon}
+                        </Box>
                         <Typography
                             sx={{
-                                fontSize: { lg: "22px", xl: "30px" },
-                                lineHeight: { lg: "26.82px", xl: "36.57px" },
+                                fontSize: {
+                                    lg: "20px",
+                                    lgr: "22px",
+                                    xl: "30px",
+                                },
+                                lineHeight: {
+                                    lg: "24.38px",
+                                    lgr: "26.82px",
+                                    xl: "36.57px",
+                                },
                             }}
                         >
                             {item.text}

@@ -1,5 +1,5 @@
 import { Stack } from "@mui/material";
-import { TopNavBar } from "./_components/TopNavBar";
+import { TopNavBar } from "./_sections/TopNavBar";
 import { AboutUs } from "./_sections/AboutUs";
 import { Prices } from "./_sections/Prices";
 import { Tutors } from "./_sections/Tutors";

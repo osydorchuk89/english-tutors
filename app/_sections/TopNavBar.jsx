@@ -4,7 +4,7 @@ import { cloneElement } from "react";
 import Image from "next/image";
 import { AppBar, Stack } from "@mui/material";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import { NavLink } from "./NavLink";
+import { NavLink } from "../_components/NavLink";
 
 const appBarStyles = {
     height: "96px",
@@ -14,7 +14,7 @@ const appBarStyles = {
     justifyContent: "space-between",
     px: { lg: "120px", xl: "200px" },
     borderRadius: "0 0 16px 16px",
-    gap: "93px",
+    gap: { lg: "43px", lgr: "93px", xl: "253px" },
     transition: "backgroundColor 20s",
 };
 
@@ -52,7 +52,7 @@ export const TopNavBar = () => {
                 <Stack
                     direction="row"
                     justifyContent="space-between"
-                    spacing={4}
+                    spacing={{ lg: 3, lgr: 4, xl: 5 }}
                     sx={{ width: "789px" }}
                 >
                     {navItems.map((item) => (

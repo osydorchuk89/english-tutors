@@ -69,7 +69,7 @@ export const FeedbackCards = ({ screenshots }) => {
                 flexDirection: "column",
                 justifyContent: "flexStart",
                 alignItems: "center",
-                pt: "128px",
+                pt: { lg: "115px", xl: "140px" },
                 zIndex: 10,
             }}
         >
@@ -84,8 +84,8 @@ export const FeedbackCards = ({ screenshots }) => {
                 cols={2}
                 gap={10}
                 sx={{
-                    width: "590px",
-                    height: "640px",
+                    width: { lg: "590px", xl: "615px" },
+                    height: "793px",
                     my: "24px",
                 }}
             >

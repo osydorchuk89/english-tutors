@@ -7,8 +7,8 @@ export const ContactButton = ({ text, href, type }) => {
             variant="outlined"
             type={type}
             sx={{
-                width: "233px",
-                height: "40px",
+                width: { lg: "233px", xl: "253px" },
+                height: { lg: "40px", xl: "51px" },
                 dislay: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -24,7 +24,7 @@ export const ContactButton = ({ text, href, type }) => {
         >
             <Typography
                 sx={{
-                    fontSize: "18px",
+                    fontSize: { lg: "18px", xl: "22px" },
                     fontWeight: 400,
                 }}
             >

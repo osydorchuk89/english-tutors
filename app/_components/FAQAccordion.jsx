@@ -47,11 +47,11 @@ export const FAQAccordion = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 width: "100%",
-                minHeight: "588px",
+                minHeight: { lg: "564px", xl: "616px" },
                 backgroundColor: "lightBlue.light",
                 borderRadius: "16px",
-                py: "40px",
-                px: "60px",
+                py: { lg: "40px", xl: "56px" },
+                px: { lg: "60px", xl: "100px" },
             }}
         >
             {faqs.map((item) => (
@@ -71,6 +71,7 @@ export const FAQAccordion = () => {
                         },
                         "&.MuiAccordion-root:last-of-type": {
                             borderRadius: "16px",
+                            mb: 0,
                         },
                         "&.MuiAccordion-root::before": {
                             height: "0px",
@@ -80,8 +81,8 @@ export const FAQAccordion = () => {
                     <AccordionSummary
                         sx={{
                             backgroundColor: "inherit",
-                            height: "109px",
-                            pl: "48px",
+                            height: { lg: "109px", xl: "114px" },
+                            pl: { lg: "60px", xl: "100px" },
                             borderRadius: "16px",
                             "&.Mui-expanded": {
                                 backgroundColor: "darkBlue.main",
@@ -102,7 +103,7 @@ export const FAQAccordion = () => {
                     >
                         <Typography
                             sx={{
-                                fontSize: "24px",
+                                fontSize: { lg: "24px", xl: "28px" },
                                 color: "inherit",
                             }}
                         >
@@ -112,10 +113,10 @@ export const FAQAccordion = () => {
                     <AccordionDetails
                         sx={{
                             backgroundColor: "inherit",
-                            fontSize: "20px",
-                            height: "152px",
-                            px: "48px",
-                            pt: "24px",
+                            fontSize: { lg: "20px", xl: "22px" },
+                            minHeight: { lg: "152px", xl: "168px" },
+                            px: { lg: "60px", xl: "100px" },
+                            pt: { lg: "24px", xl: "32px" },
                         }}
                     >
                         {item.answer}

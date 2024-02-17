@@ -34,18 +34,21 @@ export const Contacts = () => {
             alignItems="center"
             sx={{
                 position: "relative",
-                height: "773px",
+                width: "100%",
+                height: { lg: "773px", xl: "865px" },
+                pl: { lg: "60px", lgr: "120px", xl: "200px" },
                 scrollMarginTop: "80px",
-                m: "120px 0 120px 120px",
+                m: "120px 0 120px 0",
             }}
         >
             <Typography
                 sx={{
-                    fontSize: "48px",
+                    fontSize: { lg: "48px", xl: "56px" },
                     fontWeight: 700,
                     position: "absolute",
                     top: 0,
-                    left: 0,
+                    left: { lg: "120px", xl: "200px" },
+                    zIndex: 10,
                 }}
             >
                 Контакти
@@ -53,18 +56,18 @@ export const Contacts = () => {
             <Box
                 sx={{
                     position: "absolute",
-                    width: "832px",
                     height: "100%",
                     backgroundColor: "lightBlue.light",
                     borderRadius: "24px 0 0 24px",
                     right: 0,
+                    left: { lg: "608px", xl: "847px" },
                 }}
             />
             <Stack
                 direction="row"
                 alignItems="center"
                 sx={{ position: "absolute" }}
-                spacing={15}
+                spacing={{ lg: 10, lgr: 12, xl: 15 }} //custom spacing
             >
                 <Stack spacing={8}>
                     {icons.map((icon) => (
@@ -73,7 +76,11 @@ export const Contacts = () => {
                             disableRipple
                             key={icon.id}
                             sx={{
-                                width: "183px",
+                                width: {
+                                    lg: "148px",
+                                    lgr: "183px",
+                                    xl: "356px",
+                                },
                                 height: "72px",
                                 display: "flex",
                                 justifyContent: "center",

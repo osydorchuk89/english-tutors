@@ -70,7 +70,11 @@ export const ApplicationForm = ({ borderRadiusProp }) => {
                 }}
                 onClick={() => setModalOpen(false)}
             >
-                <CloseIcon />
+                <CloseIcon
+                    sx={{
+                        fontSize: { lg: "32px", xl: "40px" },
+                    }}
+                />
             </IconButton>
             <Typography
                 sx={{

@@ -64,6 +64,7 @@ export const myTheme = createTheme({
             sm: 0,
             md: 612,
             lg: 1137,
+            lgr: 1450,
             xl: 1680,
         },
     },
