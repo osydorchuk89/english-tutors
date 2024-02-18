@@ -1,14 +1,6 @@
 "use client";
 import { useState, createContext } from "react";
-import {
-    Paper,
-    Typography,
-    Box,
-    Modal,
-    List,
-    ListItem,
-    ListItemText,
-} from "@mui/material";
+import { Paper, Typography, Box, Modal } from "@mui/material";
 import { OrderButton } from "./OrderButton";
 import { ApplicationForm } from "./ApplicationForm";
 import { BulletedList } from "./BulletedList";
@@ -37,28 +29,55 @@ export const TryItCard = () => {
             <Paper
                 id="try-it-card"
                 sx={{
-                    width: { lg: "794px", xl: "1002px" },
-                    minHeight: { lg: "453px", xl: "528px" },
+                    display: {
+                        xxs: "flex",
+                        md: "block",
+                    },
+                    flexDirection: "column",
+                    alignItems: "center",
+                    width: {
+                        xxs: "100%",
+                        md: "794px",
+                        xl: "1002px",
+                    },
+                    mx: {
+                        xxs: "16px",
+                        xs: "40px",
+                        md: "auto",
+                    },
+                    minHeight: { xxs: "358px", md: "453px", xl: "528px" },
                     borderRadius: "16px",
                     backgroundColor: "darkBlue.main",
                     color: "lightBlue.light",
-                    px: "102px",
-                    py: "80px",
+                    px: { xxs: "16px", xs: "auto", md: "102px" },
+                    py: { xxs: "56px", xs: "80px" },
                 }}
             >
                 <Typography
                     sx={{
-                        fontSize: { lg: "48px", xl: "56px" },
+                        fontSize: {
+                            xxs: "34px",
+                            xs: "40px",
+                            md: "48px",
+                            xl: "56px",
+                        },
                         color: "inherit",
                         fontWeight: 700,
-                        lineHeight: { lg: "58.51px", xl: "68.26px" },
                         textAlign: "center",
-                        mb: "40px",
+                        mb: { xxs: "24px", xs: "48px", md: "40px", xl: "32px" },
                     }}
                 >
                     Спробуй безкоштовно
                 </Typography>
-                <BulletedList items={descriptionItems} />
+                <BulletedList
+                    items={descriptionItems}
+                    fontSize={{
+                        xxs: "16px",
+                        xs: "20px",
+                        md: "22px",
+                        xl: "30px",
+                    }}
+                />
                 <Box textAlign="center">
                     <OrderButton onClick={handleModalOpen} text="Записатися" />
                 </Box>

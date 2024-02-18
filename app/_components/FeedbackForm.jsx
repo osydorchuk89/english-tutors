@@ -34,15 +34,15 @@ export const FeedbackForm = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 backgroundColor: "lightBlue.light",
-                height: { lg: "518px", xl: "595px" },
+                height: { md: "518px", xl: "595px" },
                 borderRadius: "8px",
-                width: { lg: "calc(100% - 60px)", xl: "calc(100% - 100px)" },
+                width: { md: "calc(100% - 60px)", xl: "calc(100% - 100px)" },
                 boxShadow: "0px 0px 48px 0px #14313D1F",
             }}
         >
             <Typography
                 sx={{
-                    fontSize: { lg: "24px", xl: "32px" },
+                    fontSize: { md: "24px", xl: "32px" },
                     fontWeight: 700,
                     mb: "54px",
                 }}
@@ -51,11 +51,11 @@ export const FeedbackForm = () => {
             </Typography>
             <Box
                 sx={{
-                    width: { lg: "590px", xl: "744px" },
+                    width: { md: "590px", xl: "744px" },
                 }}
             >
                 <form ref={formRef} action={sendReviewData}>
-                    <Stack spacing={2} sx={{ mb: { lg: "43px", xl: "72px" } }}>
+                    <Stack spacing={2} sx={{ mb: { md: "43px", xl: "72px" } }}>
                         <LightInputField type="text" label="Ім'я" name="name" />
                         <LightInputField
                             multiline={true}

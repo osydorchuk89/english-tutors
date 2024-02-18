@@ -15,19 +15,19 @@ export const Reviews = async () => {
             sx={{
                 position: "relative",
                 width: "100%",
-                height: { lg: "1685px", xl: "1860px" },
-                pl: { lg: "60px", xl: "100px" },
+                height: { md: "1685px", xl: "1860px" },
+                pl: { md: "60px", xl: "100px" },
                 m: "0 0 120px 0",
                 scrollMarginTop: "80px",
             }}
         >
             <Stack
                 direction="row"
-                spacing={{ lg: 2.5, xl: 4 }}
+                spacing={{ md: 2.5, xl: 4 }}
                 sx={{
                     position: "relative",
-                    minHeight: { lg: "1060px", xl: "1161px" },
-                    mb: { lg: "80px", xl: "104px" },
+                    minHeight: { md: "1060px", xl: "1161px" },
+                    mb: { md: "80px", xl: "104px" },
                 }}
             >
                 <Comments reviews={reviews} />
@@ -36,8 +36,8 @@ export const Reviews = async () => {
                     sx={{
                         position: "absolute",
                         right: 0,
-                        // width: { lg: "608px", xl: "685px" },
-                        left: { lg: "832px", xl: "1235px" },
+                        // width: { md: "608px", xl: "685px" },
+                        left: { md: "832px", xl: "1235px" },
                         height: "100%",
                         backgroundColor: "lightBlue.light",
                         borderRadius: "24px 0 0 24px",

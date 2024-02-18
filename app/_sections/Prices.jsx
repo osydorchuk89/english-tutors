@@ -1,12 +1,6 @@
 import { Box, Paper, Typography, Stack } from "@mui/material";
 import { PriceCard } from "../_components/PriceCard";
-
-const conditions = [
-    { id: 1, text: "60 хвилин" },
-    { id: 2, text: "Продуктивність" },
-    { id: 3, text: "На звʼязку 24/7" },
-    { id: 4, text: "Гарантований результат" },
-];
+import { LessonConditions } from "../_components/LessonConditions";
 
 const cardsContent = [
     {
@@ -93,29 +87,55 @@ export const Prices = () => {
             sx={{
                 display: "flex",
                 justifyContent: "center",
-                mt: { lg: "150px", xl: "160px" },
+                mt: { xxs: "64px", xs: "80px", md: "150px", xl: "160px" },
                 scrollMarginTop: "80px",
             }}
         >
             <Paper
                 sx={{
                     position: "relative",
-                    width: "calc(100% - 120px)",
-                    minHeight: { lg: "773px", xl: "901px" },
-                    mx: { lg: "60px", xl: "100px" },
-                    pb: { lg: "60px", xl: "72px" },
+                    width: {
+                        xxs: "100%",
+                        xs: "calc(100% - 40px)",
+                        md: "calc(100% - 120px)",
+                        lg: "calc(100% - 200px)",
+                    },
+                    minHeight: {
+                        xxs: "1654px",
+                        xs: "1080px",
+                        md: "773px",
+                        xl: "901px",
+                    },
+                    mx: { xxs: 0, xs: "20px", md: "60px", xl: "100px" },
+                    pb: { xxs: "64px", xs: "80px", md: "60px", xl: "72px" },
                     backgroundColor: "lightBlue.light",
-                    borderRadius: "1rem",
+                    borderRadius: "16px",
                     boxShadow: "0px 0px 48px 0px #14313D1F",
                 }}
             >
                 <Typography
                     sx={{
-                        pt: { lg: "150px", lgr: "120px", xl: "144px" },
-                        pb: { lg: "56px", xl: "72px" },
-                        pl: { lg: "60px", xl: "100px" },
-                        fontSize: { lg: "48px", xl: "56px" },
+                        pt: {
+                            xxs: "200px",
+                            sm: "150px",
+                            lg: "120px",
+                            xl: "144px",
+                        },
+                        pb: { xxs: "32px", sm: "40px", md: "56px", xl: "72px" },
+                        pl: {
+                            xxs: "16px",
+                            sm: "20px",
+                            md: "60px",
+                            xl: "100px",
+                        },
+                        fontSize: {
+                            xxs: "34px",
+                            sm: "40px",
+                            md: "48px",
+                            xl: "56px",
+                        },
                         fontWeight: 700,
+                        textAlign: { xxs: "center", sm: "left" },
                     }}
                 >
                     Вартість навчання
@@ -126,10 +146,23 @@ export const Prices = () => {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        top: { lg: "40px", lgr: "60px", xl: "72px" },
-                        right: { lg: "60px", xl: "100px" },
-                        width: { lg: "418px", xl: "530px" },
-                        height: { lg: "69px", xl: "79px" },
+                        top: {
+                            xxs: "64px",
+                            sm: "40px",
+                            lg: "60px",
+                            xl: "72px",
+                        },
+                        right: {
+                            xxs: 0,
+                            sm: "20px",
+                            md: "60px",
+                            xl: "100px",
+                        },
+                        left: { xxs: 0, sm: "auto" },
+                        mx: "auto",
+                        p: { xxs: "20px 47px 20px 47px", xs: 0 },
+                        width: { xxs: "270px", xs: "418px", xl: "530px" },
+                        height: { xxs: "98px", xs: "69px", xl: "79px" },
                         borderRadius: "8px",
                         backgroundColor: "darkBlue.main",
                         boxShadow: `5px 4px 6px 0px #14313D17, 
@@ -144,7 +177,7 @@ export const Prices = () => {
                     <Typography
                         sx={{
                             color: "lightBlue.light",
-                            fontSize: { lg: "24px", xl: "32px" },
+                            fontSize: { xxs: "24px", xl: "32px" },
                             fontWeight: 700,
                         }}
                     >
@@ -152,12 +185,15 @@ export const Prices = () => {
                     </Typography>
                 </Paper>
                 <Stack
-                    direction="row"
-                    spacing={{ lg: 2.5, xl: 4 }}
+                    direction={{ xxs: "column", sm: "row" }}
+                    flexWrap={{ xxs: "nowrap", sm: "wrap", md: "nowrap" }}
+                    useFlexGap={{ xxs: false, sm: true, md: false }}
+                    spacing={{ xxs: 2, sm: 2.5, xl: 4 }}
                     justifyContent="space-between"
+                    alignItems={{ xxs: "center", sm: "normal" }}
                     sx={{
-                        px: { lg: "60px", xl: "100px" },
-                        mb: { lg: "56px", xl: "72px" },
+                        px: { sm: "20px", md: "60px", xl: "100px" },
+                        mb: { md: "56px", xl: "72px" },
                     }}
                 >
                     {cardsContent.map((item) => (
@@ -167,43 +203,21 @@ export const Prices = () => {
                             offers={item.offers}
                         />
                     ))}
+                    <Box
+                        sx={{
+                            display: { xxs: "block", md: "none" },
+                        }}
+                    >
+                        <LessonConditions direction="column" />
+                    </Box>
                 </Stack>
-                <Stack
-                    direction="row"
-                    justifyContent="space-between"
-                    spacing={{ lg: 5, xl: 10 }}
+                <Box
                     sx={{
-                        mx: { lg: "60px", xl: "100px" },
+                        display: { xxs: "none", md: "block" },
                     }}
                 >
-                    {conditions.map((item) => (
-                        <Box
-                            key={item.id}
-                            sx={{
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                borderRadius: "0.5rem",
-                                backgroundColor: "lightBlue.main",
-                                px: { lg: "16px", lgr: "24px", xl: "24px" },
-                                py: "12px",
-                            }}
-                        >
-                            <Typography
-                                sx={{
-                                    fontSize: {
-                                        lg: "22px",
-                                        lgr: "24px",
-                                        xl: "28px",
-                                    },
-                                    textAlign: "center",
-                                }}
-                            >
-                                {item.text}
-                            </Typography>
-                        </Box>
-                    ))}
-                </Stack>
+                    <LessonConditions direction="row" />
+                </Box>
             </Paper>
         </Box>
     );

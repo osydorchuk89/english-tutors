@@ -47,11 +47,11 @@ export const FAQAccordion = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 width: "100%",
-                minHeight: { lg: "564px", xl: "616px" },
+                minHeight: { md: "564px", xl: "616px" },
                 backgroundColor: "lightBlue.light",
                 borderRadius: "16px",
-                py: { lg: "40px", xl: "56px" },
-                px: { lg: "60px", xl: "100px" },
+                py: { md: "40px", xl: "56px" },
+                px: { md: "60px", xl: "100px" },
             }}
         >
             {faqs.map((item) => (
@@ -81,8 +81,8 @@ export const FAQAccordion = () => {
                     <AccordionSummary
                         sx={{
                             backgroundColor: "inherit",
-                            height: { lg: "109px", xl: "114px" },
-                            pl: { lg: "60px", xl: "100px" },
+                            height: { md: "109px", xl: "114px" },
+                            pl: { md: "60px", xl: "100px" },
                             borderRadius: "16px",
                             "&.Mui-expanded": {
                                 backgroundColor: "darkBlue.main",
@@ -103,7 +103,7 @@ export const FAQAccordion = () => {
                     >
                         <Typography
                             sx={{
-                                fontSize: { lg: "24px", xl: "28px" },
+                                fontSize: { md: "24px", xl: "28px" },
                                 color: "inherit",
                             }}
                         >
@@ -113,10 +113,10 @@ export const FAQAccordion = () => {
                     <AccordionDetails
                         sx={{
                             backgroundColor: "inherit",
-                            fontSize: { lg: "20px", xl: "22px" },
-                            minHeight: { lg: "152px", xl: "168px" },
-                            px: { lg: "60px", xl: "100px" },
-                            pt: { lg: "24px", xl: "32px" },
+                            fontSize: { md: "20px", xl: "22px" },
+                            minHeight: { md: "152px", xl: "168px" },
+                            px: { md: "60px", xl: "100px" },
+                            pt: { md: "24px", xl: "32px" },
                         }}
                     >
                         {item.answer}

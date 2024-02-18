@@ -7,16 +7,16 @@ export const ContactCard = ({ img, name, text, phone, href }) => {
         <Paper
             elevation={0}
             sx={{
-                width: { lg: "367px", lgr: "386px", xl: "485px" },
-                height: { lg: "543px", xl: "585px" },
+                width: { md: "367px", lg: "386px", xxl: "485px" },
+                height: { md: "543px", xl: "585px" },
                 backgroundColor: "lightBlue.dark",
                 borderRadius: "16px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "flex-start",
                 alignItems: "flex-start",
-                px: { lg: "75px", xl: "112px" },
-                pt: { lg: "40px", xl: "48px" },
+                px: { md: "75px", xxl: "112px" },
+                pt: { md: "40px", xxl: "48px" },
                 boxShadow: `5px 4px 6px 0px #14313D17,
                     11px 10px 9px 0px #14313D0D,
                     19px 18px 10px 0px #14313D03,
@@ -36,19 +36,19 @@ export const ContactCard = ({ img, name, text, phone, href }) => {
             </Box>
             <Typography
                 sx={{
-                    fontSize: { lg: "24px", xl: "32px" },
-                    lineHeight: { lg: "29.26px", xl: "39.01px" },
+                    fontSize: { md: "24px", xl: "32px" },
+                    lineHeight: { md: "29.26px", xl: "39.01px" },
                     fontWeight: 700,
-                    mb: { lg: "16px", xl: "8px" },
+                    mb: { md: "16px", xl: "8px" },
                 }}
             >
                 {name}
             </Typography>
             <Typography
                 sx={{
-                    fontSize: { lg: "18px", xl: "22px" },
-                    lineHeight: { lg: "21.94px", xl: "26.82px" },
-                    mb: { lg: "69px", xl: "40px" },
+                    fontSize: { md: "18px", xl: "22px" },
+                    lineHeight: { md: "21.94px", xl: "26.82px" },
+                    mb: { md: "69px", xl: "40px" },
                 }}
             >
                 {text}
@@ -56,8 +56,8 @@ export const ContactCard = ({ img, name, text, phone, href }) => {
             <Typography
                 sx={{
                     fontSize: "12px",
-                    lineHeight: { lg: "14.63px", xl: "19.5px" },
-                    mb: { lg: "8px", xl: "13px" },
+                    lineHeight: { md: "14.63px", xl: "19.5px" },
+                    mb: { md: "8px", xl: "13px" },
                 }}
             >
                 {phone}

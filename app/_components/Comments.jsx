@@ -72,17 +72,17 @@ export const Comments = ({ reviews }) => {
     return (
         <Stack
             sx={{
-                width: { lg: "650px", xl: "973px" },
+                width: { md: "650px", xl: "973px" },
                 height: "100%",
-                pl: { lg: "60px", xl: "100px" },
+                pl: { md: "60px", xl: "100px" },
             }}
         >
             <Typography
                 sx={{
-                    height: { lg: "55px", xl: "68px" },
-                    fontSize: { lg: "48px", xl: "56px" },
+                    height: { md: "55px", xl: "68px" },
+                    fontSize: { md: "48px", xl: "56px" },
                     fontWeight: 700,
-                    mb: { lg: "56px", xl: "72px" },
+                    mb: { md: "56px", xl: "72px" },
                 }}
             >
                 Відгуки
@@ -90,7 +90,7 @@ export const Comments = ({ reviews }) => {
             <Stack
                 direction="column"
                 spacing={3}
-                sx={{ ml: { lg: "-60px", lgr: 0, xl: 0 } }}
+                sx={{ ml: { md: "-60px", lg: 0, xl: 0 } }}
             >
                 <NavButton
                     _id="button-up"
@@ -102,8 +102,8 @@ export const Comments = ({ reviews }) => {
                     <Box
                         key={item.id}
                         sx={{
-                            width: { lg: "425px", lgr: "488px", xl: "614px" },
-                            height: { lg: "181px", xl: "211px" },
+                            width: { md: "425px", lg: "488px", xl: "614px" },
+                            height: { md: "181px", xl: "211px" },
                             backgroundColor: "lightBlue.dark",
                             borderRadius: "16px",
                             p: "24px",
@@ -119,9 +119,9 @@ export const Comments = ({ reviews }) => {
                     >
                         <Typography
                             sx={{
-                                fontSize: { lg: "24px", xl: "32px" },
+                                fontSize: { md: "24px", xl: "32px" },
                                 fontWeight: 700,
-                                lineHeight: { lg: "29.26px", xl: "39.01px" },
+                                lineHeight: { md: "29.26px", xl: "39.01px" },
                                 mb: "16px",
                             }}
                         >
@@ -130,11 +130,11 @@ export const Comments = ({ reviews }) => {
                         <Typography
                             sx={{
                                 fontSize: {
-                                    lg: "16px",
-                                    lgr: "18px",
+                                    md: "16px",
+                                    lg: "18px",
                                     xl: "22px",
                                 },
-                                lineHeight: { lg: "21.94px", xl: "26.82px" },
+                                lineHeight: { md: "21.94px", xl: "26.82px" },
                             }}
                         >
                             {item.text}

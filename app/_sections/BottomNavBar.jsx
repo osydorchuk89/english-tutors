@@ -31,7 +31,7 @@ export const BottomNavBar = () => {
                 width: "100%",
                 height: "168px",
                 mt: "60px",
-                px: { lg: "120px", xl: "200px" },
+                px: { md: "120px", xl: "200px" },
                 backgroundColor: "darkBlue.dark",
                 borderRadius: "24px 24px 0 0",
                 top: "auto",
@@ -50,13 +50,13 @@ export const BottomNavBar = () => {
                     direction="column"
                     alignItems="center"
                     sx={{
-                        mt: { lg: "93px", xl: "96px" },
+                        mt: { md: "93px", xl: "96px" },
                         color: "lightBlue.light",
                     }}
                 >
                     <Typography
                         sx={{
-                            fontSize: { lg: "12px", xl: "16px" },
+                            fontSize: { md: "12px", xl: "16px" },
                             color: "inherit",
                         }}
                     >
@@ -64,7 +64,7 @@ export const BottomNavBar = () => {
                     </Typography>
                     <Typography
                         sx={{
-                            fontSize: { lg: "12px", xl: "16px" },
+                            fontSize: { md: "12px", xl: "16px" },
                             color: "inherit",
                         }}
                     >
@@ -73,7 +73,7 @@ export const BottomNavBar = () => {
                 </Stack>
                 <Box
                     sx={{
-                        mt: { lg: "60px", xl: "55px" },
+                        mt: { md: "60px", xl: "55px" },
                     }}
                 >
                     <OrderButton text="Записатися" onClick={handleModalOpen} />

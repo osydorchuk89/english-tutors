@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Box, Paper, Stack, Typography, IconButton } from "@mui/material";
+import { Box, Paper, Stack, Typography } from "@mui/material";
 import { iconDown, iconUp } from "@/lib/icons";
 import { NavButton } from "./NavButtons";
 
@@ -30,14 +30,19 @@ export const TutorsCards = ({ tutors }) => {
                 position: "relative",
                 display: "flex",
                 alignItems: "center",
-                width: { lg: "710px", xl: "944px" },
-                height: "100%",
+                width: { xxs: "100%", sm: "536px", md: "710px", xl: "944px" },
+                height: { xxs: "700px", sm: "100%" },
             }}
         >
             <Paper
                 sx={{
                     position: "absolute",
-                    width: { lg: "608px", xl: "815px" },
+                    width: {
+                        xxs: "289px",
+                        xs: "407px",
+                        md: "608px",
+                        xxl: "815px",
+                    },
                     height: "100%",
                     right: 0,
                     backgroundColor: "lightBlue.light",
@@ -48,10 +53,21 @@ export const TutorsCards = ({ tutors }) => {
             />
             <Stack
                 alignItems="center"
+                justifyContent="space-between"
                 sx={{
                     position: "absolute",
-                    width: { lg: "590px", xl: "744px" },
-                    right: { lg: "120px", xl: "200px" },
+                    width: {
+                        xxs: "358px",
+                        xs: "496px",
+                        md: "590px",
+                        xxl: "744px",
+                    },
+                    right: {
+                        xxs: "16px",
+                        xs: "40px",
+                        md: "120px",
+                        xl: "200px",
+                    },
                     height: "646px",
                     zIndex: 10,
                 }}
@@ -60,7 +76,7 @@ export const TutorsCards = ({ tutors }) => {
                 <Box
                     sx={{
                         width: "100%",
-                        height: "534px",
+                        height: { xxs: "412px", xs: "442px", md: "534px" },
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "center",
@@ -70,7 +86,7 @@ export const TutorsCards = ({ tutors }) => {
                         className="flip-box"
                         sx={{
                             width: "100%",
-                            height: "486px",
+                            height: { xxs: "412px", xs: "442px", md: "486px" },
                             perspective: "1000px",
                         }}
                     >
@@ -96,7 +112,11 @@ export const TutorsCards = ({ tutors }) => {
                                         width: "229px",
                                         height: "229px",
                                         overflow: "hidden",
-                                        mb: "40px",
+                                        mb: {
+                                            xxs: "24px",
+                                            xs: "32px",
+                                            md: "40px",
+                                        },
                                         borderRadius: "8px",
                                     }}
                                 >
@@ -114,14 +134,14 @@ export const TutorsCards = ({ tutors }) => {
                                     sx={{
                                         fontSize: "24px",
                                         fontWeight: 700,
-                                        mb: "24px",
+                                        mb: { xxs: "16px", xs: "24px" },
                                     }}
                                 >
                                     {tutors[cardIndex].name}
                                 </Typography>
                                 <Typography
                                     sx={{
-                                        fontSize: "18px",
+                                        fontSize: { xxs: "16px", md: "18px" },
                                         fontWeight: 600,
                                         mb: "8px",
                                     }}

@@ -35,19 +35,19 @@ export const Contacts = () => {
             sx={{
                 position: "relative",
                 width: "100%",
-                height: { lg: "773px", xl: "865px" },
-                pl: { lg: "60px", lgr: "120px", xl: "200px" },
+                height: { md: "773px", xl: "865px" },
+                pl: { md: "60px", lg: "120px", xl: "200px" },
                 scrollMarginTop: "80px",
                 m: "120px 0 120px 0",
             }}
         >
             <Typography
                 sx={{
-                    fontSize: { lg: "48px", xl: "56px" },
+                    fontSize: { md: "48px", xl: "56px" },
                     fontWeight: 700,
                     position: "absolute",
                     top: 0,
-                    left: { lg: "120px", xl: "200px" },
+                    left: { md: "120px", xl: "200px" },
                     zIndex: 10,
                 }}
             >
@@ -60,14 +60,14 @@ export const Contacts = () => {
                     backgroundColor: "lightBlue.light",
                     borderRadius: "24px 0 0 24px",
                     right: 0,
-                    left: { lg: "608px", xl: "847px" },
+                    left: { md: "608px", xl: "847px" },
                 }}
             />
             <Stack
                 direction="row"
                 alignItems="center"
                 sx={{ position: "absolute" }}
-                spacing={{ lg: 10, lgr: 12, xl: 15 }} //custom spacing
+                spacing={{ md: 10, lg: 12, xl: 15 }} //custom spacing
             >
                 <Stack spacing={8}>
                     {icons.map((icon) => (
@@ -77,9 +77,9 @@ export const Contacts = () => {
                             key={icon.id}
                             sx={{
                                 width: {
-                                    lg: "148px",
-                                    lgr: "183px",
-                                    xl: "356px",
+                                    md: "148px",
+                                    lg: "183px",
+                                    xxl: "356px",
                                 },
                                 height: "72px",
                                 display: "flex",

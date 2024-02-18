@@ -9,12 +9,18 @@ export const Tutors = async () => {
     return (
         <Stack
             id="tutors"
-            direction="row"
+            direction={{ xxs: "column", sm: "row" }}
+            spacing={{ xxs: 4, sm: 0 }}
             sx={{
-                height: { lg: "896px", lgr: "758px", xl: "758px" },
+                height: {
+                    xxs: "1114px",
+                    sm: "896px",
+                    lg: "758px",
+                    xl: "758px",
+                },
                 width: "100%",
-                pl: { lg: "120px", xl: "200px" },
-                my: { lg: "120px", xl: "182px" },
+                pl: { xxs: "16px", xs: "40px", md: "120px", xl: "200px" },
+                my: { xxs: "80px", md: "120px", xl: "182px" },
                 scrollMarginTop: "80px",
             }}
         >

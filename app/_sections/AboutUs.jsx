@@ -1,12 +1,5 @@
 import Link from "next/link";
-import {
-    Stack,
-    Typography,
-    Box,
-    List,
-    ListItem,
-    ListItemText,
-} from "@mui/material";
+import { Stack, Typography, Box } from "@mui/material";
 import { TryItCard } from "../_components/TryItCard";
 import {
     iconInstagram,
@@ -34,39 +27,90 @@ export const AboutUs = () => {
         <Stack
             direction="column"
             sx={{
-                mt: { lg: "170px", xl: "160px" },
+                mt: { xxs: "56px", xs: "154px", md: "170px", xl: "160px" },
                 scrollMarginTop: "80px",
             }}
         >
-            <Stack direction="row" sx={{ ml: { lg: "120px", xl: "200px" } }}>
+            <Stack
+                direction="row"
+                sx={{
+                    ml: { xxs: "16px", xs: "40px", md: "120px", xl: "200px" },
+                }}
+            >
                 <Stack direction="column">
                     <Typography
                         sx={{
-                            fontSize: { lg: "80px", xl: "96px" },
+                            fontSize: {
+                                xxs: "48px",
+                                xs: "52px",
+                                md: "80px",
+                                xl: "96px",
+                            },
                             fontWeight: 900,
-                            lineHeight: { lg: "97.52px", xl: "117.02px" },
-                            mb: "24px",
-                            mr: { lg: "222px", xl: "322px" },
+                            lineHeight: { md: "97.52px", xl: "117.02px" },
+                            mb: {
+                                xxs: "24px",
+                                xl: "56px",
+                                md: "24px",
+                                xl: "32px",
+                            },
+                            mr: {
+                                xxs: "16px",
+                                xs: "40px",
+                                md: "222px",
+                                xl: "322px",
+                            },
                         }}
                     >
                         Заговоріть англійською впевнено
                     </Typography>
-                    <BulletedList items={aboutItems} />
+                    <BulletedList
+                        items={aboutItems}
+                        fontSize={{
+                            xxs: "18px",
+                            xs: "22px",
+                            md: "24px",
+                            xl: "28px",
+                        }}
+                        width={{
+                            xxs: "275px",
+                            xs: "800px",
+                        }}
+                    />
                 </Stack>
                 <Stack
                     direction="column"
                     justifyContent="center"
                     sx={{
-                        width: { lg: "201px", xl: "297px" },
-                        height: { lg: "352px", xl: "384px" },
+                        width: {
+                            xxs: "80px",
+                            xs: "149px",
+                            md: "201px",
+                            xl: "297px",
+                        },
+                        height: {
+                            xxs: "296px",
+                            xs: "368px",
+                            md: "352px",
+                            xl: "384px",
+                        },
                         position: "absolute",
-                        top: "360px",
+                        top: {
+                            xxs: "360px",
+                            xs: "410px",
+                            md: "360px",
+                        },
                         right: 0,
                         backgroundColor: "lightBlue.light",
                         borderRadius: "24px 0 0 24px",
                         boxShadow: "0px 0px 48px 0px #14313D1F",
-                        pl: { lg: "57px", xl: "73px" },
-                        gap: "48px",
+                        pl: {
+                            xxs: "16px",
+                            xs: "61px",
+                            md: "57px",
+                            xl: "73px",
+                        },
+                        gap: { xxs: "36px", xs: "44px", md: "48px" },
                     }}
                 >
                     {socialIcons.map((item) => (
@@ -80,7 +124,7 @@ export const AboutUs = () => {
                 sx={{
                     display: "flex",
                     justifyContent: "center",
-                    mt: "120px",
+                    mt: { xxs: "248px", xs: "365px", md: "120px" },
                 }}
             >
                 <TryItCard />

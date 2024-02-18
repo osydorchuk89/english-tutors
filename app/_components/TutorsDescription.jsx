@@ -45,57 +45,98 @@ export const TutorsDescription = () => {
     return (
         <Stack
             sx={{
-                width: { lg: "calc(100% - 790px)", xl: "calc(100% - 944px)" },
-                mr: "80px",
+                width: {
+                    xxs: "100%",
+                    sm: "calc(100% - 536px)",
+                    md: "calc(100% - 710px)",
+                    xl: "calc(100% - 944px)",
+                },
+                mr: { xxs: "16px", xs: "40px", md: "80px" },
             }}
         >
             <Typography
                 sx={{
-                    width: { lg: "288px", lgr: "346px", xl: "450px" },
-                    fontSize: { lg: "40px", lgr: "48px", xl: "56px" },
+                    width: {
+                        xxs: "245px",
+                        xs: "288px",
+                        lg: "346px",
+                        xl: "450px",
+                    }, //custom values
+                    fontSize: {
+                        xxs: "34px",
+                        xs: "40px",
+                        lg: "48px",
+                        xl: "56px",
+                    },
                     fontWeight: 700,
                     lineHeight: {
-                        lg: "48.76px",
-                        lgr: "58.51px",
+                        xxs: "41.45px",
+                        xs: "48.76px",
+                        lg: "58.51px",
                         xl: "68.26px",
                     },
-                    mb: { lg: "40px", lgr: "56px", xl: "72px" },
+                    mb: { xxs: "32px", xs: "40px", lg: "56px", xl: "72px" },
                 }}
             >
                 Вчителі English Zoom
             </Typography>
             <Stack
-                spacing={{ lg: 4, lgr: 5, xl: 6 }}
+                spacing={{ xxs: 2, xs: 4, lg: 5, xl: 6 }}
+                justifyContent={{ xxs: "space-between", sm: "normal" }}
                 useFlexGap
-                flexWrap={{ lg: "no-wrap", lgr: "wrap", xl: "wrap" }}
+                flexWrap={{ xxs: "wrap", sm: "nowrap", lg: "wrap" }}
                 sx={{
                     width: "100%",
-                    height: { lg: "592px", lgr: "386px", xl: "462px" },
+                    height: {
+                        xxs: "248px",
+                        sm: "688px",
+                        lg: "386px",
+                        xl: "462px",
+                    },
                 }}
             >
                 {descriptionItems.map((item) => (
                     <Box
                         key={item.id}
                         sx={{
-                            width: { lg: "238px", lgr: "285px", xl: "330px" },
-                            height: { lg: "88px", lgr: "102px", xl: "122px" },
+                            width: {
+                                xxs: "171px",
+                                sm: "238px",
+                                lg: "285px",
+                                xl: "330px",
+                            },
+                            height: {
+                                xxs: "72px",
+                                sm: "88px",
+                                lg: "102px",
+                                xl: "122px",
+                            },
                         }}
                     >
                         <Box
-                            sx={{ mb: { lg: "16px", lgr: "24px", xl: "24px" } }}
+                            sx={{
+                                mb: {
+                                    xxs: "8px",
+                                    sm: "16px",
+                                    lg: "24px",
+                                    xl: "24px",
+                                },
+                            }}
                         >
                             {item.icon}
                         </Box>
                         <Typography
                             sx={{
                                 fontSize: {
-                                    lg: "20px",
-                                    lgr: "22px",
+                                    xxs: "16px",
+                                    sm: "20px",
+                                    lg: "22px",
                                     xl: "30px",
                                 },
                                 lineHeight: {
-                                    lg: "24.38px",
-                                    lgr: "26.82px",
+                                    xxs: "19.5px",
+                                    sm: "24.38px",
+                                    lg: "26.82px",
                                     xl: "36.57px",
                                 },
                             }}

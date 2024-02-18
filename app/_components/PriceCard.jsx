@@ -9,8 +9,8 @@ export const PriceCard = ({ title, offers }) => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                width: { lg: "387px", xl: "485px" },
-                height: { lg: "369px", xl: "415px" },
+                width: { xxs: "358px", xs: "367px", md: "387px", xl: "485px" },
+                height: { xxs: "337px", xs: "369px", xl: "415px" },
                 borderRadius: "16px",
                 backgroundColor: "lightBlue.dark",
                 boxShadow: `5px 4px 6px 0px #14313D17, 
@@ -27,7 +27,7 @@ export const PriceCard = ({ title, offers }) => {
                     justifyContent: "center",
                     alignItems: "center",
                     width: "100%",
-                    height: { lg: "125px", xl: "135px" },
+                    height: { xxs: "93px", xs: "125px", xl: "135px" },
                     backgroundColor: "darkBlue.light",
                     gap: "8px",
                     borderRadius: "16px",
@@ -36,7 +36,7 @@ export const PriceCard = ({ title, offers }) => {
                 <Typography
                     sx={{
                         color: "lightBlue.light",
-                        fontSize: { lg: "24px", xl: "32px" },
+                        fontSize: { xxs: "24px", xl: "32px" },
                         fontWeight: 700,
                     }}
                 >
@@ -49,10 +49,18 @@ export const PriceCard = ({ title, offers }) => {
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
-                    width: "calc( 100% - 60px )",
-                    height: "calc( 100% - 125px )",
+                    width: {
+                        xxs: "calc(100% - 32px)",
+                        xs: "calc( 100% - 40px )",
+                        md: "calc( 100% - 60px )",
+                    },
+                    height: {
+                        xxs: "calc(100% - 93px)",
+                        xs: "calc( 100% - 125px )",
+                        xl: "calc( 100% - 135px )",
+                    },
                     py: 0,
-                    mx: "30px",
+                    mx: { xxs: "16px", xs: "20px", md: "30px" },
                     gap: "16px",
                 }}
             >
@@ -65,7 +73,12 @@ export const PriceCard = ({ title, offers }) => {
                             >
                                 <Typography
                                     sx={{
-                                        fontsize: { lg: "18px", xl: "22px" },
+                                        fontsize: {
+                                            xxs: "18px",
+                                            xs: "16px",
+                                            md: "18px",
+                                            xl: "22px",
+                                        },
                                         float: "left",
                                     }}
                                 >
@@ -83,7 +96,12 @@ export const PriceCard = ({ title, offers }) => {
                                 />
                                 <Typography
                                     sx={{
-                                        fontsize: { lg: "18px", xl: "22px" },
+                                        fontsize: {
+                                            xxs: "18px",
+                                            xs: "16px",
+                                            md: "18px",
+                                            xl: "22px",
+                                        },
                                         float: "right",
                                     }}
                                 >
@@ -91,7 +109,10 @@ export const PriceCard = ({ title, offers }) => {
                                 </Typography>
                             </Stack>
                             <Typography
-                                sx={{ fontSize: "12px", fontWeight: 700 }}
+                                sx={{
+                                    fontSize: { xxs: "10px", md: "12px" },
+                                    fontWeight: 700,
+                                }}
                             >
                                 {item.discount}
                             </Typography>

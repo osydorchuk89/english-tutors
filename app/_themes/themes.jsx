@@ -61,11 +61,13 @@ export const myTheme = createTheme({
     },
     breakpoints: {
         values: {
-            sm: 0,
-            md: 612,
-            lg: 1137,
-            lgr: 1450,
+            xxs: 0,
+            xs: 612,
+            sm: 834,
+            md: 1137,
+            lg: 1450,
             xl: 1680,
+            xxl: 1800,
         },
     },
 });

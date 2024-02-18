@@ -1,14 +1,15 @@
 import { List, ListItem, ListItemText } from "@mui/material";
 
-export const BulletedList = ({ items }) => {
+export const BulletedList = ({ items, fontSize, width }) => {
     return (
         <List
             disablePadding
             dense
             sx={{
-                marginBottom: "32px",
-                paddingLeft: "16px",
+                mb: "32px",
+                pl: "16px",
                 listStyleType: "disc",
+                width: width,
             }}
         >
             {items.map((item) => (
@@ -26,11 +27,7 @@ export const BulletedList = ({ items }) => {
                         inset={false}
                         disableTypography
                         sx={{
-                            fontSize: { lg: "22px", xl: "30px" },
-                            lineHeight: {
-                                lg: "26.82px",
-                                xl: "36.57px",
-                            },
+                            fontSize: fontSize,
                             "&.MuiListItemText-root": {
                                 padding: 0,
                                 margin: 0,
