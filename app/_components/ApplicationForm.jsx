@@ -49,10 +49,15 @@ export const ApplicationForm = ({ borderRadiusProp }) => {
                 alignItems: "center",
                 color: "lightBlue.light",
                 backgroundColor: "darkBlue.dark",
-                width: { lg: "calc(100% - 120px)", xl: "calc(100% - 200px)" },
-                height: { lg: "706px", xl: "909px" },
-                py: { lg: "120px", xl: "182px" },
-                mx: { lg: "60px", xl: "100px" },
+                width: {
+                    xxs: "100%",
+                    xs: "calc(100% - 40px)",
+                    sm: "calc(100% - 120px)",
+                    xl: "calc(100% - 200px)",
+                },
+                height: { xxs: "513px", sm: "636px", md: "706px", xl: "909px" },
+                py: { xxs: "56px", sm: "80px", md: "120px", xl: "182px" },
+                mx: { xxs: 0, xs: "20px", md: "60px", xl: "100px" },
                 borderRadius: borderRadiusProp,
                 boxShadow: `1px 2px 5px 0px #14313D4A,
                     5px 9px 10px 0px #14313D42,
@@ -64,37 +69,51 @@ export const ApplicationForm = ({ borderRadiusProp }) => {
                 disableRipple
                 sx={{
                     position: "absolute",
-                    top: "60px",
-                    right: "60px",
+                    top: { xxs: "10px", xs: "20px", md: "60px" },
+                    right: { xxs: "10px", xs: "20px", md: "60px" },
                     color: "inherit",
                 }}
                 onClick={() => setModalOpen(false)}
             >
                 <CloseIcon
                     sx={{
-                        fontSize: { lg: "32px", xl: "40px" },
+                        fontSize: { xxs: "24px", xs: "32px", xl: "40px" },
                     }}
                 />
             </IconButton>
             <Typography
                 sx={{
-                    fontSize: { lg: "48px", xl: "56px" },
+                    fontSize: {
+                        xxs: "34px",
+                        xs: "40px",
+                        md: "48px",
+                        xl: "56px",
+                    },
                     fontWeight: 700,
                     color: "inherit",
-                    mb: "56px",
+                    mb: {
+                        xxs: "32px",
+                        xs: "48px",
+                        md: "56px",
+                    },
                 }}
             >
                 Залиште заявку
             </Typography>
             <Box
                 sx={{
-                    width: { lg: "590px", xl: "746px" },
+                    width: {
+                        xxs: "358px",
+                        xs: "496px",
+                        md: "590px",
+                        xl: "746px",
+                    },
                 }}
             >
                 <form ref={formRef} action={sendApplicationData}>
                     <Stack
-                        spacing={{ lg: 3, xl: 4 }}
-                        sx={{ mb: { lg: "32px", xl: "56px" } }}
+                        spacing={{ xxs: 2, xs: 3, xl: 4 }}
+                        sx={{ mb: { xxs: "24px", xs: "32px", xl: "56px" } }}
                     >
                         <DarkInputField type="text" label="Ім'я" name="name" />
                         <DarkInputField
@@ -106,9 +125,19 @@ export const ApplicationForm = ({ borderRadiusProp }) => {
                     <Typography
                         sx={{
                             color: "inherit",
-                            fontSize: { lg: "24px", xl: "28px" },
+                            fontSize: {
+                                xxs: "18px",
+                                xs: "18px",
+                                md: "24px",
+                                xl: "28px",
+                            },
                             // lineHeight: "29.26px",
-                            mb: { lg: "56px", xl: "72px" },
+                            mb: {
+                                xxs: "32px",
+                                xs: "48px",
+                                md: "56px",
+                                xl: "72px",
+                            },
                         }}
                     >
                         Ви можете залишити заявку на безкоштовне заняття. Ми

@@ -57,17 +57,22 @@ export const TutorsCards = ({ tutors }) => {
                 sx={{
                     position: "absolute",
                     width: {
-                        xxs: "358px",
+                        xxs: "95%",
                         xs: "496px",
                         md: "590px",
                         xxl: "744px",
                     },
+                    maxWidth: {
+                        xxs: "358px",
+                        xs: "auto",
+                    },
                     right: {
-                        xxs: "16px",
-                        xs: "40px",
+                        xxs: 0,
                         md: "120px",
                         xl: "200px",
                     },
+                    left: { xxs: 0, md: "auto" },
+                    mx: "auto",
                     height: "646px",
                     zIndex: 10,
                 }}
