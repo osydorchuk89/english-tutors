@@ -55,7 +55,7 @@ export const ApplicationForm = ({ borderRadiusProp }) => {
                     sm: "calc(100% - 120px)",
                     xl: "calc(100% - 200px)",
                 },
-                height: { xxs: "513px", sm: "636px", md: "706px", xl: "909px" },
+                height: "100%",
                 py: { xxs: "56px", sm: "80px", md: "120px", xl: "182px" },
                 mx: { xxs: 0, xs: "20px", md: "60px", xl: "100px" },
                 borderRadius: borderRadiusProp,
@@ -96,6 +96,7 @@ export const ApplicationForm = ({ borderRadiusProp }) => {
                         xs: "48px",
                         md: "56px",
                     },
+                    textAlign: "center",
                 }}
             >
                 Залиште заявку
@@ -103,7 +104,7 @@ export const ApplicationForm = ({ borderRadiusProp }) => {
             <Box
                 sx={{
                     width: {
-                        xxs: "358px",
+                        xxs: "90%",
                         xs: "496px",
                         md: "590px",
                         xl: "746px",

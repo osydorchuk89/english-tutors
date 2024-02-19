@@ -35,31 +35,25 @@ export const FeedbackCards = ({ screenshots }) => {
             newReviewSlice = reviewSlice.map((index) => index + 2);
         }
 
-        console.log(reviewSlice);
+        newReviewSlice[0] === 0
+            ? setButtonDisabled((prevState) => ({
+                  ...prevState,
+                  buttonUp: true,
+              }))
+            : setButtonDisabled((prevState) => ({
+                  ...prevState,
+                  buttonUp: false,
+              }));
 
-        if (newReviewSlice[0] === 0) {
-            setButtonDisabled((prevState) => ({
-                ...prevState,
-                buttonUp: true,
-            }));
-        } else {
-            setButtonDisabled((prevState) => ({
-                ...prevState,
-                buttonUp: false,
-            }));
-        }
-
-        if (newReviewSlice[1] === reviews.length) {
-            setButtonDisabled((prevState) => ({
-                ...prevState,
-                buttonDown: true,
-            }));
-        } else {
-            setButtonDisabled((prevState) => ({
-                ...prevState,
-                buttonDown: false,
-            }));
-        }
+        newReviewSlice[1] === reviews.length
+            ? setButtonDisabled((prevState) => ({
+                  ...prevState,
+                  buttonDown: true,
+              }))
+            : setButtonDisabled((prevState) => ({
+                  ...prevState,
+                  buttonDown: false,
+              }));
     };
 
     return (
@@ -69,7 +63,8 @@ export const FeedbackCards = ({ screenshots }) => {
                 flexDirection: "column",
                 justifyContent: "flexStart",
                 alignItems: "center",
-                pt: { md: "115px", xl: "140px" },
+                pt: { xxs: 0, md: "115px", xl: "140px" },
+
                 zIndex: 10,
             }}
         >
@@ -82,10 +77,15 @@ export const FeedbackCards = ({ screenshots }) => {
             <ImageList
                 variant="standard"
                 cols={2}
-                gap={10}
+                gap={12}
                 sx={{
-                    width: { md: "590px", xl: "615px" },
-                    height: "793px",
+                    width: {
+                        xxs: "calc(100% - 32px)",
+                        xs: "496px",
+                        md: "590px",
+                        xl: "615px",
+                    },
+                    height: { xxs: "482px", xs: "670px", md: "793px" },
                     my: "24px",
                 }}
             >

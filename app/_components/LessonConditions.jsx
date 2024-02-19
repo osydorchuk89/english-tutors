@@ -12,12 +12,13 @@ export const LessonConditions = ({ direction }) => {
         <Stack
             direction={direction}
             justifyContent="space-between"
-            alignItems="flex-end"
+            alignItems={{ xxs: "center", sm: "flex-end" }}
             spacing={{ xxs: 2, md: 5, xl: 10 }}
             sx={{
                 mx: { md: "60px", xl: "100px" },
                 mt: { xxs: "40px", sm: 0 },
                 height: "100%",
+                width: { xxs: "100%", sm: "auto" },
             }}
         >
             {conditions.map((item) => (
@@ -29,7 +30,11 @@ export const LessonConditions = ({ direction }) => {
                         alignItems: "center",
                         borderRadius: "8px",
                         backgroundColor: "lightBlue.main",
-                        width: { xxs: "358px", xs: "367px", sm: "auto" },
+                        width: {
+                            xxs: "calc(100% - 32px)",
+                            xs: "367px",
+                            sm: "auto",
+                        },
                         px: { xs: "16px", lg: "24px", xl: "24px" },
                         py: "12px",
                     }}

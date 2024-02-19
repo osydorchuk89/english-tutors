@@ -9,6 +9,12 @@ export const Application = () => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                minHeight: {
+                    xxs: "513px",
+                    sm: "636px",
+                    md: "706px",
+                    xl: "909px",
+                },
             }}
         >
             <ApplicationForm borderRadiusProp="24px" />

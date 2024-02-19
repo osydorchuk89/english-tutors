@@ -7,7 +7,12 @@ export const ContactCard = ({ img, name, text, phone, href }) => {
         <Paper
             elevation={0}
             sx={{
-                width: { xxs: "358px", sm: "367px", lg: "386px", xxl: "485px" },
+                width: {
+                    xxs: "calc(100% - 32px)",
+                    sm: "367px",
+                    lg: "386px",
+                    xxl: "485px",
+                },
                 height: { xxs: "513px", sm: "533px", md: "543px", xl: "585px" },
                 backgroundColor: "lightBlue.dark",
                 borderRadius: "16px",

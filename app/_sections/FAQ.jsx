@@ -6,29 +6,44 @@ export const FAQ = () => {
         <Box
             id="faq"
             sx={{
-                minHeight: { md: "749px", xl: "873px" },
-                mb: "60px",
-                mx: { md: "60px", xl: "100px" },
+                minHeight: {
+                    xxs: "469px",
+                    xs: "639px",
+                    md: "749px",
+                    xl: "873px",
+                },
+                mb: { xxs: "80px", md: "120px", xl: "182px" },
+                mx: { xxs: 0, xs: "20px", md: "60px", xl: "100px" },
                 scrollMarginTop: "80px",
                 alignSelf: "center",
             }}
         >
             <Typography
                 sx={{
-                    fontSize: { md: "48px", xl: "56px" },
+                    fontSize: {
+                        xxs: "34px",
+                        sm: "40px",
+                        md: "48px",
+                        xl: "56px",
+                    },
                     fontWeight: 700,
-                    mb: "24px",
-                    pl: { md: "60px", xl: "100px" },
+                    mb: { xxs: "16px", md: "24px" },
+                    pl: { xxs: "16px", xs: "20px", md: "60px", xl: "100px" },
                 }}
             >
                 FAQ
             </Typography>
             <Typography
                 sx={{
-                    fontSize: { md: "18px", xl: "22px" },
+                    fontSize: {
+                        xxs: "16px",
+                        xs: "22px",
+                        md: "18px",
+                        xl: "22px",
+                    },
                     fontWeight: 600,
-                    mb: { md: "56px", xl: "72px" },
-                    pl: { md: "60px", xl: "100px" },
+                    mb: { xxs: "32px", xs: "40px", md: "56px", xl: "72px" },
+                    pl: { xxs: "16px", xs: "20px", md: "60px", xl: "100px" },
                 }}
             >
                 Найпопулярніші запитання

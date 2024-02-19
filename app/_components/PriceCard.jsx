@@ -9,7 +9,12 @@ export const PriceCard = ({ title, offers }) => {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                width: { xxs: "358px", xs: "367px", md: "387px", xl: "485px" },
+                width: {
+                    xxs: "calc(100% - 32px)",
+                    xs: "367px",
+                    md: "387px",
+                    xl: "485px",
+                },
                 height: { xxs: "337px", xs: "369px", xl: "415px" },
                 borderRadius: "16px",
                 backgroundColor: "lightBlue.dark",

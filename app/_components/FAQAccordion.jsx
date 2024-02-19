@@ -8,7 +8,7 @@ import {
     AccordionDetails,
     Typography,
 } from "@mui/material";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropDownRoundedIcon from "@mui/icons-material/ArrowDropDownRounded";
 
 const faqs = [
     {
@@ -47,11 +47,16 @@ export const FAQAccordion = () => {
                 flexDirection: "column",
                 justifyContent: "center",
                 width: "100%",
-                minHeight: { md: "564px", xl: "616px" },
+                minHeight: {
+                    xxs: "360px",
+                    xs: "516px",
+                    md: "564px",
+                    xl: "616px",
+                },
                 backgroundColor: "lightBlue.light",
                 borderRadius: "16px",
-                py: { md: "40px", xl: "56px" },
-                px: { md: "60px", xl: "100px" },
+                py: { xxs: "48px", xs: "40px", xl: "56px" },
+                px: { xxs: "16px", xs: "20px", md: "56px", xl: "100px" },
             }}
         >
             {faqs.map((item) => (
@@ -65,7 +70,7 @@ export const FAQAccordion = () => {
                     sx={{
                         backgroundColor: "lightBlue.dark",
                         borderRadius: "16px",
-                        mb: "16px",
+                        mb: { xxs: "16px", xs: "24px" },
                         "&.MuiAccordion-root:first-of-type": {
                             borderRadius: "16px",
                         },
@@ -81,8 +86,18 @@ export const FAQAccordion = () => {
                     <AccordionSummary
                         sx={{
                             backgroundColor: "inherit",
-                            height: { md: "109px", xl: "114px" },
-                            pl: { md: "60px", xl: "100px" },
+                            height: {
+                                xxs: "54px",
+                                xs: "91px",
+                                md: "109px",
+                                xl: "114px",
+                            },
+                            pl: {
+                                xxs: "16px",
+                                xs: "20px",
+                                md: "60px",
+                                xl: "100px",
+                            },
                             borderRadius: "16px",
                             "&.Mui-expanded": {
                                 backgroundColor: "darkBlue.main",
@@ -90,9 +105,9 @@ export const FAQAccordion = () => {
                             },
                         }}
                         expandIcon={
-                            <ArrowDropDownIcon
+                            <ArrowDropDownRoundedIcon
                                 sx={{
-                                    fontSize: "40px",
+                                    fontSize: "52px",
                                     color:
                                         expanded === `panel${item.id}`
                                             ? "lightBlue.light"
@@ -103,7 +118,12 @@ export const FAQAccordion = () => {
                     >
                         <Typography
                             sx={{
-                                fontSize: { md: "24px", xl: "28px" },
+                                fontSize: {
+                                    xxs: "18px",
+                                    xs: "22px",
+                                    md: "24px",
+                                    xl: "28px",
+                                },
                                 color: "inherit",
                             }}
                         >
@@ -113,10 +133,25 @@ export const FAQAccordion = () => {
                     <AccordionDetails
                         sx={{
                             backgroundColor: "inherit",
-                            fontSize: { md: "20px", xl: "22px" },
-                            minHeight: { md: "152px", xl: "168px" },
-                            px: { md: "60px", xl: "100px" },
-                            pt: { md: "24px", xl: "32px" },
+                            fontSize: { xxs: "18px", md: "20px", xl: "22px" },
+                            minHeight: {
+                                xs: "208px",
+                                xs: "184px",
+                                md: "152px",
+                                xl: "168px",
+                            },
+                            px: {
+                                xxs: "16px",
+                                xs: "20px",
+                                md: "60px",
+                                xl: "100px",
+                            },
+                            pt: {
+                                xxs: "16px",
+                                xs: "32px",
+                                md: "24px",
+                                xl: "32px",
+                            },
                         }}
                     >
                         {item.answer}

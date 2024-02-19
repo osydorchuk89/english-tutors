@@ -21,17 +21,16 @@ export const BottomNavBar = () => {
     return (
         <AppBar
             component="footer"
-            position="static"
+            position="relative"
             elevation={0}
             sx={{
                 display: "flex",
-                flexDirection: "row",
-                alignItems: "flex-start",
-                justifyContent: "space-between",
+                flexDirection: { xxs: "column", xs: "row" },
+                alignItems: { xxs: "center", xs: "flex-start" },
+                justifyContent: { xxs: "flex-start", xs: "space-between" },
                 width: "100%",
-                height: "168px",
-                mt: "60px",
-                px: { md: "120px", xl: "200px" },
+                height: { xxs: "265px", xs: "168px" },
+                px: { xxs: "16px", xs: "40px", md: "120px", xl: "200px" },
                 backgroundColor: "darkBlue.dark",
                 borderRadius: "24px 24px 0 0",
                 top: "auto",
@@ -39,24 +38,38 @@ export const BottomNavBar = () => {
             }}
         >
             <ModalContext.Provider value={value}>
-                <Image
-                    src="/logo.png"
-                    width={166}
-                    height={64}
-                    alt="logo"
-                    style={{ marginTop: "54px" }}
-                />
+                <Box
+                    sx={{
+                        mt: { xxs: "24px", xs: "54px" },
+                    }}
+                >
+                    <Image src="/logo.png" width={166} height={64} alt="logo" />
+                </Box>
+                <Box
+                    sx={{
+                        mt: { xxs: "24px", xs: "60px", xl: "55px" },
+                    }}
+                >
+                    <OrderButton text="Записатися" onClick={handleModalOpen} />
+                </Box>
                 <Stack
                     direction="column"
                     alignItems="center"
                     sx={{
-                        mt: { md: "93px", xl: "96px" },
+                        position: "absolute",
+                        left: 0,
+                        right: 0,
+                        bottom: {
+                            xxs: "32px",
+                            xs: "16px",
+                            md: "32px",
+                        },
                         color: "lightBlue.light",
                     }}
                 >
                     <Typography
                         sx={{
-                            fontSize: { md: "12px", xl: "16px" },
+                            fontSize: { xxs: "12px", xl: "16px" },
                             color: "inherit",
                         }}
                     >
@@ -64,20 +77,13 @@ export const BottomNavBar = () => {
                     </Typography>
                     <Typography
                         sx={{
-                            fontSize: { md: "12px", xl: "16px" },
+                            fontSize: { xxs: "12px", xl: "16px" },
                             color: "inherit",
                         }}
                     >
                         Designer
                     </Typography>
                 </Stack>
-                <Box
-                    sx={{
-                        mt: { md: "60px", xl: "55px" },
-                    }}
-                >
-                    <OrderButton text="Записатися" onClick={handleModalOpen} />
-                </Box>
                 <Modal
                     open={modalOpen}
                     onClose={handleModalClose}

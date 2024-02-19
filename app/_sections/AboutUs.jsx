@@ -72,14 +72,7 @@ export const AboutUs = () => {
                             md: "24px",
                             xl: "28px",
                         }}
-                        width={{
-                            xxs: "70%",
-                            xs: "800px",
-                        }}
-                        maxWidth={{
-                            xxs: "275px",
-                            xs: "auto",
-                        }}
+                        width={{ xxs: "60%", xs: "70%" }}
                     />
                 </Stack>
                 <Stack

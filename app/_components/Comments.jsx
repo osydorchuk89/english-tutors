@@ -35,29 +35,49 @@ export const Comments = ({ reviews }) => {
             newReviewSlice = reviewSlice.map((index) => index + 1);
         }
 
-        if (newReviewSlice[0] === 0) {
-            setButtonDisabled((prevState) => ({
-                ...prevState,
-                buttonUp: true,
-            }));
-        } else {
-            setButtonDisabled((prevState) => ({
-                ...prevState,
-                buttonUp: false,
-            }));
-        }
+        newReviewSlice[0] === 0
+            ? setButtonDisabled((prevState) => ({
+                  ...prevState,
+                  buttonUp: true,
+              }))
+            : setButtonDisabled((prevState) => ({
+                  ...prevState,
+                  buttonUp: false,
+              }));
 
-        if (newReviewSlice[1] === reviews.length) {
-            setButtonDisabled((prevState) => ({
-                ...prevState,
-                buttonDown: true,
-            }));
-        } else {
-            setButtonDisabled((prevState) => ({
-                ...prevState,
-                buttonDown: false,
-            }));
-        }
+        // if (newReviewSlice[0] === 0) {
+        //     setButtonDisabled((prevState) => ({
+        //         ...prevState,
+        //         buttonUp: true,
+        //     }));
+        // } else {
+        //     setButtonDisabled((prevState) => ({
+        //         ...prevState,
+        //         buttonUp: false,
+        //     }));
+        // }
+
+        newReviewSlice[1] === reviews.length
+            ? setButtonDisabled((prevState) => ({
+                  ...prevState,
+                  buttonDown: true,
+              }))
+            : setButtonDisabled((prevState) => ({
+                  ...prevState,
+                  buttonDown: false,
+              }));
+
+        // if (newReviewSlice[1] === reviews.length) {
+        //     setButtonDisabled((prevState) => ({
+        //         ...prevState,
+        //         buttonDown: true,
+        //     }));
+        // } else {
+        //     setButtonDisabled((prevState) => ({
+        //         ...prevState,
+        //         buttonDown: false,
+        //     }));
+        // }
     };
 
     if (typeof window !== "undefined") {
@@ -72,25 +92,33 @@ export const Comments = ({ reviews }) => {
     return (
         <Stack
             sx={{
-                width: { md: "650px", xl: "973px" },
-                height: "100%",
-                pl: { md: "60px", xl: "100px" },
+                width: { xxs: "100%", md: "650px", xl: "973px" },
+                height: { xxs: "1109px", xs: "933px", md: "100%" },
+                pl: { xxs: "16px", xs: "20px", md: "60px", xl: "100px" },
             }}
         >
             <Typography
                 sx={{
-                    height: { md: "55px", xl: "68px" },
-                    fontSize: { md: "48px", xl: "56px" },
+                    height: { xxs: "41px", xs: "49px", md: "55px", xl: "68px" },
+                    fontSize: {
+                        xxs: "34px",
+                        xs: "40px",
+                        md: "48px",
+                        xl: "56px",
+                    },
                     fontWeight: 700,
-                    mb: { md: "56px", xl: "72px" },
+                    mb: { xxs: "32px", xs: "40px", md: "56px", xl: "72px" },
                 }}
             >
                 Відгуки
             </Typography>
             <Stack
                 direction="column"
-                spacing={3}
-                sx={{ ml: { md: "-60px", lg: 0, xl: 0 } }}
+                spacing={{ xxs: 2, xs: 3 }}
+                sx={{
+                    ml: { xxs: 0, xs: "-20px", md: "-60px", lg: 0, xl: 0 },
+                    mr: { xxs: "16px", xs: "40px", md: 0 },
+                }}
             >
                 <NavButton
                     _id="button-up"
@@ -102,11 +130,23 @@ export const Comments = ({ reviews }) => {
                     <Box
                         key={item.id}
                         sx={{
-                            width: { md: "425px", lg: "488px", xl: "614px" },
-                            height: { md: "181px", xl: "211px" },
+                            width: {
+                                xxs: "100%",
+                                xs: "496px",
+                                sm: "614px",
+                                md: "425px",
+                                lg: "488px",
+                                xl: "614px",
+                            },
+                            minHeight: {
+                                xxs: "209px",
+                                xs: "153px",
+                                md: "181px",
+                                xl: "211px",
+                            },
                             backgroundColor: "lightBlue.dark",
                             borderRadius: "16px",
-                            p: "24px",
+                            p: { xxs: "16px", xs: "24px" },
                             alignSelf:
                                 index % 2 === 0 ? "flex-start" : "flex-end",
                             boxShadow: `5px 4px 6px 0px #14313D17,
@@ -119,9 +159,9 @@ export const Comments = ({ reviews }) => {
                     >
                         <Typography
                             sx={{
-                                fontSize: { md: "24px", xl: "32px" },
+                                fontSize: { xxs: "24px", xl: "32px" },
                                 fontWeight: 700,
-                                lineHeight: { md: "29.26px", xl: "39.01px" },
+                                lineHeight: { xxs: "29.26px", xl: "39.01px" },
                                 mb: "16px",
                             }}
                         >
@@ -130,11 +170,17 @@ export const Comments = ({ reviews }) => {
                         <Typography
                             sx={{
                                 fontSize: {
-                                    md: "16px",
+                                    xxs: "18px",
+                                    xs: "16px",
                                     lg: "18px",
                                     xl: "22px",
                                 },
-                                lineHeight: { md: "21.94px", xl: "26.82px" },
+                                lineHeight: {
+                                    xxs: "21.94px",
+                                    xs: "19.5px",
+                                    md: "21.94px",
+                                    xl: "26.82px",
+                                },
                             }}
                         >
                             {item.text}

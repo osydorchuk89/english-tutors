@@ -1,4 +1,4 @@
-import { Typography, Stack, Paper, IconButton } from "@mui/material";
+import { Typography, Stack, Paper, IconButton, Box } from "@mui/material";
 import {
     iconTikTok,
     iconInstagram,
@@ -104,17 +104,18 @@ export const Contacts = () => {
                 }}
                 spacing={{ xxs: 10, xs: 15, md: 10, lg: 12, xl: 15 }} //custom spacing
             >
-                <Stack
-                    direction={{ xxs: "row", md: "column" }}
-                    flexWrap={{ xxs: "wrap", sm: "nowrap" }}
-                    useFlexGap={{ xxs: true, sm: false }}
-                    spacing={{ xxs: 2, sm: 8 }}
-                    justifyContent={{
-                        xxs: "space-around",
-                        sm: "space-between",
-                    }}
+                <Box
                     sx={{
                         width: "100%",
+                        display: { xxs: "grid", sm: "flex" },
+                        flexDirection: { sm: "row", md: "column" },
+                        gap: { sm: "64px" },
+                        justifyContent: { xxs: "normal", sm: "space-between" },
+                        justifyItems: { xxs: "center", sm: "normal" },
+                        gridTemplateColumns: "repeat(2, 1fr)",
+                        gridTemplateRows: "repeat(2, 1fr)",
+                        gridColumnGap: "16px",
+                        gridRowGap: "16px",
                     }}
                 >
                     {icons.map((icon) => (
@@ -125,7 +126,7 @@ export const Contacts = () => {
                             sx={{
                                 width: {
                                     xxs: "148px",
-                                    xs: "183px",
+                                    xs: "170px",
                                     sm: "148px",
                                     lg: "183px",
                                     xxl: "356px",
@@ -141,7 +142,7 @@ export const Contacts = () => {
                             {icon.img}
                         </IconButton>
                     ))}
-                </Stack>
+                </Box>
                 <Stack
                     direction={{ xxs: "column", sm: "row" }}
                     justifyContent="center"

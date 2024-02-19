@@ -1,6 +1,6 @@
 import { List, ListItem, ListItemText } from "@mui/material";
 
-export const BulletedList = ({ items, fontSize, width, maxWidth }) => {
+export const BulletedList = ({ items, fontSize, width }) => {
     return (
         <List
             disablePadding
@@ -10,7 +10,6 @@ export const BulletedList = ({ items, fontSize, width, maxWidth }) => {
                 pl: "16px",
                 listStyleType: "disc",
                 width: width,
-                maxWidth: maxWidth,
             }}
         >
             {items.map((item) => (

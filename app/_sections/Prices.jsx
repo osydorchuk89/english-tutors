@@ -206,6 +206,7 @@ export const Prices = () => {
                     <Box
                         sx={{
                             display: { xxs: "block", md: "none" },
+                            width: { xxs: "100%", sm: "auto" },
                         }}
                     >
                         <LessonConditions direction="column" />
