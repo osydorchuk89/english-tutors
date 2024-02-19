@@ -1,7 +1,8 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import prisma from "@/prisma/db";
 
-const authOptions = {
+export const authOptions = {
     providers: [
         CredentialsProvider({
             name: "credentials",
@@ -18,10 +19,15 @@ const authOptions = {
                 },
             },
             async authorize(credentials) {
-                const user = {
-                    username: "admin",
-                    password: "password",
-                };
+                const user = await prisma.user.findUnique({
+                    where: {
+                        username: credentials.username,
+                    },
+                });
+                if (!user) {
+                    throw new Error("Provided credentials are invalid");
+                }
+
                 if (
                     credentials?.username === user.username &&
                     credentials?.password === user.password
@@ -35,6 +41,18 @@ const authOptions = {
     ],
     session: {
         strategy: "jwt",
+    },
+    callbacks: {
+        async session({ session, token }) {
+            session.user = token.user;
+            return session;
+        },
+        async jwt({ token, user }) {
+            if (user) {
+                token.user = user;
+            }
+            return token;
+        },
     },
     secret: process.env.NEXTAUTH_SECRET,
     pages: {

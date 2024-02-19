@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { signOut } from "next-auth/react";
 import Image from "next/image";
-import { ListItemText, MenuList, MenuItem } from "@mui/material";
+import { ListItemText, MenuList, MenuItem, Box } from "@mui/material";
+import { ContactButton } from "@/app/_components/ContactButton";
 
 const menuItems = [
     {
@@ -61,6 +63,16 @@ export const SideBar = ({ setActiveMenuItem }) => {
                     <ListItemText>{item.text}</ListItemText>
                 </MenuItem>
             ))}
+            <Box sx={{ mt: "32px", ml: "8px" }}>
+                <ContactButton
+                    onClick={() =>
+                        signOut({
+                            callbackUrl: "http://localhost:3000/",
+                        })
+                    }
+                    text="Вийти"
+                />
+            </Box>
         </MenuList>
     );
 };

@@ -1,12 +1,14 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { Box, TextField, Stack, Card, Typography } from "@mui/material";
 import { OrderButton } from "@/app/_components/OrderButton";
 
 export default function AdminLogin() {
+    const [error, setError] = useState({ message: null });
+
     const router = useRouter();
     const formRef = useRef(null);
 
@@ -19,9 +21,10 @@ export default function AdminLogin() {
             callbackUrl: "/admin",
         });
         if (result?.status === 200) {
+            setError({ message: null });
             router.push("/admin");
         } else {
-            console.log(result.error);
+            setError({ message: result.error });
         }
     };
 
@@ -81,6 +84,17 @@ export default function AdminLogin() {
                             }}
                         ></TextField>
                     </Stack>
+                    {error.message && (
+                        <Typography
+                            sx={{
+                                color: "red",
+                                textAlign: "center",
+                                mb: "16px",
+                            }}
+                        >
+                            {error.message}
+                        </Typography>
+                    )}
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                         <OrderButton text="Увійти" />
                     </Box>

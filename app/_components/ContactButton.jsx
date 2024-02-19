@@ -1,11 +1,12 @@
 import { Button, Typography } from "@mui/material";
 
-export const ContactButton = ({ text, href, type }) => {
+export const ContactButton = ({ text, href, type, onClick }) => {
     return (
         <Button
             href={href}
             variant="outlined"
             type={type}
+            onClick={onClick}
             sx={{
                 width: { xxs: "75%", xs: "238px", md: "233px", xl: "253px" },
                 height: { xxs: "60px", md: "40px", xl: "51px" },
