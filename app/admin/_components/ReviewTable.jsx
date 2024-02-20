@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
-import { approveReview } from "@/lib/actions";
+import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
+import { approveReview, deleteReview } from "@/lib/actions";
+import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 
 export const ReviewTable = ({ reviews }) => {
     const [rows, setRows] = useState(reviews);
@@ -13,9 +14,18 @@ export const ReviewTable = ({ reviews }) => {
         if (confirmDelete) {
             const targetRowIndex = rows.findIndex((row) => row.id === id);
             rows[targetRowIndex].approved = "Підтверджено";
-            console.log(rows[targetRowIndex].actions);
             setRows([...rows]);
             await approveReview(id);
+        }
+    };
+
+    const handleDeleteClick = (id) => async () => {
+        const confirmDelete = confirm(
+            "Ви впевнені, що хочете видалити цей запис?"
+        );
+        if (confirmDelete) {
+            setRows(rows.filter((row) => row.id !== id));
+            await deleteReview(id);
         }
     };
 
@@ -23,7 +33,7 @@ export const ReviewTable = ({ reviews }) => {
         {
             field: "name",
             headerName: "Ім'я",
-            width: 300,
+            width: 200,
             sortable: false,
         },
         {
@@ -39,11 +49,10 @@ export const ReviewTable = ({ reviews }) => {
         },
         {
             field: "approve",
-            headerName: "Дії",
+            headerName: "Підтвердити",
             width: 150,
             renderCell: (params) => {
                 const approved = params.row.approved === "Підтверджено";
-                console.log(params);
                 return (
                     <Button
                         component="label"
@@ -63,6 +72,22 @@ export const ReviewTable = ({ reviews }) => {
                         Підтвердити
                     </Button>
                 );
+            },
+        },
+        {
+            field: "actions",
+            type: "actions",
+            headerName: "Дії",
+            width: 100,
+            getActions: ({ id }) => {
+                return [
+                    <GridActionsCellItem
+                        icon={<DeleteIcon />}
+                        label="Delete"
+                        onClick={handleDeleteClick(id)}
+                        color="inherit"
+                    />,
+                ];
             },
         },
     ];

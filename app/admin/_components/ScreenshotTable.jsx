@@ -148,7 +148,7 @@ export const ScreenshotTable = ({ screenshots }) => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    ml: "-1rem",
+                    ml: "-16px",
                 }}
             >
                 <ScreenshotModal

@@ -41,7 +41,7 @@ export const AboutUs = () => {
                     <Typography
                         sx={{
                             fontSize: {
-                                xxs: "48px",
+                                xxs: "44px",
                                 xs: "52px",
                                 md: "80px",
                                 xl: "96px",
@@ -60,6 +60,7 @@ export const AboutUs = () => {
                                 md: "222px",
                                 xl: "322px",
                             },
+                            width: "calc(100% - 32px)",
                         }}
                     >
                         Заговоріть англійською впевнено

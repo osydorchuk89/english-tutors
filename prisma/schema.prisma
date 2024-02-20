@@ -34,7 +34,7 @@ model Review {
     id       String @id @default(uuid())
     name     String
     text     String
-    approved String @default("Очікує на перевірку")
+    approved String @default("Pending approval")
 }
 
 model Screenshot {

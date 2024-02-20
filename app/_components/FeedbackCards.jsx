@@ -7,14 +7,13 @@ import { iconUp, iconDown } from "@/lib/icons";
 
 export const FeedbackCards = ({ screenshots }) => {
     const buttonDownDisabled = screenshots.length < 5;
-    const [reviewSlice, setReviewSlice] = useState([0, 4]);
+    const [screenshotSlice, setScreenshotSlice] = useState([0, 4]);
     const [buttonDisabled, setButtonDisabled] = useState({
         buttonUp: true,
         buttonDown: buttonDownDisabled,
     });
 
     const handlePresButton = (event) => {
-        console.log(event.target);
         const buttonUpPressed = ["button-up", "svg-up", "path-up"].includes(
             event.target.id
         );
@@ -26,13 +25,17 @@ export const FeedbackCards = ({ screenshots }) => {
         let newReviewSlice = [];
 
         if (buttonUpPressed) {
-            setReviewSlice((prevSlice) => prevSlice.map((index) => index - 2));
-            newReviewSlice = reviewSlice.map((index) => index - 2);
+            setScreenshotSlice((prevSlice) =>
+                prevSlice.map((index) => index - 2)
+            );
+            newReviewSlice = screenshotSlice.map((index) => index - 2);
         }
 
         if (buttonDownPressed) {
-            setReviewSlice((prevSlice) => prevSlice.map((index) => index + 2));
-            newReviewSlice = reviewSlice.map((index) => index + 2);
+            setScreenshotSlice((prevSlice) =>
+                prevSlice.map((index) => index + 2)
+            );
+            newReviewSlice = screenshotSlice.map((index) => index + 2);
         }
 
         newReviewSlice[0] === 0

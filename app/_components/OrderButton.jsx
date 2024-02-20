@@ -6,8 +6,8 @@ export const OrderButton = ({ onClick, text }) => {
             type="submit"
             onClick={onClick}
             sx={{
-                width: { md: "192px", xl: "217px" },
-                height: { md: "54px", xl: "59px" },
+                // width: { xs: "228px", md: "192px", xl: "217px" },
+                // height: { xs: "60px", md: "54px", xl: "59px" },
                 color: "inherit",
                 backgroundColor: "lightBlue.dark",
                 px: "40px",

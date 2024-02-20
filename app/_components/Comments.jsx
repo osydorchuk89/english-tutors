@@ -14,7 +14,6 @@ export const Comments = ({ reviews }) => {
     });
 
     const handlePresButton = (event) => {
-        console.log(event.target);
         const buttonUpPressed = ["button-up", "svg-up", "path-up"].includes(
             event.target.id
         );

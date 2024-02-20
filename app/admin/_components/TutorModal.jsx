@@ -45,7 +45,7 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
     const handleSubmit = async (formData) => {
         const response = await updateOrCreateTutor(formData);
         if (response && response.error) {
-            setError(response.error[0].message);
+            setError(response.error.map((err) => err.message));
             return;
         }
         location.reload();
@@ -176,7 +176,10 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
                         )}
                     </Box>
                 </Stack>
-                {error && <Typography>{error}</Typography>}
+                {error &&
+                    error.map((err) => (
+                        <Typography sx={{ color: "red" }}>{err}</Typography>
+                    ))}
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                     <OrderButton text={isEditing ? "Редагувати" : "Додати"} />
                 </Box>

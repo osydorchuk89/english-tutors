@@ -100,7 +100,8 @@ export const TutorsDescription = () => {
                         key={item.id}
                         sx={{
                             width: {
-                                xxs: "171px",
+                                xxs: "45%",
+                                xs: "171px",
                                 sm: "238px",
                                 lg: "285px",
                                 xl: "330px",
