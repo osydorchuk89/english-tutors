@@ -9,6 +9,7 @@ import { NavLink } from "../_components/NavLink";
 import { OrderButton } from "../_components/OrderButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { Logo } from "@/lib/icons";
 
 const appBarStyles = {
     height: "96px",
@@ -16,16 +17,15 @@ const appBarStyles = {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    px: { xs: "40px", md: "120px", xl: "200px" },
+    px: { xxs: "16px", xs: "40px", md: "120px", xl: "200px" },
     borderRadius: "0 0 16px 16px",
-    gap: { md: "43px", lg: "93px", xl: "253px" },
     transition: "backgroundColor 20s",
 };
 
 const navItems = [
     { id: 1, text: "Ціни", anchor: "#prices" },
     { id: 2, text: "Вчителі", anchor: "#tutors" },
-    { id: 3, text: "Залишити заявку", anchor: "#application" },
+    { id: 3, text: "Записатися", anchor: "#application" },
     { id: 4, text: "Контакти", anchor: "#contacts" },
     { id: 5, text: "Відгуки", anchor: "#reviews" },
     { id: 6, text: "FAQ", anchor: "#faq" },
@@ -73,7 +73,7 @@ export const TopNavBar = () => {
                         top: "16px",
                     }}
                 >
-                    <Image src="/logo.png" width={133} height={54} alt="logo" />
+                    <Logo color="#F3F9FC" />
                 </Box>
                 <Stack
                     alignItems="flex-end"
@@ -144,18 +144,17 @@ export const TopNavBar = () => {
                 <Box
                     sx={{
                         position: "relative",
-                        minWidth: "133px",
-                        minHeight: "54px",
-                        width: { xs: "133px", md: "166px" },
-                        height: { xs: "54px", md: "64px" },
+                        width: "max-content",
+                        height: "max-content",
                     }}
                 >
-                    <Image src="/logo.png" fill alt="logo" />
+                    <Logo color="black" />
                 </Box>
                 <Stack
                     direction="row"
                     justifyContent="space-between"
-                    spacing={{ md: 3, lg: 4, xl: 5 }}
+                    alignItems="center"
+                    spacing={{ ms: 2, lg: 3 }}
                     sx={{
                         display: { xxs: "none", md: "flex" },
                     }}
@@ -167,16 +166,11 @@ export const TopNavBar = () => {
                             text={item.text}
                             textSize="18px"
                             textWeight={400}
+                            px="16px"
+                            py="8px"
                         />
                     ))}
                 </Stack>
-                <Box
-                    sx={{
-                        display: { xxs: "none", md: "flex" },
-                    }}
-                >
-                    <NavLink href="#" text="Uk" />
-                </Box>
                 <Box
                     sx={{
                         display: { xxs: "flex", md: "none" },
@@ -186,7 +180,7 @@ export const TopNavBar = () => {
                         disableRipple
                         onClick={() => setDrawerOpen(true)}
                     >
-                        <MenuIcon />
+                        <MenuIcon sx={{ fontSize: "32px" }} />
                     </IconButton>
                     <SwipeableDrawer
                         anchor="right"

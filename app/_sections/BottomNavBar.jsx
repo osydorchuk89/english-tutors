@@ -6,6 +6,7 @@ import { AppBar, Typography, Stack, Box, Modal } from "@mui/material";
 import { OrderButton } from "../_components/OrderButton";
 import { ModalContext } from "../_components/TryItCard";
 import { ApplicationForm } from "../_components/ApplicationForm";
+import { Logo } from "@/lib/icons";
 
 export const BottomNavBar = () => {
     const [modalOpen, setModalOpen] = useState(false);
@@ -43,7 +44,7 @@ export const BottomNavBar = () => {
                         mt: { xxs: "24px", xs: "54px" },
                     }}
                 >
-                    <Image src="/logo.png" width={166} height={64} alt="logo" />
+                    <Logo color="#F3F9FC" />
                 </Box>
                 <Box
                     sx={{
@@ -94,7 +95,7 @@ export const BottomNavBar = () => {
                         ml: "-16px",
                     }}
                 >
-                    <ApplicationForm borderRadiusProp="16px" />
+                    <ApplicationForm borderRadiusProp="16px" display="block" />
                 </Modal>
             </ModalContext.Provider>
         </AppBar>

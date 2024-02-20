@@ -9,6 +9,7 @@ const nextConfig = {
             },
         ],
     },
+    transpilePackages: ["mui-tel-input"],
 };
 
 export default nextConfig;

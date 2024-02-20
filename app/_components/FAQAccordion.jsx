@@ -14,22 +14,22 @@ const faqs = [
     {
         id: 1,
         question: "Як записатися на урок",
-        answer: "Lorem ipsum dolor sit amet consectetur. Proin natoque adipiscing sagittis aliquet urna nullam. Etiam ut dui tincidunt lorem mauris a at in. Morbi tincidunt imperdiet lobortis nisi enim arcu in. Massa neque adipiscing ligula dolor orci. Dui laoreet proin netus quis egestas semper pulvinar. Et ac est sed cursus cursus quisque sit. Quam elementum vel turpis cras hendrerit ac fringilla.",
+        answer: "Щоб записатися на урок, ви можете залишити заявку на сайті, написати нам, або подзвонити менеджерам на пряму. Написати можна в Instagram або Telegram школи.",
     },
     {
         id: 2,
         question: "Де проходить онлайн заняття?",
-        answer: "Lorem ipsum dolor sit amet consectetur. Proin natoque adipiscing sagittis aliquet urna nullam. Etiam ut dui tincidunt lorem mauris a at in. Morbi tincidunt imperdiet lobortis nisi enim arcu in. Massa neque adipiscing ligula dolor orci. Dui laoreet proin netus quis egestas semper pulvinar. Et ac est sed cursus cursus quisque sit. Quam elementum vel turpis cras hendrerit ac fringilla.",
+        answer: "Наші вчителі використовують найбільш популярні платформи: Zoom, Meet, Teams або Skype. Ви самостійно зможете обрати программу для зустрічей.",
     },
     {
         id: 3,
         question: "Що входить у 60 хвилин уроку?",
-        answer: "Lorem ipsum dolor sit amet consectetur. Proin natoque adipiscing sagittis aliquet urna nullam. Etiam ut dui tincidunt lorem mauris a at in. Morbi tincidunt imperdiet lobortis nisi enim arcu in. Massa neque adipiscing ligula dolor orci. Dui laoreet proin netus quis egestas semper pulvinar. Et ac est sed cursus cursus quisque sit. Quam elementum vel turpis cras hendrerit ac fringilla.",
+        answer: "Перевірка домашньої роботи не входить в годину уроку, під час заняття викладач може вказати на помилки та дати відгук щодо ДЗ. Наповнення уроку залежить від ваших потреб.",
     },
     {
         id: 4,
         question: "Як проходить оплата?",
-        answer: "Lorem ipsum dolor sit amet consectetur. Proin natoque adipiscing sagittis aliquet urna nullam. Etiam ut dui tincidunt lorem mauris a at in. Morbi tincidunt imperdiet lobortis nisi enim arcu in. Massa neque adipiscing ligula dolor orci. Dui laoreet proin netus quis egestas semper pulvinar. Et ac est sed cursus cursus quisque sit. Quam elementum vel turpis cras hendrerit ac fringilla.",
+        answer: "Після безкоштовного пробного уроку та затвердження вчителя, менеджер вам скине данні для оплати. Ви зможете платити або за кожен урок окрем, або пакетами занятть. Зміна викладача чи термін використання уроків ніяк не впливаж на їхню кількість.",
     },
 ];
 
@@ -86,7 +86,7 @@ export const FAQAccordion = () => {
                     <AccordionSummary
                         sx={{
                             backgroundColor: "inherit",
-                            height: {
+                            minHeight: {
                                 xxs: "54px",
                                 xs: "91px",
                                 md: "109px",

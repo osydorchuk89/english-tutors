@@ -64,7 +64,7 @@ export const TutorsCards = ({ tutors }) => {
                     },
                     maxWidth: {
                         xxs: "358px",
-                        xs: "auto",
+                        xs: "none",
                     },
                     right: {
                         xxs: 0,

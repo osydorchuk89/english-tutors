@@ -60,7 +60,12 @@ export const AboutUs = () => {
                                 md: "222px",
                                 xl: "322px",
                             },
-                            width: "calc(100% - 32px)",
+                            width: {
+                                xxs: "calc(100% - 32px)",
+                                xs: "calc(100% - 80px)",
+                                md: "calc(100% - 200px)",
+                                xl: "calc(100% - 300px)",
+                            },
                         }}
                     >
                         Заговоріть англійською впевнено
@@ -112,9 +117,17 @@ export const AboutUs = () => {
                     }}
                 >
                     {socialIcons.map((item) => (
-                        <Link href={item.link} key={item.id}>
+                        <Box
+                            component="a"
+                            sx={{
+                                width: "fit-content",
+                                padding: { xxs: "12px", md: 0 },
+                            }}
+                            href={item.link}
+                            key={item.id}
+                        >
                             {item.icon}
-                        </Link>
+                        </Box>
                     ))}
                 </Stack>
             </Stack>

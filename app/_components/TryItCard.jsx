@@ -51,6 +51,12 @@ export const TryItCard = () => {
                     color: "lightBlue.light",
                     px: { xxs: "16px", xs: "auto", md: "102px" },
                     py: { xxs: "56px", xs: "80px" },
+                    boxShadow: `5px 4px 6px 0px #14313D17, 
+                    11px 10px 9px 0px #14313D0D, 
+                    19px 18px 10px 0px #14313D03,
+                    30px 28px 11px 0px #14313D05,
+                    0px 4px 4px 0px #14313D40,
+                    -4px -4px 4px 0px #14313D1A`,
                 }}
             >
                 <Typography
@@ -92,7 +98,7 @@ export const TryItCard = () => {
                     ml: "-16px",
                 }}
             >
-                <ApplicationForm borderRadiusProp="16px" />
+                <ApplicationForm borderRadiusProp="16px" display="block" />
             </Modal>
         </ModalContext.Provider>
     );

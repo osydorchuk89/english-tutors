@@ -17,7 +17,7 @@ export const Application = () => {
                 },
             }}
         >
-            <ApplicationForm borderRadiusProp="24px" />
+            <ApplicationForm borderRadiusProp="24px" display="none" />
         </Box>
     );
 };
