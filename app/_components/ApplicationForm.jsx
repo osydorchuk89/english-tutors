@@ -10,6 +10,83 @@ import { sendApplication } from "../../lib/actions";
 import CloseIcon from "@mui/icons-material/Close";
 import { MuiTelInput } from "mui-tel-input";
 
+const PhoneInputField = ({ value, onChange }) => {
+    return (
+        <MuiTelInput
+            defaultCountry="UA"
+            forceCallingCode
+            focusOnSelectCountry
+            langOfCountryName="uk"
+            type="tel"
+            label="Номер телефону"
+            name="phone"
+            value={value}
+            onChange={onChange}
+            inputProps={{
+                maxLength: 11,
+            }}
+            MenuProps={{
+                MenuListProps: {
+                    sx: {
+                        backgroundColor: "darkBlue.dark",
+                        "& .MuiListItemText-primary": {
+                            color: "lightBlue.light",
+                        },
+                        "& .MuiTelInput-Typography-calling-code": {
+                            color: "lightBlue.light",
+                        },
+                        "& .MuiTelInput-MenuItem": {
+                            "&:hover": {
+                                backgroundColor: "darkBlue.light",
+                            },
+                        },
+                    },
+                },
+                sx: {
+                    height: "80%",
+                    width: "90%",
+                    color: "lightBlue.light",
+                    "& .MuiListItemText-root": {
+                        color: "lightBlue.light",
+                        sx: { color: "lightBlue.light" },
+                    },
+                },
+            }}
+            InputLabelProps={{
+                sx: {
+                    color: "disabledText.main",
+                    "&.Mui-focused": {
+                        color: "disabledText.main",
+                    },
+                    "&.MuiTelInput-IconButton": {
+                        disableRipple: true,
+                    },
+                },
+            }}
+            sx={{
+                "& .MuiOutlinedInput-root": {
+                    "& fieldset": {
+                        borderColor: "lightBlue.light",
+                    },
+                    "&:hover fieldset": {
+                        borderColor: "lightBlue.light",
+                    },
+                    "&.Mui-focused fieldset": {
+                        borderColor: "lightBlue.light",
+                    },
+                },
+                "& .MuiTypography-root": {
+                    color: "lightBlue.light",
+                },
+                // "&.MuiTelInput-IconButton": {
+                //     disableRipple: true,
+                // },
+                input: { color: "lightBlue.light" },
+            }}
+        />
+    );
+};
+
 export const ApplicationForm = ({ borderRadiusProp, display }) => {
     const [error, setError] = useState(null);
     const [phone, setPhone] = useState("");
@@ -23,7 +100,7 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
     const sendApplicationData = async (formData) => {
         const applicationData = {
             name: formData.get("name"),
-            phone: formData.get("phone"),
+            phone: phone.replace(/\s+/g, ""),
         };
         const response = await sendApplication(applicationData);
         if (response && response.error) {
@@ -40,6 +117,7 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
         })
             .then((_) => {
                 formRef.current.reset();
+                setPhone("");
                 setError(null);
                 setModalOpen(false);
             })
@@ -126,79 +204,9 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
                         sx={{ mb: { xxs: "24px", xs: "32px", xl: "56px" } }}
                     >
                         <DarkInputField type="text" label="Ім'я" name="name" />
-                        <MuiTelInput
-                            defaultCountry="UA"
-                            forceCallingCode
-                            focusOnSelectCountry
-                            langOfCountryName="uk"
-                            type="tel"
-                            label="Номер телефону"
-                            name="phone"
+                        <PhoneInputField
                             value={phone}
                             onChange={handlePhoneChange}
-                            inputProps={{
-                                maxLength: 12,
-                            }}
-                            MenuProps={{
-                                MenuListProps: {
-                                    sx: {
-                                        backgroundColor: "darkBlue.dark",
-                                        "& .MuiListItemText-primary": {
-                                            color: "lightBlue.light",
-                                        },
-                                        "& .MuiTelInput-Typography-calling-code":
-                                            {
-                                                color: "lightBlue.light",
-                                            },
-                                        "& .MuiTelInput-MenuItem": {
-                                            "&:hover": {
-                                                backgroundColor:
-                                                    "darkBlue.light",
-                                            },
-                                        },
-                                    },
-                                },
-                                sx: {
-                                    height: "80%",
-                                    width: "90%",
-                                    color: "lightBlue.light",
-                                    "& .MuiListItemText-root": {
-                                        color: "lightBlue.light",
-                                        sx: { color: "lightBlue.light" },
-                                    },
-                                },
-                            }}
-                            InputLabelProps={{
-                                sx: {
-                                    color: "disabledText.main",
-                                    "&.Mui-focused": {
-                                        color: "disabledText.main",
-                                    },
-                                    "&.MuiTelInput-IconButton": {
-                                        disableRipple: true,
-                                    },
-                                },
-                            }}
-                            sx={{
-                                "& .MuiOutlinedInput-root": {
-                                    "& fieldset": {
-                                        borderColor: "lightBlue.light",
-                                    },
-                                    "&:hover fieldset": {
-                                        borderColor: "lightBlue.light",
-                                    },
-                                    "&.Mui-focused fieldset": {
-                                        borderColor: "lightBlue.light",
-                                    },
-                                },
-                                "& .MuiTypography-root": {
-                                    color: "lightBlue.light",
-                                },
-                                // "&.MuiTelInput-IconButton": {
-                                //     disableRipple: true,
-                                // },
-                                input: { color: "lightBlue.light" },
-                            }}
                         />
                     </Stack>
                     <Typography

@@ -15,6 +15,7 @@ export const Application = () => {
                     md: "706px",
                     xl: "909px",
                 },
+                scrollMarginTop: "100px",
             }}
         >
             <ApplicationForm borderRadiusProp="24px" display="none" />

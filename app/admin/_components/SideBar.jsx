@@ -58,6 +58,7 @@ export const SideBar = ({ setActiveMenuItem }) => {
                                 ? "lightBlue.dark"
                                 : "inherit",
                         "&:hover": { backgroundColor: "lightBlue.dark" },
+                        "&:active": { backgroundColor: "button.pressed" },
                     }}
                 >
                     <ListItemText>{item.text}</ListItemText>
@@ -71,6 +72,8 @@ export const SideBar = ({ setActiveMenuItem }) => {
                         })
                     }
                     text="Вийти"
+                    hoverBackgroundColor="button.hover"
+                    pressedBackgroundColor="button.pressed"
                 />
             </Box>
         </MenuList>

@@ -54,7 +54,7 @@ export const Contacts = () => {
                     lg: "120px",
                     xl: "200px",
                 },
-                scrollMarginTop: "80px",
+                scrollMarginTop: "100px",
                 m: "120px 0 120px 0",
             }}
         >
@@ -137,6 +137,12 @@ export const Contacts = () => {
                                 alignItems: "center",
                                 backgroundColor: "lightBlue.main",
                                 borderRadius: "16px",
+                                "&:hover": {
+                                    backgroundColor: "lightBlue.dark",
+                                },
+                                "&:active": {
+                                    backgroundColor: "button.pressed",
+                                },
                             }}
                         >
                             {icon.img}

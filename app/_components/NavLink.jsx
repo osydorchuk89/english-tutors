@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export const NavLink = ({
     text,
@@ -11,7 +10,16 @@ export const NavLink = ({
     py,
 }) => {
     return (
-        <Link href={href} style={{ textDecoration: "inherit" }}>
+        <Box
+            component="a"
+            href={href}
+            sx={{
+                textDecoration: "inherit",
+                borderRadius: "8px",
+                padding: "8px 16px 8px 16px",
+                "&:hover": { backgroundColor: "lightBlue.dark" },
+            }}
+        >
             <Typography
                 sx={{
                     fontSize: textSize,
@@ -23,6 +31,6 @@ export const NavLink = ({
             >
                 {text}
             </Typography>
-        </Link>
+        </Box>
     );
 };

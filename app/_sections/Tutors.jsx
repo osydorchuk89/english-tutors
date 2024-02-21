@@ -21,7 +21,7 @@ export const Tutors = async () => {
                 width: "100%",
                 pl: { xxs: "16px", xs: "40px", md: "120px", xl: "200px" },
                 my: { xxs: "80px", md: "120px", xl: "182px" },
-                scrollMarginTop: "80px",
+                scrollMarginTop: "100px",
             }}
         >
             <TutorsDescription />

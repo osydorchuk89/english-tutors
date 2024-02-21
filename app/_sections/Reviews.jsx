@@ -18,7 +18,7 @@ export const Reviews = async () => {
                 height: { md: "1685px", xl: "1860px" },
                 pl: { xxs: 0, xs: "20px", md: "60px", xl: "100px" },
                 mb: { xxs: "80px", md: "120px", xl: "182px" },
-                scrollMarginTop: "80px",
+                scrollMarginTop: "100px",
             }}
         >
             <Stack

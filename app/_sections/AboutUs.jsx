@@ -28,7 +28,7 @@ export const AboutUs = () => {
             direction="column"
             sx={{
                 mt: { xxs: "56px", xs: "154px", md: "170px", xl: "160px" },
-                scrollMarginTop: "80px",
+                scrollMarginTop: "100px",
             }}
         >
             <Stack
@@ -83,7 +83,7 @@ export const AboutUs = () => {
                 </Stack>
                 <Stack
                     direction="column"
-                    justifyContent="center"
+                    justifyContent="space-between"
                     sx={{
                         width: {
                             xxs: "80px",
@@ -107,21 +107,29 @@ export const AboutUs = () => {
                         backgroundColor: "lightBlue.light",
                         borderRadius: "24px 0 0 24px",
                         boxShadow: "0px 0px 48px 0px #14313D1F",
-                        pl: {
-                            xxs: "16px",
-                            xs: "61px",
-                            md: "57px",
-                            xl: "73px",
-                        },
-                        gap: { xxs: "36px", xs: "44px", md: "48px" },
+                        pt: { xxs: "4px", xs: "28px", md: "40px", lg: "56px" },
+                        pt: { xxs: 0, xs: "32px", md: "44px", lg: "60px" },
                     }}
                 >
                     {socialIcons.map((item) => (
                         <Box
                             component="a"
                             sx={{
-                                width: "fit-content",
-                                padding: { xxs: "12px", md: 0 },
+                                width: "100%",
+                                pl: {
+                                    xxs: "16px",
+                                    xs: "61px",
+                                    md: "57px",
+                                    xl: "73px",
+                                },
+                                py: { xxs: "24px", md: "16px" },
+                                borderRadius: "8px 0 0 8px",
+                                "&:hover": {
+                                    backgroundColor: "lightBlue.dark",
+                                },
+                                "&:active": {
+                                    backgroundColor: "button.pressed",
+                                },
                             }}
                             href={item.link}
                             key={item.id}

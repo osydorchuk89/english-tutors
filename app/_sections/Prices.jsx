@@ -88,7 +88,7 @@ export const Prices = () => {
                 display: "flex",
                 justifyContent: "center",
                 mt: { xxs: "64px", xs: "80px", md: "150px", xl: "160px" },
-                scrollMarginTop: "80px",
+                scrollMarginTop: "100px",
             }}
         >
             <Paper

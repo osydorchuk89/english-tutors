@@ -1,86 +1,87 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
-import { Box, ImageList, ImageListItem } from "@mui/material";
+import { Box, Stack } from "@mui/material";
 import { NavButton } from "./NavButtons";
-import { iconUp, iconDown } from "@/lib/icons";
+import { iconDown } from "@/lib/icons";
 
 export const FeedbackCards = ({ screenshots }) => {
-    const buttonDownDisabled = screenshots.length < 5;
-    const [screenshotSlice, setScreenshotSlice] = useState([0, 4]);
-    const [buttonDisabled, setButtonDisabled] = useState({
-        buttonUp: true,
-        buttonDown: buttonDownDisabled,
-    });
+    const [screenshotSlice, setScreenshotSlice] = useState([0, 1, 2, 3]);
 
-    const handlePresButton = (event) => {
-        const buttonUpPressed = ["button-up", "svg-up", "path-up"].includes(
-            event.target.id
-        );
-        const buttonDownPressed = [
-            "button-down",
-            "svg-down",
-            "path-down",
-        ].includes(event.target.id);
-        let newReviewSlice = [];
-
-        if (buttonUpPressed) {
-            setScreenshotSlice((prevSlice) =>
-                prevSlice.map((index) => index - 2)
-            );
-            newReviewSlice = screenshotSlice.map((index) => index - 2);
+    const handlePresButton = () => {
+        let newSlice = [];
+        for (const ind of screenshotSlice) {
+            if (
+                ind === screenshots.length - 1 ||
+                ind === screenshots.length - 2
+            ) {
+                newSlice.push(ind - (screenshots.length - 2));
+            } else {
+                newSlice.push(ind + 2);
+            }
         }
-
-        if (buttonDownPressed) {
-            setScreenshotSlice((prevSlice) =>
-                prevSlice.map((index) => index + 2)
-            );
-            newReviewSlice = screenshotSlice.map((index) => index + 2);
-        }
-
-        newReviewSlice[0] === 0
-            ? setButtonDisabled((prevState) => ({
-                  ...prevState,
-                  buttonUp: true,
-              }))
-            : setButtonDisabled((prevState) => ({
-                  ...prevState,
-                  buttonUp: false,
-              }));
-
-        newReviewSlice[1] === reviews.length
-            ? setButtonDisabled((prevState) => ({
-                  ...prevState,
-                  buttonDown: true,
-              }))
-            : setButtonDisabled((prevState) => ({
-                  ...prevState,
-                  buttonDown: false,
-              }));
+        setScreenshotSlice(newSlice);
     };
 
     return (
-        <Box
+        <Stack
+            direction="column"
+            spacing={{ xxs: 5, xs: 3, lg: 5, xl: 4 }}
+            justifyContent="flex-start"
+            alignItems="center"
             sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "flexStart",
-                alignItems: "center",
                 pt: { xxs: 0, md: "115px", xl: "140px" },
-
                 zIndex: 10,
             }}
         >
-            <NavButton
-                _id="button-up"
-                icon={iconUp}
-                onClick={handlePresButton}
-                disabled={buttonDisabled.buttonUp}
-            />
-            <ImageList
+            <Box
+                sx={{
+                    display: "grid",
+                    minWidth: {
+                        xxs: "358px",
+                        xs: "496px",
+                        md: "590px",
+                        xl: "615px",
+                    },
+                    maxWidth: {
+                        xxs: "calc(100% - 32px)",
+                        xs: "auto",
+                    },
+                    height: { xxs: "482px", xs: "670px", md: "793px" },
+                    gridTemplateColumns: "repeat(2, 1fr)",
+                    gridTemplateRows: "repeat(2, 1fr)",
+                    gridColumnGap: "12px",
+                    gridRowGap: "24px",
+                    // rowGap: "24px",
+                    // columnGap: "12px",
+                }}
+            >
+                {screenshotSlice
+                    .map((ind) => screenshots[ind])
+                    .map((item) => (
+                        <Box
+                            key={item.id}
+                            sx={{
+                                position: "relative",
+                                borderRadius: "8px",
+                                overflow: "hidden",
+                            }}
+                        >
+                            <Image
+                                src={item.photo}
+                                fill
+                                alt="screenshot"
+                                loading="lazy"
+                            />
+                        </Box>
+                    ))}
+            </Box>
+            {/* <ImageList
                 variant="standard"
                 cols={2}
                 gap={12}
+                rowHeight={{ xxs: 233, xs: 323, md: 385 }}
                 sx={{
                     width: {
                         xxs: "calc(100% - 32px)",
@@ -90,23 +91,32 @@ export const FeedbackCards = ({ screenshots }) => {
                     },
                     height: { xxs: "482px", xs: "670px", md: "793px" },
                     my: "24px",
+                    overflow: "hidden",
                 }}
             >
                 {screenshots.map((item) => (
                     <ImageListItem
                         key={item.id}
-                        sx={{ borderRadius: "8px", overflow: "hidden" }}
+                        sx={{
+                            borderRadius: "8px",
+                            overflow: "hidden",
+                            height: { xxs: "233px", xs: "323px", md: "385px" },
+                        }}
                     >
-                        <img src={item.photo} alt="screenshot" loading="lazy" />
+                        <Image
+                            src={item.photo}
+                            fill
+                            alt="screenshot"
+                            loading="lazy"
+                        />
                     </ImageListItem>
                 ))}
-            </ImageList>
+            </ImageList> */}
             <NavButton
                 _id="button-down"
                 icon={iconDown}
                 onClick={handlePresButton}
-                disabled={buttonDisabled.buttonDown}
             />
-        </Box>
+        </Stack>
     );
 };
