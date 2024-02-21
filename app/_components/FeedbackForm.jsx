@@ -95,7 +95,12 @@ export const FeedbackForm = () => {
                     </Stack>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
                         {error && <Typography>{error}</Typography>}
-                        <ContactButton type="submit" text="Відправити" />
+                        <ContactButton
+                            type="submit"
+                            text="Відправити"
+                            hoverBackgroundColor="lightBlue.main"
+                            pressedBackgroundColor="lightBlue.dark"
+                        />
                     </Box>
                 </form>
             </Box>

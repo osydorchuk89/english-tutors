@@ -63,7 +63,7 @@ export const ContactCard = ({ img, name, text, phone, href }) => {
                         md: "21.94px",
                         xl: "26.82px",
                     },
-                    mb: { xxs: "24px", sm: "43px", md: "69px", xl: "40px" },
+                    mb: { xxs: "24px", sm: "43px", md: "48px", xl: "40px" },
                 }}
             >
                 {text}
@@ -82,7 +82,12 @@ export const ContactCard = ({ img, name, text, phone, href }) => {
             >
                 {phone}
             </Typography>
-            <ContactButton text="Телеграм" href={href} />
+            <ContactButton
+                text="Телеграм"
+                href={href}
+                hoverBackgroundColor="button.hover"
+                pressedBackgroundColor="button.pressed"
+            />
         </Paper>
     );
 };

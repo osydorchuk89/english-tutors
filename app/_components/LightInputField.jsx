@@ -12,10 +12,10 @@ export const LightInputField = ({ type, label, name, multiline, rows }) => {
             sx={{
                 "& .MuiOutlinedInput-root": {
                     "& fieldset": {
-                        borderColor: "disabledText.main",
+                        borderColor: "darkBlue.dark",
                     },
                     "&:hover fieldset": {
-                        borderColor: "disabledText.main",
+                        borderColor: "darkBlue.dark",
                     },
                     "&.Mui-focused fieldset": {
                         borderColor: "darkBlue.dark",

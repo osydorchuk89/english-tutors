@@ -7,7 +7,8 @@ export const myTheme = createTheme({
             main: "#FFFFFF",
         },
         button: {
-            main: "#9DD5E6",
+            hover: "#5CBAD4",
+            pressed: "#37A1C0",
         },
         logo: {
             main: "#000000",

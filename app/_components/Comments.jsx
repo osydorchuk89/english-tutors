@@ -44,18 +44,6 @@ export const Comments = ({ reviews }) => {
                   buttonUp: false,
               }));
 
-        // if (newReviewSlice[0] === 0) {
-        //     setButtonDisabled((prevState) => ({
-        //         ...prevState,
-        //         buttonUp: true,
-        //     }));
-        // } else {
-        //     setButtonDisabled((prevState) => ({
-        //         ...prevState,
-        //         buttonUp: false,
-        //     }));
-        // }
-
         newReviewSlice[1] === reviews.length
             ? setButtonDisabled((prevState) => ({
                   ...prevState,
@@ -65,18 +53,6 @@ export const Comments = ({ reviews }) => {
                   ...prevState,
                   buttonDown: false,
               }));
-
-        // if (newReviewSlice[1] === reviews.length) {
-        //     setButtonDisabled((prevState) => ({
-        //         ...prevState,
-        //         buttonDown: true,
-        //     }));
-        // } else {
-        //     setButtonDisabled((prevState) => ({
-        //         ...prevState,
-        //         buttonDown: false,
-        //     }));
-        // }
     };
 
     if (typeof window !== "undefined") {

@@ -3,6 +3,7 @@ import { Button, Typography } from "@mui/material";
 export const OrderButton = ({ onClick, text }) => {
     return (
         <Button
+            disableRipple
             type="submit"
             onClick={onClick}
             sx={{
@@ -14,6 +15,14 @@ export const OrderButton = ({ onClick, text }) => {
                 py: "16px",
                 borderRadius: "8px",
                 textTransform: "capitalize",
+                "&:hover": {
+                    backgroundColor: "button.hover",
+                    boxShadow: "0px 0px 12px 0px #14313DB2",
+                },
+                "&:active": {
+                    backgroundColor: "button.pressed",
+                    boxShadow: "0px 0px 12px 0px #14313DB2 inset",
+                },
             }}
         >
             <Typography

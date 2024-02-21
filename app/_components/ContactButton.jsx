@@ -1,25 +1,36 @@
 import { Button, Typography } from "@mui/material";
 
-export const ContactButton = ({ text, href, type, onClick }) => {
+export const ContactButton = ({
+    text,
+    href,
+    type,
+    onClick,
+    hoverBackgroundColor,
+    pressedBackgroundColor,
+}) => {
     return (
         <Button
+            disableRipple
             href={href}
             variant="outlined"
             type={type}
             onClick={onClick}
             sx={{
-                width: { xxs: "75%", xs: "238px", md: "233px", xl: "253px" },
-                height: { xxs: "60px", md: "40px", xl: "51px" },
                 dislay: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                color: "inherit",
+                px: "72px",
+                py: "12px",
                 backgroundColor: "inherit",
                 borderRadius: "8px",
                 textTransform: "capitalize",
                 borderColor: "darkBlue.dark",
                 "&:hover": {
+                    backgroundColor: hoverBackgroundColor,
                     borderColor: "darkBlue.dark",
+                },
+                "&:active": {
+                    backgroundColor: pressedBackgroundColor,
                 },
             }}
         >

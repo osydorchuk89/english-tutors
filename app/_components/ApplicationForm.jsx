@@ -131,15 +131,75 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
                             forceCallingCode
                             focusOnSelectCountry
                             langOfCountryName="uk"
-                            value={phone}
-                            onChange={handlePhoneChange}
-                            inputProps={{ maxLength: 10 }}
-                        />
-                        {/* <DarkInputField
                             type="tel"
                             label="Номер телефону"
                             name="phone"
-                        /> */}
+                            value={phone}
+                            onChange={handlePhoneChange}
+                            inputProps={{
+                                maxLength: 12,
+                            }}
+                            MenuProps={{
+                                MenuListProps: {
+                                    sx: {
+                                        backgroundColor: "darkBlue.dark",
+                                        "& .MuiListItemText-primary": {
+                                            color: "lightBlue.light",
+                                        },
+                                        "& .MuiTelInput-Typography-calling-code":
+                                            {
+                                                color: "lightBlue.light",
+                                            },
+                                        "& .MuiTelInput-MenuItem": {
+                                            "&:hover": {
+                                                backgroundColor:
+                                                    "darkBlue.light",
+                                            },
+                                        },
+                                    },
+                                },
+                                sx: {
+                                    height: "80%",
+                                    width: "90%",
+                                    color: "lightBlue.light",
+                                    "& .MuiListItemText-root": {
+                                        color: "lightBlue.light",
+                                        sx: { color: "lightBlue.light" },
+                                    },
+                                },
+                            }}
+                            InputLabelProps={{
+                                sx: {
+                                    color: "disabledText.main",
+                                    "&.Mui-focused": {
+                                        color: "disabledText.main",
+                                    },
+                                    "&.MuiTelInput-IconButton": {
+                                        disableRipple: true,
+                                    },
+                                },
+                            }}
+                            sx={{
+                                "& .MuiOutlinedInput-root": {
+                                    "& fieldset": {
+                                        borderColor: "lightBlue.light",
+                                    },
+                                    "&:hover fieldset": {
+                                        borderColor: "lightBlue.light",
+                                    },
+                                    "&.Mui-focused fieldset": {
+                                        borderColor: "lightBlue.light",
+                                    },
+                                },
+                                "& .MuiTypography-root": {
+                                    color: "lightBlue.light",
+                                },
+                                // "&.MuiTelInput-IconButton": {
+                                //     disableRipple: true,
+                                // },
+                                input: { color: "lightBlue.light" },
+                            }}
+                        />
                     </Stack>
                     <Typography
                         sx={{
@@ -150,7 +210,6 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
                                 md: "24px",
                                 xl: "28px",
                             },
-                            // lineHeight: "29.26px",
                             mb: {
                                 xxs: "32px",
                                 xs: "48px",

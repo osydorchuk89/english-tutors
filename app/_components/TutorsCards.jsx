@@ -164,6 +164,10 @@ export const TutorsCards = ({ tutors }) => {
                             <Paper
                                 className="flip-box-back"
                                 sx={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "center",
+                                    justifyContent: "center",
                                     backgroundColor: "lightBlue.dark",
                                 }}
                             >
