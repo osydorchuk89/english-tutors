@@ -12,6 +12,7 @@ import {
 } from "@mui/x-data-grid";
 import { deleteScreenshot } from "@/lib/actions";
 import { ScreenshotModal } from "./ScreenshotModal";
+import { AddButton } from "./AddButton";
 
 export const ScreenshotModalContext = createContext({
     modalOpen: false,
@@ -23,24 +24,7 @@ const AddToolbar = (props) => {
 
     return (
         <GridToolbarContainer>
-            <Button
-                component="label"
-                variant="outlined"
-                sx={{
-                    backgroundColor: "lightBlue.light",
-                    borderColor: "disabledText.main",
-                    color: "inherit",
-                    ":hover": {
-                        bgcolor: "lightBlue.dark",
-                        borderColor: "darkBlue.light",
-                    },
-                    mb: "16px",
-                }}
-                startIcon={<AddIcon />}
-                onClick={() => setModalOpen(true)}
-            >
-                Додати запис
-            </Button>
+            <AddButton onClick={() => setModalOpen(true)} />
         </GridToolbarContainer>
     );
 };
@@ -72,8 +56,8 @@ export const ScreenshotTable = ({ screenshots }) => {
                     <Image
                         src={imagePath}
                         alt="uploaded image"
-                        width={128}
-                        height={128}
+                        width={48}
+                        height={64}
                     />
                 );
             },

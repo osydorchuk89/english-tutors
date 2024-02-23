@@ -8,15 +8,18 @@ import {
     Box,
     Button,
     IconButton,
+    FormControl,
+    FormHelperText,
 } from "@mui/material";
 import { OrderButton } from "@/app/_components/OrderButton";
 import { createScreenshot } from "@/lib/actions";
 import { ScreenshotModalContext } from "./ScreenshotTable";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
-import { UploadButton } from "./UploadButton";
+import { UploadButtonField } from "./UploadButtonField";
 
 export const ScreenshotModal = () => {
+    const [submitButtonClicked, setSubmitButtonClicked] = useState(false);
     const [uploadedImage, setUploadedImage] = useState(null);
     const [error, setError] = useState(null);
     const formRef = useRef(null);
@@ -28,6 +31,7 @@ export const ScreenshotModal = () => {
             setUploadedImage(null);
             return;
         }
+        setError(null);
         const fileReader = new FileReader();
         fileReader.onload = () => {
             setUploadedImage(fileReader.result);
@@ -36,11 +40,14 @@ export const ScreenshotModal = () => {
     };
 
     const handleSubmit = async (formData) => {
+        setSubmitButtonClicked(true);
         const response = await createScreenshot(formData);
+        console.log(response.error[0].message);
         if (response && response.error) {
             setError(response.error[0].message);
             return;
         }
+        setError(null);
         location.reload();
     };
 
@@ -89,40 +96,20 @@ export const ScreenshotModal = () => {
                 }}
             >
                 <Stack spacing={4} sx={{ mb: "60px" }}>
-                    <Box
+                    <FormControl
                         sx={{
                             display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center",
                             alignItems: "center",
                         }}
                     >
-                        <Button
-                            component="label"
-                            variant="outlined"
-                            sx={{
-                                backgroundColor: "lightBlue.light",
-                                borderColor: "disabledText.main",
-                                color: "inherit",
-                                ":hover": {
-                                    bgcolor: "lightBlue.dark",
-                                    borderColor: "darkBlue.light",
-                                },
-                                mb: "30px",
-                            }}
-                        >
-                            Завантажити фото
-                            <UploadButton
-                                name="photo"
-                                type="file"
-                                accept="image/png, image/jpeg"
-                                onChange={handleImageChange}
-                            />
-                        </Button>
+                        <UploadButtonField
+                            text="Завантажити фото"
+                            onChange={handleImageChange}
+                        />
                         {uploadedImage && (
                             <Box
                                 sx={{
-                                    width: "64px",
+                                    width: "48px",
                                     height: "64px",
                                     position: "relative",
                                 }}
@@ -131,12 +118,23 @@ export const ScreenshotModal = () => {
                                     src={uploadedImage}
                                     alt="uploaded image"
                                     fill
+                                    sizes="100vw"
                                 />
                             </Box>
                         )}
-                    </Box>
+                        {error && error !== null && submitButtonClicked && (
+                            <FormHelperText
+                                sx={{
+                                    color: "#d32f2f",
+                                    fontSize: "12px",
+                                    fontWeight: 700,
+                                }}
+                            >
+                                {error}
+                            </FormHelperText>
+                        )}
+                    </FormControl>
                 </Stack>
-                {error && <Typography>{error}</Typography>}
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                     <OrderButton text="Додати" />
                 </Box>

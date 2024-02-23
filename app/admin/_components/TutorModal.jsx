@@ -9,23 +9,40 @@ import {
     Box,
     Button,
     IconButton,
+    FormControl,
+    FormHelperText,
 } from "@mui/material";
 import { OrderButton } from "@/app/_components/OrderButton";
 import { updateOrCreateTutor } from "@/lib/actions";
 import { TutorModalContext } from "./TutorTable";
 import CloseIcon from "@mui/icons-material/Close";
 import Image from "next/image";
-import { UploadButton } from "./UploadButton";
+import { LightInputField } from "@/app/_components/LightInputField";
+import { UploadButtonField } from "./UploadButtonField";
 
 export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
-    const hasTutorId = tutors.some((tutor) => tutor.id === tutorId);
-    const tutor = tutors.filter((tutor) => tutor.id === tutorId)[0];
-    const tutorPhoto = tutor ? `/${tutor.photo}` : undefined;
+    const allInputsNotFocused = {
+        name: false,
+        experience: false,
+        about: false,
+    };
+    const inputNames = ["name", "experience", "about", "photo"];
+
+    const [inputsFocused, setInputsFocused] = useState(allInputsNotFocused);
+    const [submitButtonClicked, setSubmitButtonClicked] = useState(false);
+    const isEditing = tutors.some((tutor) => tutor.id === tutorId);
+    const tutorData = tutors.filter((tutor) => tutor.id === tutorId)[0];
+    const tutorPhoto = tutorData ? `/${tutorData.photo}` : undefined;
 
     const [uploadedImage, setUploadedImage] = useState(tutorPhoto);
-    const [error, setError] = useState(null);
-    const [isEditing, setIsEditing] = useState(hasTutorId);
-    const [tutorData, setTutorData] = useState(tutor);
+    const [error, setError] = useState({
+        name: null,
+        experience: null,
+        about: null,
+        photo: null,
+    });
+    // const [isEditing, setIsEditing] = useState(hasTutorId);
+    // const [tutorData, setTutorData] = useState(tutor);
     const formRef = useRef(null);
     let { setModalOpen } = useContext(TutorModalContext);
 
@@ -35,6 +52,10 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
             setUploadedImage(null);
             return;
         }
+        setError((prevState) => ({
+            ...prevState,
+            photo: null,
+        }));
         const fileReader = new FileReader();
         fileReader.onload = () => {
             setUploadedImage(fileReader.result);
@@ -43,11 +64,34 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
     };
 
     const handleSubmit = async (formData) => {
+        setSubmitButtonClicked(true);
+        setInputsFocused(allInputsNotFocused);
         const response = await updateOrCreateTutor(formData);
         if (response && response.error) {
-            setError(response.error.map((err) => err.message));
+            inputNames.map((item) => {
+                if (response.error.some((e) => e.path[0] === item)) {
+                    const newError = response.error.filter(
+                        (e) => e.path[0] === item
+                    );
+                    setError((prevState) => ({
+                        ...prevState,
+                        [item]: newError[0].message,
+                    }));
+                } else {
+                    setError((prevState) => ({
+                        ...prevState,
+                        [item]: null,
+                    }));
+                }
+            });
             return;
         }
+        setError({
+            name: null,
+            experience: null,
+            about: null,
+            photo: null,
+        });
         location.reload();
     };
 
@@ -94,7 +138,6 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
                 action={handleSubmit}
                 style={{
                     width: "66%",
-                    // mt: "32px",
                 }}
             >
                 <Stack spacing={4} sx={{ mb: "48px" }}>
@@ -105,64 +148,93 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
                             sx={{ display: "none" }}
                         />
                     )}
-                    <TextField
-                        variant="outlined"
+                    <LightInputField
                         type="text"
                         label="Ім'я"
                         name="name"
                         defaultValue={isEditing ? `${tutorData.name}` : ""}
+                        error={
+                            error &&
+                            error.name !== null &&
+                            !inputsFocused.name &&
+                            submitButtonClicked
+                        }
+                        helperText={
+                            error && !inputsFocused.name ? error.name : ""
+                        }
+                        onFocus={() =>
+                            setInputsFocused((prevState) => ({
+                                ...prevState,
+                                name: true,
+                            }))
+                        }
                     />
-                    <TextField
-                        variant="outlined"
+                    <LightInputField
                         type="text"
                         label="Досвід"
                         name="experience"
                         defaultValue={
                             isEditing ? `${tutorData.experience}` : ""
                         }
+                        error={
+                            error &&
+                            error.experience !== null &&
+                            !inputsFocused.experience &&
+                            submitButtonClicked
+                        }
+                        helperText={
+                            error && !inputsFocused.experience
+                                ? error.experience
+                                : ""
+                        }
+                        onFocus={() =>
+                            setInputsFocused((prevState) => ({
+                                ...prevState,
+                                experience: true,
+                            }))
+                        }
                     />
-                    <TextField
+                    <LightInputField
                         multiline
                         rows={5}
-                        variant="outlined"
                         type="text"
                         label="Про себе"
                         name="about"
                         defaultValue={isEditing ? `${tutorData.about}` : ""}
+                        error={
+                            error &&
+                            error.about !== null &&
+                            !inputsFocused.about &&
+                            submitButtonClicked
+                        }
+                        helperText={
+                            error && !inputsFocused.about ? error.about : ""
+                        }
+                        onFocus={() =>
+                            setInputsFocused((prevState) => ({
+                                ...prevState,
+                                about: true,
+                            }))
+                        }
                     />
-                    <Box
+                    <FormControl
                         sx={{
                             display: "flex",
-                            justifyContent: "flex-start",
-                            alignItems: "center",
+                            flexDirection: "row",
+                            alignItems: "flex-start",
                         }}
                     >
-                        <Button
-                            component="label"
-                            variant="outlined"
-                            sx={{
-                                backgroundColor: "lightBlue.light",
-                                borderColor: "disabledText.main",
-                                color: "inherit",
-                                ":hover": {
-                                    bgcolor: "lightBlue.dark",
-                                    borderColor: "darkBlue.light",
-                                },
-                            }}
-                        >
-                            {isEditing ? "Оновити фото" : "Завантажити фото"}
-                            <UploadButton
-                                name="photo"
-                                type="file"
-                                accept="image/png, image/jpeg"
-                                onChange={handleImageChange}
-                            />
-                        </Button>
+                        <UploadButtonField
+                            text={
+                                isEditing ? "Оновити фото" : "Завантажити фото"
+                            }
+                            onChange={handleImageChange}
+                        />
                         {uploadedImage && (
                             <Box
                                 sx={{
                                     width: "48px",
-                                    height: "64px",
+                                    height: "48px",
                                     position: "relative",
                                     ml: "32px",
                                 }}
@@ -171,15 +243,25 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
                                     src={uploadedImage}
                                     alt="uploaded image"
                                     fill
+                                    sizes="100vw"
                                 />
                             </Box>
                         )}
-                    </Box>
+                        {error &&
+                            error.photo !== null &&
+                            submitButtonClicked && (
+                                <FormHelperText
+                                    sx={{
+                                        color: "#d32f2f",
+                                        fontSize: "12px",
+                                        fontWeight: 700,
+                                    }}
+                                >
+                                    {error.photo}
+                                </FormHelperText>
+                            )}
+                    </FormControl>
                 </Stack>
-                {error &&
-                    error.map((err) => (
-                        <Typography sx={{ color: "red" }}>{err}</Typography>
-                    ))}
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
                     <OrderButton text={isEditing ? "Редагувати" : "Додати"} />
                 </Box>

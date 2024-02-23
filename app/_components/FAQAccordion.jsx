@@ -134,12 +134,7 @@ export const FAQAccordion = () => {
                         sx={{
                             backgroundColor: "inherit",
                             fontSize: { xxs: "18px", md: "20px", xl: "22px" },
-                            minHeight: {
-                                xs: "208px",
-                                xs: "184px",
-                                md: "152px",
-                                xl: "168px",
-                            },
+                            minHeight: "124px",
                             px: {
                                 xxs: "16px",
                                 xs: "20px",
@@ -148,8 +143,7 @@ export const FAQAccordion = () => {
                             },
                             pt: {
                                 xxs: "16px",
-                                xs: "32px",
-                                md: "24px",
+                                xs: "24px",
                                 xl: "32px",
                             },
                         }}

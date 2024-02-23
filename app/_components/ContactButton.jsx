@@ -7,6 +7,7 @@ export const ContactButton = ({
     onClick,
     hoverBackgroundColor,
     pressedBackgroundColor,
+    maxWidth,
 }) => {
     return (
         <Button
@@ -32,6 +33,7 @@ export const ContactButton = ({
                 "&:active": {
                     backgroundColor: pressedBackgroundColor,
                 },
+                maxWidth: maxWidth,
             }}
         >
             <Typography

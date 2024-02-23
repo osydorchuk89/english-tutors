@@ -26,7 +26,7 @@ export const authOptions = {
                     },
                 });
                 if (!user) {
-                    throw new Error("User not found!");
+                    throw new Error("Provided credentials are invalid");
                 }
                 const passwordCorrect = await bcrypt.compare(
                     credentials.password,

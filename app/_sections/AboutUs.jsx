@@ -11,9 +11,9 @@ import { BulletedList } from "../_components/BulletedList";
 
 const socialIcons = [
     { id: 1, icon: iconInstagram, link: "https://t.me/c/1342103338/1918" },
-    { id: 1, icon: iconTelegram, link: "https://t.me/engl1sh_zoom" },
-    { id: 1, icon: iconTikTok, link: "https://t.me/c/1342103338/1919" },
-    { id: 1, icon: iconMail, link: "mailto:englishzoom.school@gmail.com" },
+    { id: 2, icon: iconTelegram, link: "https://t.me/engl1sh_zoom" },
+    { id: 3, icon: iconTikTok, link: "https://t.me/c/1342103338/1919" },
+    { id: 4, icon: iconMail, link: "mailto:englishzoom.school@gmail.com" },
 ];
 
 const aboutItems = [

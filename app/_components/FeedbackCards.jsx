@@ -53,8 +53,6 @@ export const FeedbackCards = ({ screenshots }) => {
                     gridTemplateRows: "repeat(2, 1fr)",
                     gridColumnGap: "12px",
                     gridRowGap: "24px",
-                    // rowGap: "24px",
-                    // columnGap: "12px",
                 }}
             >
                 {screenshotSlice
@@ -71,47 +69,13 @@ export const FeedbackCards = ({ screenshots }) => {
                             <Image
                                 src={item.photo}
                                 fill
+                                sizes="100vw"
                                 alt="screenshot"
                                 loading="lazy"
                             />
                         </Box>
                     ))}
             </Box>
-            {/* <ImageList
-                variant="standard"
-                cols={2}
-                gap={12}
-                rowHeight={{ xxs: 233, xs: 323, md: 385 }}
-                sx={{
-                    width: {
-                        xxs: "calc(100% - 32px)",
-                        xs: "496px",
-                        md: "590px",
-                        xl: "615px",
-                    },
-                    height: { xxs: "482px", xs: "670px", md: "793px" },
-                    my: "24px",
-                    overflow: "hidden",
-                }}
-            >
-                {screenshots.map((item) => (
-                    <ImageListItem
-                        key={item.id}
-                        sx={{
-                            borderRadius: "8px",
-                            overflow: "hidden",
-                            height: { xxs: "233px", xs: "323px", md: "385px" },
-                        }}
-                    >
-                        <Image
-                            src={item.photo}
-                            fill
-                            alt="screenshot"
-                            loading="lazy"
-                        />
-                    </ImageListItem>
-                ))}
-            </ImageList> */}
             <NavButton
                 _id="button-down"
                 icon={iconDown}

@@ -128,8 +128,10 @@ export const TutorsCards = ({ tutors }) => {
                                     <Image
                                         src={`/${tutors[cardIndex].photo}`}
                                         alt="photo"
-                                        loading="lazy"
+                                        // loading="lazy"
                                         fill
+                                        sizes="229px"
+                                        priority
                                         style={{
                                             objectFit: "cover",
                                         }}

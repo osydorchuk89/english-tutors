@@ -7,6 +7,8 @@ import { Box, TextField, Stack, Card, Typography } from "@mui/material";
 import { OrderButton } from "@/app/_components/OrderButton";
 
 export default function AdminLogin() {
+    const [inputsFocused, setInputsFocused] = useState(false);
+    const [submitButtonClicked, setSubmitButtonClicked] = useState(false);
     const [error, setError] = useState({ message: null });
 
     const router = useRouter();
@@ -14,6 +16,9 @@ export default function AdminLogin() {
 
     const handleLogin = async (event) => {
         event.preventDefault();
+        setError({ message: null });
+        setSubmitButtonClicked(true);
+        setInputsFocused(false);
         const result = await signIn("credentials", {
             username: formRef.current["username"].value,
             password: formRef.current["password"].value,
@@ -21,7 +26,6 @@ export default function AdminLogin() {
             callbackUrl: "/admin",
         });
         if (result?.status === 200) {
-            setError({ message: null });
             router.push("/admin");
         } else {
             setError({ message: result.error });
@@ -66,6 +70,7 @@ export default function AdminLogin() {
                             type="text"
                             label="Username"
                             name="username"
+                            onFocus={() => setInputsFocused(true)}
                             sx={{ width: "20rem" }}
                             InputProps={{
                                 disableUnderline: true,
@@ -77,6 +82,7 @@ export default function AdminLogin() {
                             type="password"
                             label="Password"
                             name="password"
+                            onFocus={() => setInputsFocused(true)}
                             sx={{ width: "20rem" }}
                             InputProps={{
                                 disableUnderline: true,
@@ -84,12 +90,12 @@ export default function AdminLogin() {
                             }}
                         ></TextField>
                     </Stack>
-                    {error.message && (
+                    {error.message && !inputsFocused && submitButtonClicked && (
                         <Typography
                             sx={{
-                                color: "red",
+                                color: "#d32f2f",
                                 textAlign: "center",
-                                mb: "16px",
+                                mb: "32px",
                             }}
                         >
                             {error.message}

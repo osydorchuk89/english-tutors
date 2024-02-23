@@ -1,14 +1,17 @@
+import { useFormStatus } from "react-dom";
 import { Button, Typography } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export const OrderButton = ({ onClick, text }) => {
+    const { pending } = useFormStatus();
     return (
         <Button
             disableRipple
             type="submit"
             onClick={onClick}
             sx={{
-                // width: { xs: "228px", md: "192px", xl: "217px" },
-                // height: { xs: "60px", md: "54px", xl: "59px" },
+                minWidth: "228px",
+                minHeight: "60px",
                 color: "inherit",
                 backgroundColor: "lightBlue.dark",
                 px: "40px",
@@ -31,7 +34,7 @@ export const OrderButton = ({ onClick, text }) => {
                     fontWeight: 600,
                 }}
             >
-                {text}
+                {pending ? <CircularProgress size="22px" /> : text}
             </Typography>
         </Button>
     );

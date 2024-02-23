@@ -1,6 +1,15 @@
 import { TextField } from "@mui/material";
 
-export const LightInputField = ({ type, label, name, multiline, rows }) => {
+export const LightInputField = ({
+    type,
+    label,
+    name,
+    multiline,
+    error,
+    helperText,
+    onFocus,
+    defaultValue,
+}) => {
     return (
         <TextField
             variant="outlined"
@@ -8,7 +17,20 @@ export const LightInputField = ({ type, label, name, multiline, rows }) => {
             label={label}
             name={name}
             multiline={multiline}
-            rows={rows}
+            rows={5}
+            error={error}
+            helperText={helperText}
+            onFocus={onFocus}
+            defaultValue={defaultValue}
+            FormHelperTextProps={{
+                sx: {
+                    textAlign: "right",
+                    mt: 0,
+                    mr: 0,
+                    fontSize: "12px",
+                    fontWeight: 700,
+                },
+            }}
             sx={{
                 "& .MuiOutlinedInput-root": {
                     "& fieldset": {

@@ -72,8 +72,9 @@ export const SideBar = ({ setActiveMenuItem }) => {
                         })
                     }
                     text="Вийти"
-                    hoverBackgroundColor="button.hover"
-                    pressedBackgroundColor="button.pressed"
+                    hoverBackgroundColor="lightBlue.main"
+                    pressedBackgroundColor="lightBlue.dark"
+                    maxWidth="95%"
                 />
             </Box>
         </MenuList>

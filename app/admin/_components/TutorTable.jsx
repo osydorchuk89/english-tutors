@@ -3,7 +3,6 @@
 import { useState, createContext } from "react";
 import Image from "next/image";
 import { Box, Button, Typography, Modal } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import {
@@ -13,6 +12,7 @@ import {
 } from "@mui/x-data-grid";
 import { deleteTutor } from "@/lib/actions";
 import { TutorModal } from "./TutorModal";
+import { AddButton } from "./AddButton";
 
 export const TutorModalContext = createContext({
     modalOpen: false,
@@ -24,24 +24,7 @@ const AddToolbar = (props) => {
 
     return (
         <GridToolbarContainer>
-            <Button
-                component="label"
-                variant="outlined"
-                sx={{
-                    backgroundColor: "lightBlue.light",
-                    borderColor: "disabledText.main",
-                    color: "inherit",
-                    ":hover": {
-                        bgcolor: "lightBlue.dark",
-                        borderColor: "darkBlue.light",
-                    },
-                    mb: "16px",
-                }}
-                startIcon={<AddIcon />}
-                onClick={() => setModalOpen(true)}
-            >
-                Додати запис
-            </Button>
+            <AddButton onClick={() => setModalOpen(true)} />
         </GridToolbarContainer>
     );
 };
@@ -98,7 +81,7 @@ export const TutorTable = ({ tutors }) => {
                         src={imagePath}
                         alt="uploaded image"
                         width={48}
-                        height={64}
+                        height={48}
                     />
                 );
             },

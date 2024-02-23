@@ -7,22 +7,60 @@ import { sendReview } from "../../lib/actions";
 import { LightInputField } from "./LightInputField";
 
 export const FeedbackForm = () => {
-    const [error, setError] = useState(null);
+    const allInputsNotFocused = {
+        name: false,
+        phone: false,
+    };
+
+    const [inputsFocused, setInputsFocused] = useState(allInputsNotFocused);
+    const [submitButtonClicked, setSubmitButtonClicked] = useState(false);
+    const [error, setError] = useState({ name: null, text: null });
     const formRef = useRef(null);
 
     const sendReviewData = async (formData) => {
+        setSubmitButtonClicked(true);
+        setInputsFocused(allInputsNotFocused);
         const reviewData = {
             name: formData.get("name"),
             text: formData.get("text"),
         };
         const response = await sendReview(reviewData);
         if (response && response.error) {
-            setError(response.error[0].message);
+            if (response.error.some((e) => e.path[0] === "name")) {
+                const nameError = response.error.filter(
+                    (e) => e.path[0] === "name"
+                );
+                setError((prevState) => ({
+                    ...prevState,
+                    name: nameError[0].message,
+                }));
+            } else {
+                setError((prevState) => ({
+                    ...prevState,
+                    name: null,
+                }));
+            }
+            if (response.error.some((e) => e.path[0] === "text")) {
+                const textError = response.error.filter(
+                    (e) => e.path[0] === "text"
+                );
+                setError((prevState) => ({
+                    ...prevState,
+                    text: textError[0].message,
+                }));
+            } else {
+                setError((prevState) => ({
+                    ...prevState,
+                    text: null,
+                }));
+            }
             return;
         }
-        console.log("Success!!!");
         formRef.current.reset();
-        setError(null);
+        setError({
+            name: null,
+            text: null,
+        });
     };
 
     return (
@@ -63,6 +101,9 @@ export const FeedbackForm = () => {
                 Ви можете залишити свій відгук на нашому сайті
             </Typography>
             <Box
+                component="form"
+                ref={formRef}
+                action={sendReviewData}
                 sx={{
                     width: {
                         xxs: "90%",
@@ -72,37 +113,67 @@ export const FeedbackForm = () => {
                     },
                 }}
             >
-                <form ref={formRef} action={sendReviewData}>
-                    <Stack
-                        spacing={2}
-                        sx={{
-                            mb: {
-                                xxs: "32px",
-                                xs: "40px",
-                                md: "43px",
-                                xl: "72px",
-                            },
-                        }}
-                    >
-                        <LightInputField type="text" label="Ім'я" name="name" />
-                        <LightInputField
-                            multiline={true}
-                            rows={5}
-                            type="text"
-                            label="Ваш коментар"
-                            name="text"
-                        />
-                    </Stack>
-                    <Box sx={{ display: "flex", justifyContent: "center" }}>
-                        {error && <Typography>{error}</Typography>}
-                        <ContactButton
-                            type="submit"
-                            text="Відправити"
-                            hoverBackgroundColor="lightBlue.main"
-                            pressedBackgroundColor="lightBlue.dark"
-                        />
-                    </Box>
-                </form>
+                <Stack
+                    spacing={2}
+                    sx={{
+                        mb: {
+                            xxs: "32px",
+                            xs: "40px",
+                            md: "43px",
+                            xl: "72px",
+                        },
+                    }}
+                >
+                    <LightInputField
+                        type="text"
+                        label="Ім'я"
+                        name="name"
+                        error={
+                            error &&
+                            error.name !== null &&
+                            !inputsFocused.name &&
+                            submitButtonClicked
+                        }
+                        helperText={
+                            error && !inputsFocused.name ? error.name : ""
+                        }
+                        onFocus={() =>
+                            setInputsFocused((prevState) => ({
+                                ...prevState,
+                                name: true,
+                            }))
+                        }
+                    />
+                    <LightInputField
+                        multiline={true}
+                        type="text"
+                        label="Ваш коментар"
+                        name="text"
+                        error={
+                            error &&
+                            error.text !== null &&
+                            !inputsFocused.text &&
+                            submitButtonClicked
+                        }
+                        helperText={
+                            error && !inputsFocused.text ? error.text : ""
+                        }
+                        onFocus={() =>
+                            setInputsFocused((prevState) => ({
+                                ...prevState,
+                                text: true,
+                            }))
+                        }
+                    />
+                </Stack>
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                    <ContactButton
+                        type="submit"
+                        text="Відправити"
+                        hoverBackgroundColor="lightBlue.main"
+                        pressedBackgroundColor="lightBlue.dark"
+                    />
+                </Box>
             </Box>
         </Paper>
     );
