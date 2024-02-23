@@ -73,8 +73,6 @@ export const FeedbackForm = () => {
         });
     };
 
-    console.log(popUpModalOpen);
-
     return (
         <PopUpModalContext.Provider value={value}>
             <Paper

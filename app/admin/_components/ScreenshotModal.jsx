@@ -42,7 +42,6 @@ export const ScreenshotModal = () => {
     const handleSubmit = async (formData) => {
         setSubmitButtonClicked(true);
         const response = await createScreenshot(formData);
-        console.log(response.error[0].message);
         if (response && response.error) {
             setError(response.error[0].message);
             return;
