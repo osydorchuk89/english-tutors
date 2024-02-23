@@ -179,7 +179,6 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
     };
 
     const sendApplicationData = async (formData) => {
-        setPopUpModalOpen(true);
         setSubmitButtonClicked(true);
         setInputsFocused(allInputsNotFocused);
         const applicationData = {
@@ -218,6 +217,7 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
             }
             return;
         }
+        setPopUpModalOpen(true);
         setError({
             name: null,
             phone: null,
@@ -247,6 +247,7 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
                     position: "relative",
                     flexDirection: "column",
                     alignItems: "center",
+                    justifyContent: "space-evenly",
                     color: "lightBlue.light",
                     backgroundColor: "darkBlue.dark",
                     width: {
@@ -255,7 +256,13 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
                         md: "calc(100% - 120px)",
                         xl: "calc(100% - 200px)",
                     },
-                    height: "100%",
+                    height: {
+                        xxs: "513px",
+                        xs: "636px",
+                        md: "706px",
+                        xl: "909px",
+                    },
+                    aspectRatio: "1.87/1",
                     py: { xxs: "56px", sm: "80px", md: "120px", xl: "182px" },
                     mx: { xxs: 0, xs: "20px", md: "60px", xl: "100px" },
                     borderRadius: borderRadiusProp,
@@ -319,7 +326,9 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
                 >
                     <Stack
                         spacing={{ xxs: 2, xs: 3, xl: 4 }}
-                        sx={{ mb: { xxs: "24px", xs: "32px", xl: "56px" } }}
+                        sx={{
+                            mb: { xxs: "24px", xs: "32px", xl: "56px" },
+                        }}
                     >
                         <DarkInputField
                             type="text"
@@ -382,7 +391,7 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
                         відповідаємо протягом години
                     </Typography>
                     <Box sx={{ display: "flex", justifyContent: "center" }}>
-                        <OrderButton text="Записатися" />
+                        <OrderButton text="Записатися" isApplication />
                     </Box>
                 </Box>
             </Paper>
@@ -393,11 +402,13 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    ml: "-16px",
+                    // ml: "-16px",
                 }}
             >
                 <PopUpForm
                     backgroundColor="darkBlue.dark"
+                    textColor="lightBlue.light"
+                    isApplication
                     onClick={() => {
                         setPopUpModalOpen(false);
                         setModalOpen(false);

@@ -1,9 +1,13 @@
 import { Paper, IconButton, Typography, Stack } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import CircularProgress from "@mui/material/CircularProgress";
 import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
 
-export const PopUpForm = ({ backgroundColor, onClick }) => {
+export const PopUpForm = ({
+    backgroundColor,
+    textColor,
+    onClick,
+    isApplication,
+}) => {
     return (
         <Paper
             sx={{
@@ -12,23 +16,22 @@ export const PopUpForm = ({ backgroundColor, onClick }) => {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "white",
+                color: textColor,
                 backgroundColor: backgroundColor,
                 width: {
-                    xxs: "80%",
-                    xs: "calc(100% - 320px)",
-                    md: "calc(100% - 480px)",
-                    xl: "calc(100% - 800px)",
+                    xxs: "100%",
+                    xs: "calc(100% - 40px)",
+                    md: "calc(100% - 120px)",
+                    xl: "calc(100% - 200px)",
                 },
                 height: {
-                    xxs: "60%",
-                    xs: "calc(100% - 400px)",
-                    md: "calc(100% - 600px)",
-                    xl: "calc(100% - 920px)",
+                    xxs: "513px",
+                    xs: "636px",
+                    md: "706px",
+                    xl: "909px",
                 },
-                mx: { xxs: 0, xs: "160px", md: "240px", xl: "400px" },
+                mx: { xxs: 0, xs: "20px", md: "60px", xl: "100px" },
                 borderRadius: "24px",
-                zIndex: 100,
             }}
         >
             <IconButton
@@ -47,7 +50,6 @@ export const PopUpForm = ({ backgroundColor, onClick }) => {
                     }}
                 />
             </IconButton>
-            {/* {pending && <CircularProgress sx={{ color: "lightBlue.light" }} />} */}
             <Stack
                 justifyContent="center"
                 alignItems="center"
@@ -57,17 +59,36 @@ export const PopUpForm = ({ backgroundColor, onClick }) => {
                 <Typography
                     sx={{
                         mt: "40px",
-                        color: "lightBlue.light",
+                        color: textColor,
                         textAlign: "center",
+                        fontSize: {
+                            xxs: "18px",
+                            xs: "18px",
+                            md: "24px",
+                            xl: "28px",
+                        },
                     }}
                 >
-                    Ваша заявка прийнята.
+                    {isApplication
+                        ? "Ваша заявка прийнята."
+                        : "Ваш коментар прийнято"}
                 </Typography>
-                <Typography
-                    sx={{ color: "lightBlue.light", textAlign: "center" }}
-                >
-                    Ми відповімо вам протягом години.
-                </Typography>
+                {isApplication && (
+                    <Typography
+                        sx={{
+                            color: textColor,
+                            textAlign: "center",
+                            fontSize: {
+                                xxs: "18px",
+                                xs: "18px",
+                                md: "24px",
+                                xl: "28px",
+                            },
+                        }}
+                    >
+                        Ми відповімо вам протягом години.
+                    </Typography>
+                )}
             </Stack>
         </Paper>
     );

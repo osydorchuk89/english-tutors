@@ -84,7 +84,7 @@ export const TryItCard = () => {
                         xl: "30px",
                     }}
                 />
-                <Box textAlign="center">
+                <Box textAlign="center" sx={{ width: "100%" }}>
                     <OrderButton onClick={handleModalOpen} text="Записатися" />
                 </Box>
             </Paper>
@@ -95,7 +95,6 @@ export const TryItCard = () => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    ml: "-16px",
                 }}
             >
                 <ApplicationForm borderRadiusProp="16px" display="block" />

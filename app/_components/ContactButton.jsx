@@ -1,4 +1,11 @@
+"use client";
+
+import { useFormStatus } from "react-dom";
 import { Button, Typography } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
+
+const minWidthSizesFeedback = { xxs: "243px", md: "255px", xl: "280px" };
+const minWidthSizesOther = { xxs: "238px", xs: "176px", xl: "278px" };
 
 export const ContactButton = ({
     text,
@@ -8,7 +15,9 @@ export const ContactButton = ({
     hoverBackgroundColor,
     pressedBackgroundColor,
     maxWidth,
+    isFeedback,
 }) => {
+    const { pending } = useFormStatus();
     return (
         <Button
             disableRipple
@@ -33,7 +42,11 @@ export const ContactButton = ({
                 "&:active": {
                     backgroundColor: pressedBackgroundColor,
                 },
+                minWidth: isFeedback
+                    ? minWidthSizesFeedback
+                    : minWidthSizesOther,
                 maxWidth: maxWidth,
+                minHeight: isFeedback ? "60px" : "auto",
             }}
         >
             <Typography
@@ -42,7 +55,16 @@ export const ContactButton = ({
                     fontWeight: { xxs: 600, md: 400 },
                 }}
             >
-                {text}
+                {pending ? (
+                    <CircularProgress
+                        size={18}
+                        // size={{ xxs: 18, md: 20, xl: 24 }}
+                        sx={{ color: "darkBlue.dark" }}
+                        style={{ padding: 0 }}
+                    />
+                ) : (
+                    text
+                )}
             </Typography>
         </Button>
     );
