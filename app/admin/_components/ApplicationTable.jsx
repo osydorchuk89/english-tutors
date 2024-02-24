@@ -23,6 +23,8 @@ export const ApplicationTable = ({ applications }) => {
         phone: item.phone,
     }));
 
+    console.log(applications);
+
     return (
         <Box sx={{ width: "80%" }}>
             <Typography
