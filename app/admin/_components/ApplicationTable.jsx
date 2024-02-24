@@ -24,7 +24,7 @@ export const ApplicationTable = ({ applications }) => {
     }));
 
     return (
-        <Box sx={{ height: "89vh", width: "80%" }}>
+        <Box sx={{ height: "99vh", width: "80%" }}>
             <Typography
                 sx={{
                     ml: "10px",
