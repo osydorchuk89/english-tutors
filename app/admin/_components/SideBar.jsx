@@ -5,6 +5,7 @@ import { signOut } from "next-auth/react";
 import Image from "next/image";
 import { ListItemText, MenuList, MenuItem, Box } from "@mui/material";
 import { ContactButton } from "@/app/_components/ContactButton";
+import { Logo } from "@/lib/icons";
 
 const menuItems = [
     {
@@ -42,7 +43,7 @@ export const SideBar = ({ setActiveMenuItem }) => {
                 borderRightColor: "disabledText.main",
             }}
         >
-            <Image src="/logo.png" width={166} height={64} alt="logo" />
+            <Logo color="black" />
             {menuItems.map((item) => (
                 <MenuItem
                     key={item.id}

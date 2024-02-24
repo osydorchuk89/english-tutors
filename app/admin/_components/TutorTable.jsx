@@ -75,13 +75,13 @@ export const TutorTable = ({ tutors }) => {
             width: 100,
             sortable: false,
             renderCell: (params) => {
-                const imagePath = `/${params.value}`;
+                const imagePath = params.row.photo;
                 return (
                     <Image
                         src={imagePath}
                         alt="uploaded image"
                         width={48}
-                        height={48}
+                        height={64}
                     />
                 );
             },
@@ -163,7 +163,6 @@ export const TutorTable = ({ tutors }) => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    // ml: "-16px",
                 }}
             >
                 <TutorModal
