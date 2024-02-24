@@ -3,7 +3,7 @@
 import { useState, useRef, createContext } from "react";
 import { Paper, Typography, Stack, Box, Modal } from "@mui/material";
 import { ContactButton } from "./ContactButton";
-import { sendReview } from "../../lib/actions";
+import { createReview } from "../../lib/actions";
 import { LightInputField } from "./LightInputField";
 import { PopUpForm } from "./PopUpForm";
 
@@ -26,14 +26,14 @@ export const FeedbackForm = () => {
     const [error, setError] = useState({ name: null, text: null });
     const formRef = useRef(null);
 
-    const sendReviewData = async (formData) => {
+    const createReviewData = async (formData) => {
         setSubmitButtonClicked(true);
         setInputsFocused(allInputsNotFocused);
         const reviewData = {
             name: formData.get("name"),
             text: formData.get("text"),
         };
-        const response = await sendReview(reviewData);
+        const response = await createReview(reviewData);
         if (response && response.error) {
             if (response.error.some((e) => e.path[0] === "name")) {
                 const nameError = response.error.filter(
@@ -114,7 +114,7 @@ export const FeedbackForm = () => {
                 <Box
                     component="form"
                     ref={formRef}
-                    action={sendReviewData}
+                    action={createReviewData}
                     sx={{
                         width: {
                             xxs: "90%",

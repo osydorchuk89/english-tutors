@@ -13,7 +13,7 @@ import {
     Modal,
 } from "@mui/material";
 import { OrderButton } from "./OrderButton";
-import { sendApplication } from "../../lib/actions";
+import { createApplication } from "../../lib/actions";
 import CloseIcon from "@mui/icons-material/Close";
 import { MuiTelInput } from "mui-tel-input";
 import { PopUpForm } from "./PopUpForm";
@@ -178,14 +178,14 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
         setPhone(newPhone);
     };
 
-    const sendApplicationData = async (formData) => {
+    const createApplicationData = async (formData) => {
         setSubmitButtonClicked(true);
         setInputsFocused(allInputsNotFocused);
         const applicationData = {
             name: formData.get("name"),
             phone: phone.replace(/\s+/g, ""),
         };
-        const response = await sendApplication(applicationData);
+        const response = await createApplication(applicationData);
         if (response && response.error) {
             if (response.error.some((e) => e.path[0] === "name")) {
                 const nameError = response.error.filter(
@@ -314,7 +314,7 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
                 <Box
                     component="form"
                     ref={formRef}
-                    action={sendApplicationData}
+                    action={createApplicationData}
                     sx={{
                         width: {
                             xxs: "90%",

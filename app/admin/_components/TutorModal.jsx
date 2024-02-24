@@ -263,7 +263,10 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
                     </FormControl>
                 </Stack>
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
-                    <OrderButton text={isEditing ? "Редагувати" : "Додати"} />
+                    <OrderButton
+                        text={isEditing ? "Редагувати" : "Додати"}
+                        isApplication
+                    />
                 </Box>
             </form>
         </Paper>

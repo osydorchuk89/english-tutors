@@ -8,7 +8,7 @@ import { AuthProvider } from "./_context/AuthProvider";
 const montserratFont = Montserrat({ subsets: ["latin", "cyrillic"] });
 
 export const metadata = {
-    title: "English Tutors",
+    title: "English Zoom",
     description: "Find your English tutors online!",
 };
 

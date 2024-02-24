@@ -135,7 +135,7 @@ export const ScreenshotModal = () => {
                     </FormControl>
                 </Stack>
                 <Box sx={{ display: "flex", justifyContent: "center" }}>
-                    <OrderButton text="Додати" />
+                    <OrderButton text="Додати" isApplication />
                 </Box>
             </form>
         </Paper>
