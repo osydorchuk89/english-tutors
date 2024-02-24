@@ -13,8 +13,6 @@ export default async function Admin() {
     const tutors = await getTutors();
     const screenshots = await getScreenshots();
 
-    console.log(applications);
-
     return (
         <Box sx={{ display: "flex", flexDirection: "row" }}>
             <AdminPage

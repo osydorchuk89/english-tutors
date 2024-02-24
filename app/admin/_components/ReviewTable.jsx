@@ -93,7 +93,7 @@ export const ReviewTable = ({ reviews }) => {
     ];
 
     return (
-        <Box sx={{ width: "80%" }}>
+        <Box sx={{ height: "89vh", width: "80%" }}>
             <Typography
                 sx={{
                     ml: "10px",
