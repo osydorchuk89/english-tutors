@@ -6,6 +6,23 @@ import { Box, Paper, Stack, Typography } from "@mui/material";
 import { iconDown, iconUp } from "@/lib/icons";
 import { NavButton } from "./NavButtons";
 
+const flipBoxCardsStyle = {
+    display: "flex",
+    position: "absolute",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "100%",
+    height: "100%",
+    borderRadius: "16px",
+    boxShadow: `5px 4px 6px 0px #14313D17,
+    11px 10px 9px 0px #14313D0D,
+    19px 18px 10px 0px #14313D03,
+    30px 28px 11px 0px #14313D05,
+    0px 4px 4px 0px #14313D40,
+    -4px -4px 4px 0px #14313D1A`,
+    backgroundColor: "lightBlue.dark",
+};
+
 export const TutorsCards = ({ tutors }) => {
     const [cardIndex, setCardIndex] = useState(0);
 
@@ -103,12 +120,16 @@ export const TutorsCards = ({ tutors }) => {
                                 width: "100%",
                                 transition: "transform 0.8s",
                                 transformStyle: "preserve-3d",
+                                // "&:hover .flip-box-front": {
+                                //     transform: "rotateY(180deg)",
+                                // },
                             }}
                         >
                             <Paper
                                 className="flip-box-front"
                                 sx={{
-                                    backgroundColor: "lightBlue.dark",
+                                    ...flipBoxCardsStyle,
+                                    justifyContent: "center",
                                 }}
                             >
                                 <Box
@@ -166,11 +187,9 @@ export const TutorsCards = ({ tutors }) => {
                             <Paper
                                 className="flip-box-back"
                                 sx={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                    backgroundColor: "lightBlue.dark",
+                                    ...flipBoxCardsStyle,
+                                    transform: "rotateY(180deg)",
+                                    justifyContent: "flex-start",
                                 }}
                             >
                                 <Typography

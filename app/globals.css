@@ -17,7 +17,7 @@ html, body {
   }
 
 .flip-box-front, .flip-box-back {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     position: absolute;
     width: 100%;
@@ -28,24 +28,24 @@ html, body {
         19px 18px 10px 0px #14313D03,
         30px 28px 11px 0px #14313D05,
         0px 4px 4px 0px #14313D40,
-        -4px -4px 4px 0px #14313D1A;
+        -4px -4px 4px 0px #14313D1A; */
     -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
   }
 
-.flip-box-front {
-    justify-content: center;
-    align-items: center;
+/* .flip-box-front {
+    justify-content: center !important;
+    align-items: center !important;
   }
 
 .flip-box-back {
-    justify-content: flex-start;
-    align-items: center;
-  }
+    justify-content: flex-start !important;
+    align-items: center !important;
+  } */
   
-.flip-box-back {
+/* .flip-box-back {
     transform: rotateY(180deg);
-  }
+  } */
 
 .MuiCardContent-root {
     padding: 0px;
