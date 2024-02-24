@@ -6,6 +6,7 @@ import {
     iconTelegram,
 } from "../../lib/icons";
 import { ContactCard } from "../_components/ContactCard";
+import { getManagers } from "@/lib/actions";
 
 const icons = [
     {
@@ -26,7 +27,9 @@ const icons = [
     },
 ];
 
-export const Contacts = () => {
+export const Contacts = async () => {
+    const managers = await getManagers();
+
     return (
         <Stack
             id="contacts"
@@ -69,7 +72,6 @@ export const Contacts = () => {
                     fontWeight: 700,
                     position: "absolute",
                     top: 0,
-                    // left: { xxs: "16px", sm: "40px", md: "120px", xl: "200px" },
                     left: 0,
                     zIndex: 10,
                 }}
@@ -155,20 +157,15 @@ export const Contacts = () => {
                     alignItems="center"
                     spacing={{ xxs: 2, sm: 2.5, md: 10, lg: 12, xl: 15 }}
                 >
-                    <ContactCard
-                        img="/tutor-photos/tutor-anastasiia.jpg"
-                        name="Анастасія"
-                        text="Відповім на будь-яке запитання"
-                        phone="+38 098 06 21 910"
-                        href="https://t.me/nastia_hryb"
-                    />
-                    <ContactCard
-                        img="/tutor-photos/tutor-iana.jpg"
-                        name="Яна"
-                        text="Допоможу вирішити будь-яку проблему"
-                        phone="+380 67 410 89 09"
-                        href="https://t.me/yana_english_zoom"
-                    />
+                    {managers.map((manager) => (
+                        <ContactCard
+                            img={manager.photo}
+                            name={manager.name}
+                            text={manager.about}
+                            phone={manager.phone}
+                            href={manager.telegram}
+                        />
+                    ))}
                 </Stack>
             </Stack>
         </Stack>

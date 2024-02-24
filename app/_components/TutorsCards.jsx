@@ -147,9 +147,8 @@ export const TutorsCards = ({ tutors }) => {
                                     }}
                                 >
                                     <Image
-                                        src={`/${tutors[cardIndex].photo}`}
+                                        src={tutors[cardIndex].photo}
                                         alt="photo"
-                                        // loading="lazy"
                                         fill
                                         sizes="229px"
                                         priority

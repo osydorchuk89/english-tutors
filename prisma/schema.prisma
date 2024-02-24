@@ -30,6 +30,15 @@ model Tutor {
     photo      String
 }
 
+model Manager {
+    id       String @id @default(uuid())
+    name     String
+    about    String
+    phone    String
+    telegram String
+    photo    String
+}
+
 model Application {
     id    String @id @default(uuid())
     name  String
