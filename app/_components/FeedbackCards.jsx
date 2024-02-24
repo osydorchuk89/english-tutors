@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useLayoutEffect } from "react";
 import { Box, Stack } from "@mui/material";
 import { NavButton } from "./NavButtons";
 import { iconDown } from "@/lib/icons";
@@ -23,6 +23,15 @@ export const FeedbackCards = ({ screenshots }) => {
         }
         setScreenshotSlice(newSlice);
     };
+
+    if (typeof window !== "undefined") {
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+
+        useLayoutEffect(() => {
+            window.scrollTo(scrollX, scrollY);
+        });
+    }
 
     return (
         <Stack
@@ -69,7 +78,7 @@ export const FeedbackCards = ({ screenshots }) => {
                             <Image
                                 src={item.photo}
                                 fill
-                                sizes="100vw"
+                                sizes="(min-width: 0px) 100vw"
                                 alt="screenshot"
                                 loading="lazy"
                             />

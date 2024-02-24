@@ -24,20 +24,26 @@ const flipBoxCardsStyle = {
 };
 
 export const TutorsCards = ({ tutors }) => {
-    const [cardIndex, setCardIndex] = useState(0);
+    const [imageLoaded, setImageLoaded] = useState({});
+    const [cardIndex, setCardIndex] = useState(1);
 
     const handlePressUp = () => {
-        if (cardIndex === 0) {
-            setCardIndex(tutors.length - 1);
-        } else {
-            setCardIndex((prevIndex) => prevIndex - 1);
+        if (imageLoaded[cardIndex]) {
+            if (cardIndex === 0) {
+                setCardIndex(tutors.length - 1);
+            } else {
+                setCardIndex((prevIndex) => prevIndex - 1);
+            }
         }
     };
+
     const handlePressDown = () => {
-        if (cardIndex === tutors.length - 1) {
-            setCardIndex(0);
-        } else {
-            setCardIndex((prevIndex) => prevIndex + 1);
+        if (imageLoaded[cardIndex]) {
+            if (cardIndex === tutors.length - 1) {
+                setCardIndex(0);
+            } else {
+                setCardIndex((prevIndex) => prevIndex + 1);
+            }
         }
     };
 
@@ -120,9 +126,6 @@ export const TutorsCards = ({ tutors }) => {
                                 width: "100%",
                                 transition: "transform 0.8s",
                                 transformStyle: "preserve-3d",
-                                // "&:hover .flip-box-front": {
-                                //     transform: "rotateY(180deg)",
-                                // },
                             }}
                         >
                             <Paper
@@ -154,6 +157,14 @@ export const TutorsCards = ({ tutors }) => {
                                         priority
                                         style={{
                                             objectFit: "cover",
+                                        }}
+                                        onLoad={() => {
+                                            if (!imageLoaded[cardIndex]) {
+                                                setImageLoaded((prevState) => ({
+                                                    ...prevState,
+                                                    [cardIndex]: true,
+                                                }));
+                                            }
                                         }}
                                     />
                                 </Box>

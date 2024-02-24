@@ -159,6 +159,7 @@ export const Contacts = async () => {
                 >
                     {managers.map((manager) => (
                         <ContactCard
+                            key={manager.id}
                             img={manager.photo}
                             name={manager.name}
                             text={manager.about}
