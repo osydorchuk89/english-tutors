@@ -23,7 +23,7 @@ const icons = [
     {
         id: 4,
         img: iconMail,
-        link: "englishzoom.school@gmail.com",
+        link: "mailto:englishzoom.school@gmail.com",
     },
 ];
 

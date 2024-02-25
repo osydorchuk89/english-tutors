@@ -10,9 +10,17 @@ import {
 import { BulletedList } from "../_components/BulletedList";
 
 const socialIcons = [
-    { id: 1, icon: iconInstagram, link: "https://t.me/c/1342103338/1918" },
+    {
+        id: 1,
+        icon: iconInstagram,
+        link: "https://www.instagram.com/english.zoom_/",
+    },
     { id: 2, icon: iconTelegram, link: "https://t.me/engl1sh_zoom" },
-    { id: 3, icon: iconTikTok, link: "https://t.me/c/1342103338/1919" },
+    {
+        id: 3,
+        icon: iconTikTok,
+        link: "https://www.tiktok.com/@english.zoom_?_t=8juDBypfxA6&_r=1",
+    },
     { id: 4, icon: iconMail, link: "mailto:englishzoom.school@gmail.com" },
 ];
 
