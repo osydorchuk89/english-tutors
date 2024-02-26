@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { signOut } from "next-auth/react";
-import Image from "next/image";
 import { ListItemText, MenuList, MenuItem, Box } from "@mui/material";
 import { ContactButton } from "@/app/_components/ContactButton";
 import { Logo } from "@/lib/icons";
+import Link from "next/link";
 
 const menuItems = [
     {
@@ -43,7 +43,9 @@ export const SideBar = ({ setActiveMenuItem }) => {
                 borderRightColor: "disabledText.main",
             }}
         >
-            <Logo color="black" />
+            <Link href="/">
+                <Logo color="black" />
+            </Link>
             {menuItems.map((item) => (
                 <MenuItem
                     key={item.id}
