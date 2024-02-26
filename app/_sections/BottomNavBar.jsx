@@ -92,7 +92,6 @@ export const BottomNavBar = () => {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        // ml: "-16px",
                     }}
                 >
                     <ApplicationForm borderRadiusProp="16px" display="block" />

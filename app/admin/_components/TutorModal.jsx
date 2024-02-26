@@ -7,7 +7,6 @@ import {
     Typography,
     TextField,
     Box,
-    Button,
     IconButton,
     FormControl,
     FormHelperText,
@@ -32,7 +31,7 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
     const [submitButtonClicked, setSubmitButtonClicked] = useState(false);
     const isEditing = tutors.some((tutor) => tutor.id === tutorId);
     const tutorData = tutors.filter((tutor) => tutor.id === tutorId)[0];
-    const tutorPhoto = tutorData ? `/${tutorData.photo}` : undefined;
+    const tutorPhoto = tutorData ? tutorData.photo : undefined;
 
     const [uploadedImage, setUploadedImage] = useState(tutorPhoto);
     const [error, setError] = useState({
@@ -41,8 +40,6 @@ export const TutorModal = ({ tutors, tutorId, setTutorId }) => {
         about: null,
         photo: null,
     });
-    // const [isEditing, setIsEditing] = useState(hasTutorId);
-    // const [tutorData, setTutorData] = useState(tutor);
     const formRef = useRef(null);
     let { setModalOpen } = useContext(TutorModalContext);
 

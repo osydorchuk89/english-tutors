@@ -58,7 +58,6 @@ export const ContactButton = ({
                 {pending ? (
                     <CircularProgress
                         size={18}
-                        // size={{ xxs: 18, md: 20, xl: 24 }}
                         sx={{ color: "darkBlue.dark" }}
                         style={{ padding: 0 }}
                     />

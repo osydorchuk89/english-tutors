@@ -42,7 +42,6 @@ export const Reviews = async () => {
                         position: "absolute",
                         right: 0,
                         bottom: { xxs: 0, md: "auto" },
-                        // width: { md: "608px", xl: "685px" },
                         left: {
                             xxs: "101px",
                             xs: "298px",
