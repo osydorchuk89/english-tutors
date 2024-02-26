@@ -68,7 +68,7 @@ export default function AdminLogin() {
                         <TextField
                             variant="filled"
                             type="text"
-                            label="Username"
+                            label="Ім'я користувача"
                             name="username"
                             onFocus={() => setInputsFocused(true)}
                             sx={{ width: "20rem" }}
@@ -80,7 +80,7 @@ export default function AdminLogin() {
                         <TextField
                             variant="filled"
                             type="password"
-                            label="Password"
+                            label="Пароль"
                             name="password"
                             onFocus={() => setInputsFocused(true)}
                             sx={{ width: "20rem" }}

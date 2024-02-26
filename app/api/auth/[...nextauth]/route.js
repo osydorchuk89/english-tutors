@@ -26,7 +26,7 @@ export const authOptions = {
                     },
                 });
                 if (!user) {
-                    throw new Error("Provided credentials are invalid");
+                    throw new Error("Введено неправильні дані");
                 }
                 const passwordCorrect = await bcrypt.compare(
                     credentials.password,
@@ -34,7 +34,7 @@ export const authOptions = {
                 );
 
                 if (!passwordCorrect) {
-                    throw new Error("Provided credentials are invalid");
+                    throw new Error("Введено неправильні дані");
                 }
                 return user;
             },
