@@ -149,6 +149,7 @@ const PhoneInputField = ({ value, onChange, error, helperText, onFocus }) => {
                 },
                 "& .MuiTypography-root": {
                     color: "lightBlue.light",
+                    borderRight: 0,
                 },
                 // "&.MuiTelInput-IconButton": {
                 //     disableRipple: true,

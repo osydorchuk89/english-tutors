@@ -8,6 +8,7 @@ export const NavLink = ({
     href,
     px,
     py,
+    backgroundHoverColor,
 }) => {
     return (
         <Box
@@ -17,7 +18,7 @@ export const NavLink = ({
                 textDecoration: "inherit",
                 borderRadius: "8px",
                 padding: "8px 16px 8px 16px",
-                "&:hover": { backgroundColor: "lightBlue.dark" },
+                "&:hover": { backgroundColor: backgroundHoverColor },
             }}
         >
             <Typography

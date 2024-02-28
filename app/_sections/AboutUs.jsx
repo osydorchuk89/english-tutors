@@ -116,7 +116,7 @@ export const AboutUs = () => {
                         borderRadius: "24px 0 0 24px",
                         boxShadow: "0px 0px 48px 0px #14313D1F",
                         pt: { xxs: "4px", xs: "28px", md: "40px", lg: "56px" },
-                        pt: { xxs: 0, xs: "32px", md: "44px", lg: "60px" },
+                        pb: { xxs: 0, xs: "32px", md: "44px", lg: "60px" },
                     }}
                 >
                     {socialIcons.map((item) => (

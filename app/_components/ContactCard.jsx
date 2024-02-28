@@ -19,7 +19,7 @@ export const ContactCard = ({ img, name, text, phone, href }) => {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "flex-start",
-                alignItems: "flex-start",
+                alignItems: { xxs: "center", sm: "flex-start" },
                 px: { xxs: "65px", md: "75px", xxl: "112px" },
                 pt: { xxs: "32px", md: "40px", xxl: "48px" },
                 boxShadow: `5px 4px 6px 0px #14313D17,

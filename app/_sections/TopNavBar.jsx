@@ -113,6 +113,7 @@ export const TopNavBar = () => {
                                 textColor="lightBlue.light"
                                 textSize="24px"
                                 textWeight={700}
+                                backgroundHoverColor="darkBlue.main"
                             />
                         ))}
                     </Stack>
@@ -168,6 +169,7 @@ export const TopNavBar = () => {
                             textWeight={400}
                             px="16px"
                             py="8px"
+                            backgroundHoverColor="lightBlue.dark"
                         />
                     ))}
                 </Stack>

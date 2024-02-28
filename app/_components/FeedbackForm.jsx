@@ -158,7 +158,7 @@ export const FeedbackForm = () => {
                         <LightInputField
                             multiline={true}
                             type="text"
-                            label="Ваш коментар"
+                            label="Відгук або анекдот"
                             name="text"
                             error={
                                 error &&

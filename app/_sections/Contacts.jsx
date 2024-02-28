@@ -84,15 +84,19 @@ export const Contacts = async () => {
                     height: { xxs: "1138px", sm: "711px", md: "100%" },
                     width: {
                         xxs: "289px",
-                        sm: "278px",
-                        md: "832px",
-                        lg: "auto",
+                        xs: "auto",
                     },
                     backgroundColor: "lightBlue.light",
                     borderRadius: "24px 0 0 24px",
+                    boxShadow: "0px 0px 48px 0px #14313D1F",
                     right: 0,
                     top: { xxs: "249px", sm: "193px", md: 0 },
-                    left: { xxs: "auto", lg: "608px", xl: "847px" },
+                    left: {
+                        xxs: "auto",
+                        xs: "250px",
+                        md: "450px",
+                        xxl: "750px",
+                    },
                 }}
             />
             <Stack
@@ -104,7 +108,7 @@ export const Contacts = async () => {
                     width: { xxs: "100%", md: "auto" },
                     pr: { xxs: "16px", sm: "40px", md: 0 },
                 }}
-                spacing={{ xxs: 10, xs: 15, md: 10, lg: 12, xl: 15 }} //custom spacing
+                spacing={{ xxs: 10, sm: 15, md: 10, lg: 12, xl: 15 }} //custom spacing
             >
                 <Box
                     sx={{

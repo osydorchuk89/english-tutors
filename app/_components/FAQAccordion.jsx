@@ -94,14 +94,19 @@ export const FAQAccordion = () => {
                             },
                             pl: {
                                 xxs: "16px",
-                                xs: "20px",
-                                md: "60px",
-                                xl: "100px",
+                                xs: "32px",
+                                md: "40px",
                             },
                             borderRadius: "16px",
                             "&.Mui-expanded": {
                                 backgroundColor: "darkBlue.main",
                                 color: "lightBlue.light",
+                                minHeight: {
+                                    xxs: "54px",
+                                    xs: "91px",
+                                    md: "109px",
+                                    xl: "114px",
+                                },
                             },
                         }}
                         expandIcon={
@@ -133,22 +138,36 @@ export const FAQAccordion = () => {
                     <AccordionDetails
                         sx={{
                             backgroundColor: "inherit",
-                            fontSize: { xxs: "18px", md: "20px", xl: "22px" },
-                            minHeight: "124px",
+                            // minHeight: "124px",
                             px: {
                                 xxs: "16px",
-                                xs: "20px",
-                                md: "60px",
-                                xl: "100px",
+                                xs: "32px",
+                                md: "40px",
                             },
-                            pt: {
+                            py: {
                                 xxs: "16px",
                                 xs: "24px",
                                 xl: "32px",
                             },
                         }}
                     >
-                        {item.answer}
+                        <Typography
+                            sx={{
+                                fontSize: {
+                                    xxs: "18px",
+                                    md: "20px",
+                                    xl: "22px",
+                                },
+                                lineHeight: {
+                                    xxs: "21.94px",
+                                    xs: "19.5px",
+                                    md: "21.94px",
+                                    xl: "26.82px",
+                                },
+                            }}
+                        >
+                            {item.answer}
+                        </Typography>
                     </AccordionDetails>
                 </Accordion>
             ))}
