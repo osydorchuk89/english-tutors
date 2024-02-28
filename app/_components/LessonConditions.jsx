@@ -44,7 +44,7 @@ export const LessonConditions = ({ direction }) => {
                             fontSize: {
                                 xxs: "18px",
                                 xs: "22px",
-                                md: "19px",
+                                md: "18.5px",
                                 lg: "24px",
                                 xl: "28px",
                             },
