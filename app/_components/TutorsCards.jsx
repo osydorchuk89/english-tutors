@@ -206,18 +206,40 @@ export const TutorsCards = ({ tutors }) => {
                             >
                                 <Typography
                                     sx={{
-                                        fontSize: "24px",
+                                        fontSize: { xxs: "24px", xxl: "32px" },
                                         fontWeight: 700,
-                                        mt: "56px",
-                                        mb: "112px",
+                                        mt: {
+                                            xxs: "32px",
+                                            xs: "40px",
+                                            md: "56px",
+                                        },
+                                        mb: {
+                                            xxs: "77px",
+                                            xs: "100px",
+                                            xxl: "80px",
+                                        },
                                     }}
                                 >
                                     {tutors[cardIndex].name}
                                 </Typography>
                                 <Typography
                                     sx={{
-                                        fontSize: "24px",
-                                        mx: "56px",
+                                        fontSize: {
+                                            xxs: "22px",
+                                            md: "24px",
+                                            xxl: "28px",
+                                        },
+                                        lineHeight: {
+                                            xxs: "26.82px",
+                                            md: "29.26px",
+                                            xxl: "34.13px",
+                                        },
+                                        mx: {
+                                            xxs: "16px",
+                                            xs: "40px",
+                                            md: "56px",
+                                            xxl: "130px",
+                                        },
                                         textAlign: "center",
                                     }}
                                 >

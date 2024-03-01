@@ -28,7 +28,13 @@ export const FAQ = () => {
                     },
                     fontWeight: 700,
                     mb: { xxs: "16px", md: "24px" },
-                    pl: { xxs: "16px", xs: "20px", md: "60px", xl: "100px" },
+                    pl: {
+                        xxs: "16px",
+                        xs: "20px",
+                        md: "40px",
+                        lg: "60px",
+                        xl: "100px",
+                    },
                 }}
             >
                 FAQ
@@ -43,7 +49,13 @@ export const FAQ = () => {
                     },
                     fontWeight: 600,
                     mb: { xxs: "32px", xs: "40px", md: "56px", xl: "72px" },
-                    pl: { xxs: "16px", xs: "20px", md: "60px", xl: "100px" },
+                    pl: {
+                        xxs: "16px",
+                        xs: "20px",
+                        md: "40px",
+                        lg: "60px",
+                        xl: "100px",
+                    },
                 }}
             >
                 Найпопулярніші запитання
