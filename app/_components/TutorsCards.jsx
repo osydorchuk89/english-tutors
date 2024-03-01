@@ -73,6 +73,7 @@ export const TutorsCards = ({ tutors }) => {
                     boxShadow: "0px 0px 48px 0px #14313D1F",
                     zIndex: 1,
                 }}
+                ontouchstart=""
             />
             <Stack
                 alignItems="center"

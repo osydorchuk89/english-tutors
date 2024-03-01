@@ -12,7 +12,7 @@ html, body {
     ;
 }
 
-.flip-box:hover:active .flip-box-inner{
+.flip-box:hover .flip-box-inner {
     transform: rotateY(180deg);
   }
 
