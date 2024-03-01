@@ -6,7 +6,7 @@ import { NavButton } from "./NavButtons";
 import { iconDown } from "@/lib/icons";
 
 export const Comments = ({ reviews }) => {
-    const [reviewSlice, setReviewSlice] = useState([0, 1, 2, 3]);
+    const [reviewSlice, setReviewSlice] = useState([0, 1, 2]);
 
     const handlePresButton = () => {
         let newSlice = [];
@@ -33,8 +33,19 @@ export const Comments = ({ reviews }) => {
         <Stack
             sx={{
                 width: { xxs: "100%", md: "650px", xl: "973px" },
-                height: { xxs: "1109px", xs: "933px", md: "100%" },
-                pl: { xxs: "16px", xs: "20px", md: "60px", xl: "100px" },
+                maxHeight: {
+                    xxs: "calc(100% - 64px)",
+                    xs: "calc(100% - 160px)",
+                    md: "100%",
+                },
+                pl: {
+                    xxs: "16px",
+                    xs: "20px",
+                    md: "40px",
+                    lg: "60px",
+                    xl: "100px",
+                },
+                flexGrow: 1,
             }}
         >
             <Typography
@@ -54,11 +65,13 @@ export const Comments = ({ reviews }) => {
             </Typography>
             <Stack
                 direction="column"
+                justifyContent="space-around"
                 spacing={{ xxs: 2, xs: 3 }}
                 sx={{
-                    ml: { xxs: 0, xs: "-20px", md: "-60px", lg: 0, xl: 0 },
+                    // ml: { xxs: 0, xs: "-20px", md: "-60px", lg: 0, xl: 0 },
                     mr: { xxs: "16px", xs: "40px", md: 0 },
                     mb: { xxs: "40px", xs: "24px", lg: "40px", xl: "32px" },
+                    flexGrow: 1,
                 }}
             >
                 {reviewSlice

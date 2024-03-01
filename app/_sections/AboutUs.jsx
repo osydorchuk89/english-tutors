@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Stack, Typography, Box } from "@mui/material";
 import { TryItCard } from "../_components/TryItCard";
 import {
@@ -42,7 +41,13 @@ export const AboutUs = () => {
             <Stack
                 direction="row"
                 sx={{
-                    ml: { xxs: "16px", xs: "40px", md: "120px", xl: "200px" },
+                    ml: {
+                        xxs: "16px",
+                        xs: "40px",
+                        md: "80px",
+                        lg: "120px",
+                        xl: "200px",
+                    },
                 }}
             >
                 <Stack direction="column">
@@ -96,7 +101,8 @@ export const AboutUs = () => {
                         width: {
                             xxs: "80px",
                             xs: "149px",
-                            md: "201px",
+                            md: "175px",
+                            lg: "201px",
                             xl: "297px",
                         },
                         height: {
@@ -124,11 +130,14 @@ export const AboutUs = () => {
                             component="a"
                             sx={{
                                 width: "100%",
-                                pl: {
+                                display: "flex",
+                                justifyContent: "flex-end",
+                                pr: {
                                     xxs: "16px",
-                                    xs: "61px",
-                                    md: "57px",
-                                    xl: "73px",
+                                    xs: "40px",
+                                    md: "80px",
+                                    lg: "120px",
+                                    xl: "200px",
                                 },
                                 py: { xxs: "24px", md: "16px" },
                                 borderRadius: "8px 0 0 8px",

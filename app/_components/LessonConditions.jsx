@@ -15,7 +15,7 @@ export const LessonConditions = ({ direction }) => {
             alignItems={{ xxs: "center", sm: "flex-end" }}
             spacing={{ xxs: 2, md: 5, xl: 10 }}
             sx={{
-                mx: { md: "60px", xl: "100px" },
+                mx: { md: "40px", lg: "60px", xl: "100px" },
                 mt: { xxs: "40px", sm: 0 },
                 height: "100%",
                 width: { xxs: "100%", sm: "auto" },
@@ -44,7 +44,7 @@ export const LessonConditions = ({ direction }) => {
                             fontSize: {
                                 xxs: "18px",
                                 xs: "22px",
-                                md: "18.5px",
+                                md: "20px",
                                 lg: "24px",
                                 xl: "28px",
                             },

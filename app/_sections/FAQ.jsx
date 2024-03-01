@@ -13,7 +13,7 @@ export const FAQ = () => {
                     xl: "873px",
                 },
                 mb: { xxs: "80px", md: "120px", xl: "182px" },
-                mx: { xxs: 0, xs: "20px", md: "60px", xl: "100px" },
+                mx: { xxs: 0, xs: "20px", md: "40px", lg: "60px", xl: "100px" },
                 scrollMarginTop: "100px",
                 alignSelf: "center",
             }}

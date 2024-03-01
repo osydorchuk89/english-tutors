@@ -97,8 +97,9 @@ export const Prices = () => {
                     width: {
                         xxs: "100%",
                         xs: "calc(100% - 40px)",
-                        md: "calc(100% - 120px)",
-                        lg: "calc(100% - 200px)",
+                        md: "calc(100% - 80px)",
+                        lg: "calc(100% - 120px)",
+                        xl: "calc(100% - 200px)",
                     },
                     minHeight: {
                         xxs: "1654px",
@@ -106,7 +107,13 @@ export const Prices = () => {
                         md: "773px",
                         xl: "901px",
                     },
-                    mx: { xxs: 0, xs: "20px", md: "60px", xl: "100px" },
+                    mx: {
+                        xxs: 0,
+                        xs: "20px",
+                        md: "40px",
+                        lg: "60px",
+                        xl: "100px",
+                    },
                     pb: { xxs: "64px", xs: "80px", md: "60px", xl: "72px" },
                     backgroundColor: "lightBlue.light",
                     borderRadius: "16px",
@@ -125,7 +132,8 @@ export const Prices = () => {
                         pl: {
                             xxs: "16px",
                             sm: "20px",
-                            md: "60px",
+                            md: "40px",
+                            lg: "60px",
                             xl: "100px",
                         },
                         fontSize: {
@@ -155,7 +163,8 @@ export const Prices = () => {
                         right: {
                             xxs: 0,
                             sm: "20px",
-                            md: "60px",
+                            md: "40px",
+                            lg: "60px",
                             xl: "100px",
                         },
                         left: { xxs: 0, sm: "auto" },
@@ -192,7 +201,7 @@ export const Prices = () => {
                     justifyContent="space-between"
                     alignItems={{ xxs: "center", sm: "normal" }}
                     sx={{
-                        px: { sm: "20px", md: "60px", xl: "100px" },
+                        px: { sm: "20px", md: "40px", lg: "60px", xl: "100px" },
                         mb: { md: "56px", xl: "72px" },
                     }}
                 >

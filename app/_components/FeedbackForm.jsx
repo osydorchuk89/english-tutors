@@ -83,7 +83,7 @@ export const FeedbackForm = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     backgroundColor: "lightBlue.light",
-                    minHeight: {
+                    height: {
                         xxs: "432px",
                         xs: "487px",
                         md: "518px",
@@ -93,7 +93,8 @@ export const FeedbackForm = () => {
                     width: {
                         xxs: "100%",
                         xs: "calc(100% - 20px)",
-                        md: "calc(100% - 60px)",
+                        md: "calc(100% - 40px)",
+                        lg: "calc(100% - 60px)",
                         xl: "calc(100% - 100px)",
                     },
                     py: { xxs: "40px", xs: "auto" },
@@ -158,8 +159,9 @@ export const FeedbackForm = () => {
                         <LightInputField
                             multiline={true}
                             type="text"
-                            label="Відгук або анекдот"
+                            label="Відгук або анекдот (макс. 300 знаків)"
                             name="text"
+                            inputProps={{ maxLength: 300 }}
                             error={
                                 error &&
                                 error.text !== null &&

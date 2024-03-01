@@ -9,6 +9,7 @@ export const ContactCard = ({ img, name, text, phone, href }) => {
             sx={{
                 width: {
                     xxs: "calc(100% - 32px)",
+                    xs: "485px",
                     sm: "367px",
                     lg: "386px",
                     xxl: "485px",

@@ -1,7 +1,6 @@
 "use client";
 
 import { cloneElement, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { AppBar, Stack, Box, SwipeableDrawer, IconButton } from "@mui/material";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
@@ -17,7 +16,7 @@ const appBarStyles = {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    px: { xxs: "16px", xs: "40px", md: "120px", xl: "200px" },
+    px: { xxs: "16px", xs: "40px", md: "80px", lg: "120px", xl: "200px" },
     borderRadius: "0 0 16px 16px",
     transition: "backgroundColor 20s",
 };

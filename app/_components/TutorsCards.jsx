@@ -90,8 +90,10 @@ export const TutorsCards = ({ tutors }) => {
                         xs: "none",
                     },
                     right: {
-                        xxs: 0,
-                        md: "120px",
+                        xxs: "16px",
+                        xs: "40px",
+                        md: "80px",
+                        lg: "120px",
                         xl: "200px",
                     },
                     left: { xxs: 0, md: "auto" },

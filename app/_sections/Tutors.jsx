@@ -19,7 +19,13 @@ export const Tutors = async () => {
                     xl: "758px",
                 },
                 width: "100%",
-                pl: { xxs: "16px", xs: "40px", md: "120px", xl: "200px" },
+                pl: {
+                    xxs: "16px",
+                    xs: "40px",
+                    md: "80px",
+                    lg: "120px",
+                    xl: "200px",
+                },
                 my: { xxs: "80px", md: "120px", xl: "182px" },
                 scrollMarginTop: "100px",
             }}

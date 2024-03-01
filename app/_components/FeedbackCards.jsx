@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState, useLayoutEffect } from "react";
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, Paper } from "@mui/material";
 import { NavButton } from "./NavButtons";
 import { iconDown } from "@/lib/icons";
 
@@ -35,12 +35,14 @@ export const FeedbackCards = ({ screenshots }) => {
 
     return (
         <Stack
+            useFlexGap
             direction="column"
             spacing={{ xxs: 5, xs: 3, lg: 5, xl: 4 }}
             justifyContent="flex-start"
-            alignItems="center"
+            alignItems={{ xxs: "center", md: "flex-end" }}
             sx={{
-                pt: { xxs: 0, md: "115px", xl: "140px" },
+                position: "relative",
+                py: { xxs: "48px", sm: "80px", md: "115px", xl: "140px" },
                 zIndex: 10,
             }}
         >
@@ -50,18 +52,25 @@ export const FeedbackCards = ({ screenshots }) => {
                     minWidth: {
                         xxs: "358px",
                         xs: "496px",
-                        md: "590px",
+                        lg: "590px",
                         xl: "615px",
                     },
                     maxWidth: {
                         xxs: "calc(100% - 32px)",
                         xs: "auto",
                     },
-                    height: { xxs: "482px", xs: "670px", md: "793px" },
+                    height: { xxs: "482px", xs: "670px", lg: "793px" },
+                    mr: {
+                        xxs: 0,
+                        md: "80px",
+                        lg: "120px",
+                        xl: "200px",
+                    },
                     gridTemplateColumns: "repeat(2, 1fr)",
                     gridTemplateRows: "repeat(2, 1fr)",
                     gridColumnGap: "12px",
                     gridRowGap: "24px",
+                    zIndex: 10,
                 }}
             >
                 {screenshotSlice
@@ -89,6 +98,32 @@ export const FeedbackCards = ({ screenshots }) => {
                 _id="button-down"
                 icon={iconDown}
                 onClick={handlePresButton}
+                mr={{
+                    xxs: 0,
+                    md: "80px",
+                    lg: "120px",
+                    xl: "200px",
+                }}
+            />
+            <Paper
+                sx={{
+                    position: "absolute",
+                    right: 0,
+                    bottom: 0,
+                    left: {
+                        xxs: "101px",
+                        xs: "298px",
+                        md: "15%",
+                        lg: "25%",
+                        xl: "25%",
+                        xxl: "30%",
+                    },
+                    height: "100%",
+                    backgroundColor: "lightBlue.light",
+                    borderRadius: "24px 0 0 24px",
+                    boxShadow: "0px 0px 48px 0px #14313D1F",
+                    zIndex: 1,
+                }}
             />
         </Stack>
     );

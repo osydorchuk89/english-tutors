@@ -81,12 +81,16 @@ export const TutorsDescription = () => {
                 Вчителі English Zoom
             </Typography>
             <Stack
-                spacing={{ xxs: 2, xs: 4, lg: 5, xl: 6 }}
+                spacing={{ xxs: 2, xs: 3, lg: 5, xl: 6 }}
                 justifyContent={{ xxs: "space-between", sm: "normal" }}
                 useFlexGap
                 flexWrap={{ xxs: "wrap", sm: "nowrap", lg: "wrap" }}
                 sx={{
-                    width: "100%",
+                    width: {
+                        xxs: "calc(100% - 16px)",
+                        xs: "calc(100% - 40px)",
+                        sm: "100%",
+                    },
                     height: {
                         xxs: "248px",
                         sm: "688px",

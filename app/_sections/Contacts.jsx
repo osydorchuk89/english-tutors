@@ -37,13 +37,13 @@ export const Contacts = async () => {
             alignItems="center"
             sx={{
                 position: "relative",
-                width: {
-                    xxs: "calc(100% - 16px)",
-                    sm: "calc(100% - 40px)",
-                    md: "calc(100% - 60px)",
-                    lg: "calc(100% - 120px)",
-                    xl: "calc(100% - 200px)",
-                },
+                // width: {
+                //     xxs: "calc(100% - 16px)",
+                //     xs: "calc(100% - 40px)",
+                //     md: "calc(100% - 80px)",
+                //     lg: "calc(100% - 120px)",
+                //     xl: "calc(100% - 200px)",
+                // },
                 height: {
                     xxs: "1387px",
                     sm: "904px",
@@ -53,12 +53,12 @@ export const Contacts = async () => {
                 ml: {
                     xxs: "16px",
                     sm: "40px",
-                    md: "60px",
+                    md: "80px",
                     lg: "120px",
                     xl: "200px",
                 },
                 scrollMarginTop: "100px",
-                m: "120px 0 120px 0",
+                my: "120px",
             }}
         >
             <Typography
@@ -104,19 +104,31 @@ export const Contacts = async () => {
                 alignItems="center"
                 sx={{
                     position: "absolute",
-                    top: { xxs: "73px", sm: "89px", md: "auto" },
-                    width: { xxs: "100%", md: "auto" },
-                    pr: { xxs: "16px", sm: "40px", md: 0 },
+                    top: { xxs: "73px", sm: "89px", md: "115px", xl: "140px" },
+                    right: {
+                        xxs: "8px",
+                        xs: "40px",
+                        md: "80px",
+                        lg: "120px",
+                        xl: "200px",
+                    },
+                    width: {
+                        xxs: "calc(100% - 16px)",
+                        xs: "calc(100% - 40px)",
+                        md: "calc(100% - 80px)",
+                        lg: "calc(100% - 120px)",
+                        xl: "calc(100% - 200px)",
+                    },
                 }}
-                spacing={{ xxs: 10, sm: 15, md: 10, lg: 12, xl: 15 }} //custom spacing
+                spacing={{ xxs: 10, sm: 15, md: 8, lg: 12, xl: 15 }} //custom spacing
             >
                 <Box
                     sx={{
-                        width: "100%",
+                        width: { xxs: "100%", md: "auto" },
                         display: { xxs: "grid", sm: "flex" },
                         flexDirection: { sm: "row", md: "column" },
                         gap: { sm: "64px" },
-                        justifyContent: { xxs: "normal", sm: "space-between" },
+                        justifyContent: "space-between",
                         justifyItems: { xxs: "center", sm: "normal" },
                         gridTemplateColumns: "repeat(2, 1fr)",
                         gridTemplateRows: "repeat(2, 1fr)",
@@ -135,7 +147,7 @@ export const Contacts = async () => {
                                     xs: "170px",
                                     sm: "148px",
                                     lg: "183px",
-                                    xxl: "356px",
+                                    xxl: "256px",
                                 },
                                 height: { xxs: "64px", md: "72px" },
                                 display: "flex",
@@ -157,9 +169,10 @@ export const Contacts = async () => {
                 </Box>
                 <Stack
                     direction={{ xxs: "column", sm: "row" }}
-                    justifyContent="center"
+                    justifyContent={{ xxs: "center", sm: "space-between" }}
                     alignItems="center"
-                    spacing={{ xxs: 2, sm: 2.5, md: 10, lg: 12, xl: 15 }}
+                    spacing={{ xxs: 2, sm: "auto" }}
+                    sx={{ flexGrow: 1, width: "100%" }}
                 >
                     {managers.map((manager) => (
                         <ContactCard

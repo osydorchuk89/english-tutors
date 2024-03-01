@@ -56,7 +56,13 @@ export const FAQAccordion = () => {
                 backgroundColor: "lightBlue.light",
                 borderRadius: "16px",
                 py: { xxs: "48px", xs: "40px", xl: "56px" },
-                px: { xxs: "16px", xs: "20px", md: "56px", xl: "100px" },
+                px: {
+                    xxs: "16px",
+                    xs: "20px",
+                    md: "40px",
+                    lg: "60px",
+                    xl: "100px",
+                },
             }}
         >
             {faqs.map((item) => (

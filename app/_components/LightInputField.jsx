@@ -9,6 +9,7 @@ export const LightInputField = ({
     helperText,
     onFocus,
     defaultValue,
+    inputProps,
 }) => {
     return (
         <TextField
@@ -22,6 +23,7 @@ export const LightInputField = ({
             helperText={helperText}
             onFocus={onFocus}
             defaultValue={defaultValue}
+            inputProps={inputProps}
             FormHelperTextProps={{
                 sx: {
                     textAlign: "right",

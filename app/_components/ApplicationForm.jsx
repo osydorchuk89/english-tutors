@@ -1,6 +1,5 @@
 "use client";
 
-import axios from "axios";
 import { useState, useContext, useRef, createContext } from "react";
 import { ModalContext } from "./TryItCard";
 import {
@@ -224,14 +223,11 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
             phone: null,
         });
 
-        const messageText = `You received a new application! Name: ${applicationData.name}, phone number: ${applicationData.phone}`;
+        const messageText = `Ви отримали нову заявку! Ім'я: ${applicationData.name}, номер телефону: ${applicationData.phone}`;
         const telegramToken = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
         const telegramChatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
         const telegramURL = `https://api.telegram.org/bot${telegramToken}/sendMessage?chat_id=${telegramChatId}&text=${messageText}`;
-        axios({
-            method: "get",
-            url: telegramURL,
-        })
+        fetch(telegramURL)
             .then((_) => {
                 formRef.current.reset();
                 setPhone("");
@@ -254,7 +250,8 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
                     width: {
                         xxs: "100%",
                         xs: "calc(100% - 40px)",
-                        md: "calc(100% - 120px)",
+                        md: "calc(100% - 80px)",
+                        lg: "calc(100% - 120px)",
                         xl: "calc(100% - 200px)",
                     },
                     height: {

@@ -1,6 +1,6 @@
 import { IconButton } from "@mui/material";
 
-export const NavButton = ({ onClick, icon, disabled, _id }) => {
+export const NavButton = ({ onClick, icon, disabled, _id, mr }) => {
     return (
         <IconButton
             disableRipple
@@ -18,6 +18,8 @@ export const NavButton = ({ onClick, icon, disabled, _id }) => {
                 "&:active": {
                     boxShadow: "0px 0px 8px 0px #14313D66 inset",
                 },
+                zIndex: 10,
+                mr: mr,
             }}
             onClick={onClick}
         >
