@@ -7,6 +7,7 @@ import { iconDown, iconUp } from "@/lib/icons";
 import { NavButton } from "./NavButtons";
 import ReactCardFlip from "react-card-flip";
 import { useMediaQuery } from "react-responsive";
+import { primaryInput } from "detect-it";
 
 const flipBoxCardsStyle = {
     display: "flex",
@@ -33,7 +34,7 @@ export const TutorsCards = ({ tutors }) => {
     const [cardIndex, setCardIndex] = useState(1);
     const [flipped, setFlipped] = useState(false);
 
-    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+    const isTouchDevice = primaryInput === "touch";
 
     const handlePressUp = () => {
         if (imageLoaded[cardIndex]) {
@@ -133,7 +134,7 @@ export const TutorsCards = ({ tutors }) => {
                                 justifyContent: "center",
                             }}
                             onMouseEnter={
-                                isTabletOrMobile
+                                isTouchDevice
                                     ? null
                                     : () => setFlipped(!flipped)
                             }
@@ -207,7 +208,7 @@ export const TutorsCards = ({ tutors }) => {
                                 justifyContent: "flex-start",
                             }}
                             onMouseLeave={
-                                isTabletOrMobile
+                                isTouchDevice
                                     ? null
                                     : () => setFlipped(!flipped)
                             }
