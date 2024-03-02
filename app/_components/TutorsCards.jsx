@@ -129,8 +129,16 @@ export const TutorsCards = ({ tutors }) => {
                                 ...flipBoxCardsStyle,
                                 justifyContent: "center",
                             }}
-                            onMouseEnter={() => setFlipped(!flipped)}
-                            onTouchEnd={() => setFlipped(!flipped)}
+                            onMouseEnter={(event) => {
+                                if (event.nativeEvent instanceof MouseEvent) {
+                                    setFlipped(!flipped);
+                                }
+                            }}
+                            onTouchStart={(event) => {
+                                if (event.nativeEvent instanceof TouchEvent) {
+                                    setFlipped(!flipped);
+                                }
+                            }}
                         >
                             <Box
                                 sx={{
