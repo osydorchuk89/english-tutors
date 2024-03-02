@@ -6,6 +6,7 @@ import { Box, Paper, Stack, Typography } from "@mui/material";
 import { iconDown, iconUp } from "@/lib/icons";
 import { NavButton } from "./NavButtons";
 import ReactCardFlip from "react-card-flip";
+import { useMediaQuery } from "react-responsive";
 
 const flipBoxCardsStyle = {
     display: "flex",
@@ -31,6 +32,8 @@ export const TutorsCards = ({ tutors }) => {
     const [imageLoaded, setImageLoaded] = useState({});
     const [cardIndex, setCardIndex] = useState(1);
     const [flipped, setFlipped] = useState(false);
+
+    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
     const handlePressUp = () => {
         if (imageLoaded[cardIndex]) {
@@ -129,16 +132,12 @@ export const TutorsCards = ({ tutors }) => {
                                 ...flipBoxCardsStyle,
                                 justifyContent: "center",
                             }}
-                            onMouseEnter={(event) => {
-                                if (event.nativeEvent instanceof MouseEvent) {
-                                    setFlipped(!flipped);
-                                }
-                            }}
-                            onTouchStart={(event) => {
-                                if (event.nativeEvent instanceof TouchEvent) {
-                                    setFlipped(!flipped);
-                                }
-                            }}
+                            onMouseEnter={
+                                isTabletOrMobile
+                                    ? null
+                                    : () => setFlipped(!flipped)
+                            }
+                            onTouchStart={() => setFlipped(!flipped)}
                         >
                             <Box
                                 sx={{
@@ -207,7 +206,11 @@ export const TutorsCards = ({ tutors }) => {
                                 ...flipBoxCardsStyle,
                                 justifyContent: "flex-start",
                             }}
-                            onMouseLeave={() => setFlipped(!flipped)}
+                            onMouseLeave={
+                                isTabletOrMobile
+                                    ? null
+                                    : () => setFlipped(!flipped)
+                            }
                             onTouchStart={() => setFlipped(!flipped)}
                         >
                             <Typography
