@@ -5,14 +5,18 @@ import Image from "next/image";
 import { Box, Paper, Stack, Typography } from "@mui/material";
 import { iconDown, iconUp } from "@/lib/icons";
 import { NavButton } from "./NavButtons";
+import ReactCardFlip from "react-card-flip";
 
 const flipBoxCardsStyle = {
     display: "flex",
-    position: "absolute",
     flexDirection: "column",
     alignItems: "center",
     width: "100%",
-    height: "100%",
+    height: {
+        xxs: "412px",
+        xs: "442px",
+        md: "486px",
+    },
     borderRadius: "16px",
     boxShadow: `5px 4px 6px 0px #14313D17,
     11px 10px 9px 0px #14313D0D,
@@ -26,6 +30,7 @@ const flipBoxCardsStyle = {
 export const TutorsCards = ({ tutors }) => {
     const [imageLoaded, setImageLoaded] = useState({});
     const [cardIndex, setCardIndex] = useState(1);
+    const [flipped, setFlipped] = useState(false);
 
     const handlePressUp = () => {
         if (imageLoaded[cardIndex]) {
@@ -73,7 +78,6 @@ export const TutorsCards = ({ tutors }) => {
                     boxShadow: "0px 0px 48px 0px #14313D1F",
                     zIndex: 1,
                 }}
-                ontouchstart=""
             />
             <Stack
                 alignItems="center"
@@ -113,142 +117,137 @@ export const TutorsCards = ({ tutors }) => {
                         justifyContent: "center",
                     }}
                 >
-                    <Box
-                        className="flip-box"
-                        sx={{
-                            width: "100%",
-                            height: { xxs: "412px", xs: "442px", md: "486px" },
-                            perspective: "1000px",
-                        }}
+                    <ReactCardFlip
+                        isFlipped={flipped}
+                        flipDirection="horizontal"
+                        flipSpeedBackToFront={1}
+                        flipSpeedFrontToBack={1}
                     >
-                        <Box
-                            className="flip-box-inner"
+                        <Paper
+                            className="flip-box"
                             sx={{
-                                position: "relative",
-                                height: "100%",
-                                width: "100%",
-                                transition: "transform 0.8s",
-                                transformStyle: "preserve-3d",
+                                ...flipBoxCardsStyle,
+                                justifyContent: "center",
                             }}
+                            onMouseEnter={() => setFlipped(!flipped)}
+                            onTouchEnd={() => setFlipped(!flipped)}
                         >
-                            <Paper
-                                className="flip-box-front"
+                            <Box
                                 sx={{
-                                    ...flipBoxCardsStyle,
-                                    justifyContent: "center",
+                                    position: "relative",
+                                    width: "229px",
+                                    height: "229px",
+                                    overflow: "hidden",
+                                    mb: {
+                                        xxs: "24px",
+                                        xs: "32px",
+                                        md: "40px",
+                                    },
+                                    borderRadius: "8px",
                                 }}
                             >
-                                <Box
-                                    sx={{
-                                        position: "relative",
-                                        width: "229px",
-                                        height: "229px",
-                                        overflow: "hidden",
-                                        mb: {
-                                            xxs: "24px",
-                                            xs: "32px",
-                                            md: "40px",
-                                        },
-                                        borderRadius: "8px",
+                                <Image
+                                    src={tutors[cardIndex].photo}
+                                    alt="photo"
+                                    fill
+                                    sizes="229px"
+                                    priority
+                                    style={{
+                                        objectFit: "cover",
                                     }}
-                                >
-                                    <Image
-                                        src={tutors[cardIndex].photo}
-                                        alt="photo"
-                                        fill
-                                        sizes="229px"
-                                        priority
-                                        style={{
-                                            objectFit: "cover",
-                                        }}
-                                        onLoad={() => {
-                                            if (!imageLoaded[cardIndex]) {
-                                                setImageLoaded((prevState) => ({
-                                                    ...prevState,
-                                                    [cardIndex]: true,
-                                                }));
-                                            }
-                                        }}
-                                    />
-                                </Box>
-                                <Typography
-                                    sx={{
-                                        fontSize: "24px",
-                                        fontWeight: 700,
-                                        mb: { xxs: "16px", xs: "24px" },
+                                    onLoad={() => {
+                                        if (!imageLoaded[cardIndex]) {
+                                            setImageLoaded((prevState) => ({
+                                                ...prevState,
+                                                [cardIndex]: true,
+                                            }));
+                                        }
                                     }}
-                                >
-                                    {tutors[cardIndex].name}
-                                </Typography>
-                                <Typography
-                                    sx={{
-                                        fontSize: { xxs: "16px", md: "18px" },
-                                        fontWeight: 600,
-                                        mb: "8px",
-                                    }}
-                                >
-                                    Досвід викладання
-                                </Typography>
-                                <Typography
-                                    sx={{
-                                        fontSize: "18px",
-                                    }}
-                                >
-                                    {tutors[cardIndex].experience}
-                                </Typography>
-                            </Paper>
-                            <Paper
-                                className="flip-box-back"
+                                />
+                            </Box>
+                            <Typography
                                 sx={{
-                                    ...flipBoxCardsStyle,
-                                    transform: "rotateY(180deg)",
-                                    justifyContent: "flex-start",
+                                    fontSize: "24px",
+                                    fontWeight: 700,
+                                    mb: { xxs: "16px", xs: "24px" },
                                 }}
                             >
-                                <Typography
-                                    sx={{
-                                        fontSize: { xxs: "24px", xxl: "32px" },
-                                        fontWeight: 700,
-                                        mt: {
-                                            xxs: "32px",
-                                            xs: "40px",
-                                            md: "56px",
-                                        },
-                                        mb: {
-                                            xxs: "77px",
-                                            xs: "100px",
-                                            xxl: "80px",
-                                        },
-                                    }}
-                                >
-                                    {tutors[cardIndex].name}
-                                </Typography>
-                                <Typography
-                                    sx={{
-                                        fontSize: {
-                                            xxs: "22px",
-                                            md: "24px",
-                                            xxl: "28px",
-                                        },
-                                        lineHeight: {
-                                            xxs: "26.82px",
-                                            md: "29.26px",
-                                            xxl: "34.13px",
-                                        },
-                                        mx: {
-                                            xxs: "16px",
-                                            xs: "40px",
-                                            md: "56px",
-                                            xxl: "130px",
-                                        },
-                                        textAlign: "center",
-                                    }}
-                                >
-                                    {tutors[cardIndex].about}
-                                </Typography>
-                            </Paper>
-                        </Box>
-                    </Box>
+                                {tutors[cardIndex].name}
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    fontSize: {
+                                        xxs: "16px",
+                                        md: "18px",
+                                    },
+                                    fontWeight: 600,
+                                    mb: "8px",
+                                }}
+                            >
+                                Досвід викладання
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    fontSize: "18px",
+                                }}
+                            >
+                                {tutors[cardIndex].experience}
+                            </Typography>
+                        </Paper>
+                        <Paper
+                            sx={{
+                                ...flipBoxCardsStyle,
+                                justifyContent: "flex-start",
+                            }}
+                            onMouseLeave={() => setFlipped(!flipped)}
+                            onTouchStart={() => setFlipped(!flipped)}
+                        >
+                            <Typography
+                                sx={{
+                                    fontSize: {
+                                        xxs: "24px",
+                                        xxl: "32px",
+                                    },
+                                    fontWeight: 700,
+                                    mt: {
+                                        xxs: "32px",
+                                        xs: "40px",
+                                        md: "56px",
+                                    },
+                                    mb: {
+                                        xxs: "77px",
+                                        xs: "100px",
+                                        xxl: "80px",
+                                    },
+                                }}
+                            >
+                                {tutors[cardIndex].name}
+                            </Typography>
+                            <Typography
+                                sx={{
+                                    fontSize: {
+                                        xxs: "22px",
+                                        md: "24px",
+                                        xxl: "28px",
+                                    },
+                                    lineHeight: {
+                                        xxs: "26.82px",
+                                        md: "29.26px",
+                                        xxl: "34.13px",
+                                    },
+                                    mx: {
+                                        xxs: "16px",
+                                        xs: "40px",
+                                        md: "56px",
+                                        xxl: "130px",
+                                    },
+                                    textAlign: "center",
+                                }}
+                            >
+                                {tutors[cardIndex].about}
+                            </Typography>
+                        </Paper>
+                    </ReactCardFlip>
                 </Box>
                 <NavButton onClick={handlePressDown} icon={iconDown} />
             </Stack>
