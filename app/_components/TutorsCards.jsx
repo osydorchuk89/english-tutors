@@ -6,7 +6,6 @@ import { Box, Paper, Stack, Typography } from "@mui/material";
 import { iconDown, iconUp } from "@/lib/icons";
 import { NavButton } from "./NavButtons";
 import ReactCardFlip from "react-card-flip";
-import { useMediaQuery } from "react-responsive";
 import { primaryInput } from "detect-it";
 
 const flipBoxCardsStyle = {
