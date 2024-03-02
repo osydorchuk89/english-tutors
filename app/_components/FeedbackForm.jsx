@@ -159,7 +159,7 @@ export const FeedbackForm = () => {
                         <LightInputField
                             multiline={true}
                             type="text"
-                            label="Відгук або анекдот (макс. 300 знаків)"
+                            label="Відгук або анекдот"
                             name="text"
                             inputProps={{ maxLength: 300 }}
                             error={
