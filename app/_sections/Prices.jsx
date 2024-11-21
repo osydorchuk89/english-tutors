@@ -57,21 +57,20 @@ const cardsContent = [
         id: 3,
         title: "Групові",
         offers: [
-            { id: 1, lessons: "1 урок", price: "150 ₴", discount: "" },
             {
-                id: 2,
+                id: 1,
                 lessons: "4 уроки",
                 price: "600 ₴",
                 discount: "4% знижка",
             },
             {
-                id: 3,
+                id: 2,
                 lessons: "8 уроків",
                 price: "1200 ₴",
                 discount: "8% знижка",
             },
             {
-                id: 4,
+                id: 3,
                 lessons: "12 уроків",
                 price: "1800 ₴",
                 discount: "12% знижка",
@@ -169,9 +168,13 @@ export const Prices = () => {
                         },
                         left: { xxs: 0, sm: "auto" },
                         mx: "auto",
-                        p: { xxs: "20px 47px 20px 47px", xs: 0 },
-                        width: { xxs: "270px", xs: "418px", xl: "530px" },
-                        height: { xxs: "98px", xs: "69px", xl: "79px" },
+                        width: {
+                            xxs: "calc(100% - 32px)",
+                            xs: "367px",
+                            md: "550px",
+                            xl: "700px",
+                        },
+                        height: { xxs: "120px", xs: "80px", xl: "90px" },
                         borderRadius: "8px",
                         backgroundColor: "darkBlue.main",
                         boxShadow: `5px 4px 6px 0px #14313D17, 
@@ -188,9 +191,10 @@ export const Prices = () => {
                             color: "lightBlue.light",
                             fontSize: { xxs: "24px", xl: "32px" },
                             fontWeight: 700,
+                            textAlign: "center",
                         }}
                     >
-                        Знижка 20% на 24 заняття
+                        Додаткова знижка 10% для родин військових
                     </Typography>
                 </Paper>
                 <Stack
