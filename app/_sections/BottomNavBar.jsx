@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
-import { AppBar, Typography, Stack, Box, Modal } from "@mui/material";
+import { AppBar, Typography, Stack, Box, Modal, Link } from "@mui/material";
 import { OrderButton } from "../_components/OrderButton";
 import { ModalContext } from "../_components/TryItCard";
 import { ApplicationForm } from "../_components/ApplicationForm";
@@ -82,14 +81,18 @@ export const BottomNavBar = () => {
                     >
                         2024
                     </Typography>
-                    <Typography
+                    <Link
+                        href="https://www.behance.net/gallery/194347941/LANDING-FOR-ENGLISH-SCHOOL"
                         sx={{
                             fontSize: { xxs: "12px", xl: "16px" },
                             color: "inherit",
                         }}
+                        underline="none"
+                        target="_blank"
+                        rel="noopener"
                     >
                         Designer
-                    </Typography>
+                    </Link>
                 </Stack>
                 <Modal
                     open={modalOpen}

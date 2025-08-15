@@ -12,7 +12,7 @@ export const LessonConditions = ({ direction }) => {
         <Stack
             direction={direction}
             justifyContent="space-between"
-            alignItems={{ xxs: "center", sm: "flex-end" }}
+            alignItems="center"
             spacing={{ xxs: 2, md: 5, xl: 10 }}
             sx={{
                 mx: { md: "40px", lg: "60px", xl: "100px" },

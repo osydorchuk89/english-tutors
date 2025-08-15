@@ -66,7 +66,7 @@ const cardsContent = [
             {
                 id: 2,
                 lessons: "8 уроків",
-                price: "1500 ₴",
+                price: "1530 ₴",
                 discount: "8% знижка",
             },
             {
