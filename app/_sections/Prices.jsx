@@ -7,23 +7,23 @@ const cardsContent = [
         id: 1,
         title: "Індивідуально",
         offers: [
-            { id: 1, lessons: "1 урок", price: "430 ₴", discount: "" },
+            { id: 1, lessons: "1 урок", price: "490 ₴", discount: "" },
             {
                 id: 2,
                 lessons: "4 уроки",
-                price: "1650 ₴",
+                price: "1880 ₴",
                 discount: "4% знижка",
             },
             {
                 id: 3,
                 lessons: "8 уроків",
-                price: "3165 ₴",
+                price: "3600 ₴",
                 discount: "8% знижка",
             },
             {
                 id: 4,
                 lessons: "12 уроків",
-                price: "4540 ₴",
+                price: "5160 ₴",
                 discount: "12% знижка",
             },
         ],
