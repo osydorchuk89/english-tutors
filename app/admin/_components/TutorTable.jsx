@@ -2,7 +2,7 @@
 
 import { useState, createContext } from "react";
 import Image from "next/image";
-import { Box, Button, Typography, Modal } from "@mui/material";
+import { Box, Typography, Modal } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import {
@@ -94,12 +94,14 @@ export const TutorTable = ({ tutors }) => {
             getActions: ({ id }) => {
                 return [
                     <GridActionsCellItem
+                        key={`edit-${id}`}
                         icon={<EditIcon />}
                         label="Edit"
                         onClick={handleEditClick(id)}
                         color="inherit"
                     />,
                     <GridActionsCellItem
+                        key={`delete-${id}`}
                         icon={<DeleteIcon />}
                         label="Delete"
                         onClick={handleDeleteClick(id)}

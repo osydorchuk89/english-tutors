@@ -1,14 +1,16 @@
 "use client";
 
-import { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useRef } from "react";
 import { Stack, Typography, Box } from "@mui/material";
 import { NavButton } from "./NavButtons";
 import { iconDown } from "@/lib/icons";
 
 export const Comments = ({ reviews }) => {
     const [reviewSlice, setReviewSlice] = useState([0, 1, 2]);
+    const scrollPosition = useRef(null);
 
-    const handlePresButton = () => {
+    const handlePressButton = () => {
+        scrollPosition.current = { x: window.scrollX, y: window.scrollY };
         let newSlice = [];
         for (const ind of reviewSlice) {
             if (ind === reviews.length - 1) {
@@ -20,14 +22,12 @@ export const Comments = ({ reviews }) => {
         setReviewSlice(newSlice);
     };
 
-    if (typeof window !== "undefined") {
-        const scrollX = window.scrollX;
-        const scrollY = window.scrollY;
-
-        useLayoutEffect(() => {
-            window.scrollTo(scrollX, scrollY);
-        });
-    }
+    useLayoutEffect(() => {
+        if (scrollPosition.current) {
+            window.scrollTo(scrollPosition.current.x, scrollPosition.current.y);
+            scrollPosition.current = null;
+        }
+    }, [reviewSlice]);
 
     return (
         <Stack
@@ -68,7 +68,6 @@ export const Comments = ({ reviews }) => {
                 justifyContent="space-around"
                 spacing={{ xxs: 2, xs: 3 }}
                 sx={{
-                    // ml: { xxs: 0, xs: "-20px", md: "-60px", lg: 0, xl: 0 },
                     mr: { xxs: "16px", xs: "40px", md: 0 },
                     mb: { xxs: "40px", xs: "24px", lg: "40px", xl: "32px" },
                     flexGrow: 1,
@@ -144,7 +143,7 @@ export const Comments = ({ reviews }) => {
             <NavButton
                 _id="button-down"
                 icon={iconDown}
-                onClick={handlePresButton}
+                onClick={handlePressButton}
             />
         </Stack>
     );

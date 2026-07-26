@@ -2,7 +2,7 @@ import { useFormStatus } from "react-dom";
 import { Button, Typography } from "@mui/material";
 import CircularProgress from "@mui/material/CircularProgress";
 
-const minHeightSizesApplication = { xs: "56px", xs: "65px" };
+const minHeightSizesApplication = { xxs: "56px", xs: "65px" };
 const minHeightSizesOther = { xxs: "56px", xs: "60px", md: "54px", xl: "59px" };
 
 export const OrderButton = ({ onClick, text, isApplication }) => {

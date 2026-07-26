@@ -37,13 +37,6 @@ export const Contacts = async () => {
             alignItems="center"
             sx={{
                 position: "relative",
-                // width: {
-                //     xxs: "calc(100% - 16px)",
-                //     xs: "calc(100% - 40px)",
-                //     md: "calc(100% - 80px)",
-                //     lg: "calc(100% - 120px)",
-                //     xl: "calc(100% - 200px)",
-                // },
                 height: {
                     xxs: "1387px",
                     sm: "904px",

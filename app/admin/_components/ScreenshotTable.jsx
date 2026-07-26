@@ -2,8 +2,7 @@
 
 import { useState, createContext } from "react";
 import Image from "next/image";
-import { Box, Button, Typography, Modal } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
+import { Box, Typography, Modal } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/DeleteOutlined";
 import {
     DataGrid,
@@ -70,6 +69,7 @@ export const ScreenshotTable = ({ screenshots }) => {
             getActions: ({ id }) => {
                 return [
                     <GridActionsCellItem
+                        key={`delete-${id}`}
                         icon={<DeleteIcon />}
                         label="Delete"
                         onClick={handleDeleteClick(id)}

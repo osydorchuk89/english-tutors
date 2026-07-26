@@ -1,15 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useRef } from "react";
 import { Box, Stack, Paper } from "@mui/material";
 import { NavButton } from "./NavButtons";
 import { iconDown } from "@/lib/icons";
 
 export const FeedbackCards = ({ screenshots }) => {
     const [screenshotSlice, setScreenshotSlice] = useState([0, 1, 2, 3]);
+    const scrollPosition = useRef(null);
 
-    const handlePresButton = () => {
+    const handlePressButton = () => {
+        scrollPosition.current = { x: window.scrollX, y: window.scrollY };
         let newSlice = [];
         for (const ind of screenshotSlice) {
             if (
@@ -24,14 +26,12 @@ export const FeedbackCards = ({ screenshots }) => {
         setScreenshotSlice(newSlice);
     };
 
-    if (typeof window !== "undefined") {
-        const scrollX = window.scrollX;
-        const scrollY = window.scrollY;
-
-        useLayoutEffect(() => {
-            window.scrollTo(scrollX, scrollY);
-        });
-    }
+    useLayoutEffect(() => {
+        if (scrollPosition.current) {
+            window.scrollTo(scrollPosition.current.x, scrollPosition.current.y);
+            scrollPosition.current = null;
+        }
+    }, [screenshotSlice]);
 
     return (
         <Stack
@@ -97,7 +97,7 @@ export const FeedbackCards = ({ screenshots }) => {
             <NavButton
                 _id="button-down"
                 icon={iconDown}
-                onClick={handlePresButton}
+                onClick={handlePressButton}
                 mr={{
                     xxs: 0,
                     md: "80px",

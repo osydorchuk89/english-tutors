@@ -1,4 +1,4 @@
-import { Stack, Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { ApplicationForm } from "../_components/ApplicationForm";
 
 export const Application = () => {

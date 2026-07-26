@@ -144,7 +144,6 @@ export const FAQAccordion = () => {
                     <AccordionDetails
                         sx={{
                             backgroundColor: "inherit",
-                            // minHeight: "124px",
                             px: {
                                 xxs: "16px",
                                 xs: "32px",

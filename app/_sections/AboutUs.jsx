@@ -64,7 +64,7 @@ export const AboutUs = () => {
                             lineHeight: { md: "97.52px", xl: "117.02px" },
                             mb: {
                                 xxs: "24px",
-                                xl: "56px",
+                                xs: "56px",
                                 md: "24px",
                                 xl: "32px",
                             },

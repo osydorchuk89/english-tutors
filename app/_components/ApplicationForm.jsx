@@ -150,9 +150,6 @@ const PhoneInputField = ({ value, onChange, error, helperText, onFocus }) => {
                     color: "lightBlue.light",
                     borderRight: 0,
                 },
-                // "&.MuiTelInput-IconButton": {
-                //     disableRipple: true,
-                // },
                 input: { color: "lightBlue.light" },
             }}
         />
@@ -228,7 +225,7 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
         const telegramChatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
         const telegramURL = `https://api.telegram.org/bot${telegramToken}/sendMessage?chat_id=${telegramChatId}&text=${messageText}`;
         fetch(telegramURL)
-            .then((_) => {
+            .then(() => {
                 formRef.current.reset();
                 setPhone("");
                 setError(null);
@@ -400,7 +397,6 @@ export const ApplicationForm = ({ borderRadiusProp, display }) => {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    // ml: "-16px",
                 }}
             >
                 <PopUpForm

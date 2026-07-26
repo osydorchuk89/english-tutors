@@ -82,6 +82,7 @@ export const ReviewTable = ({ reviews }) => {
             getActions: ({ id }) => {
                 return [
                     <GridActionsCellItem
+                        key={`delete-${id}`}
                         icon={<DeleteIcon />}
                         label="Delete"
                         onClick={handleDeleteClick(id)}
